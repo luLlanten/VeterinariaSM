@@ -1,0 +1,3 @@
+Los htmls estan organizados segun a quienes les corresponde 
+(Lukas: login_reg,Us_admin;Mariano:Pag_principal;Jose: Catalogo)
+los css los ordenare despues
