@@ -30,10 +30,14 @@
         </nav>
     </header>
     <main>
-        <br><br><br><br><br><br>
+        <h1 style="font-weight: bolder;">Administración</h1>
+        <br>
+        <p>Ha iniciado sesión en una cuenta de administrador.</p>
+        <p>Bajo este parrafo podrá encotrar las opciones y vistas de administración que necesite</p>
+        <br><br>
         <div class="contenedores">
             <section class="contenedor">
-                <h3>Inventario</h2>
+                <h3 style="font-weight: bold;">Inventario</h3>
                 <p>
                     Aqui puedes observar un detalle 
                     resumido del stock disponible en 
@@ -43,22 +47,33 @@
                 </p>
             </section>
             <section class="contenedor">
-                <h3>Balance</h2>
+                <h3 style="font-weight: bold;">Balance</h3>
                 <p>
                     Aqui encontraras un resumen de los ultimos pagos 
                     hechos por los clientes 
                 </p>
             </section>
             <section class="contenedor">
-                <h3>Fichas</h2>
+                <h3 style="font-weight: bold;">Fichas</h3>
                 <p>
                     Aqui tendras acceso a las fichas medicas
                     de los pacientes, podras analizarlos y Modificarlos
                 </p>
             </section>
-            
         </div>
-    <br><br><br><br><br><br>
+    <br><br>
+    <div class="contenedor">
+        <h2 style="font-weight: bold;">Lista de Usuarios</h2>
+        <hr>
+        <table style="width: 100%;border-collapse: collapse;">
+            <tr>
+                <th>Nombre</th>
+                <th>Rol</th>
+            </tr>
+            <tr id="tablaUsuarios">
+            </tr>
+        </table>
+    </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
