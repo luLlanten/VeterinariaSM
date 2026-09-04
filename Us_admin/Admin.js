@@ -22,8 +22,11 @@ let listaUsuarios=[
 ];
 let tabla=document.getElementById("tablaUsuarios");
 for(let i=0;i<listaUsuarios.length;i++){
-    tabla.innerHTML +=`
-            <th>${listaUsuarios[i].nombre}</th>
-            <th>${listaUsuarios[i].rol}</th>
-        `
+    tabla.innerHTML +=`<div>
+        <tr>
+            <td>${listaUsuarios[i].nombre}</td>
+            <td>${listaUsuarios[i].rol}</td>
+        </tr>
+        </div>
+            `
 };//HAY QUE CAMBIAR ESTO
