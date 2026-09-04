@@ -1,6 +1,6 @@
 
 function ingreso(){
-    let formatoadmin = /^[^\s@]+@+$/+"sanmarcosadmin"+/^\.[^\s@]+$/;
+    let formatoadmin = /^[^\s@]+@+sanmarcosadmin\.[^\s@]+$/;
     let formatocliente=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let correo = document.getElementById("correo").value;
     let clave = document.getElementById("clave").value;
@@ -10,12 +10,12 @@ function ingreso(){
     }
     if(formatoadmin.test(correo)){
         window.location.href="../Us_admin/principal_admin.html";
-    }else if(formatocliente.test(correo)){
+    }else {if(formatocliente.test(correo)){
         window.location.href="../Pag_principal/principal.html";
     }else{
         alert("Correo invalido")
         return;
-    }
+    }}
 };
 function registro(){
     let formatocliente=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
