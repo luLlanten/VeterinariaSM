@@ -164,3 +164,8 @@ footer hr {
   overflow: hidden;
   border: 4px solid #4C7A50;
 }
+.img-inicio.carousel img {
+  border-radius: 12px;
+  max-height: 320px;
+  object-fit: cover;
+}
