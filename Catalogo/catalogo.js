@@ -1,0 +1,272 @@
+let catalogo = [
+    {
+        id: "SV001",
+        nombre: "Consulta general",
+        categoria: "Consultas",
+        tipo: "Servicio",
+        precio: "$15.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 30 min"
+    },
+    {
+        id: "SV002",
+        nombre: "Consulta urgencia",
+        categoria: "Consultas",
+        tipo: "Servicio",
+        precio: "$25.000",
+        imagen: "servicio.png",
+        detalles: "Fuera de horario +$10.000 - Duración: 30 min"
+    },
+    {
+        id: "SV003",
+        nombre: "Control postoperatorio",
+        categoria: "Consultas",
+        tipo: "Servicio",
+        precio: "$10.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 20 min"
+    },
+    {
+        id: "SV004",
+        nombre: "Consulta ave / conejo",
+        categoria: "Consultas",
+        tipo: "Servicio",
+        precio: "$18.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 30 min"
+    },
+    {
+        id: "SV005",
+        nombre: "Segunda opinión médica",
+        categoria: "Consultas",
+        tipo: "Servicio",
+        precio: "$20.000",
+        imagen: "servicio.png",
+        detalles: "Requiere ficha previa - Duración: 40 min"
+    },
+    {
+        id: "CI001",
+        nombre: "Esterilización hembra canina",
+        categoria: "Cirugía",
+        tipo: "Servicio",
+        precio: "$80.000",
+        imagen: "servicio.png",
+        detalles: "Incluye anestesia y hospitalización 24h - Duración: 90 min"
+    },
+    {
+        id: "CI002",
+        nombre: "Esterilización macho canino",
+        categoria: "Cirugía",
+        tipo: "Servicio",
+        precio: "$60.000",
+        imagen: "servicio.png",
+        detalles: "Incluye anestesia - Duración: 60 min"
+    },
+    {
+        id: "CI003",
+        nombre: "Esterilización hembra felina",
+        categoria: "Cirugía",
+        tipo: "Servicio",
+        precio: "$65.000",
+        imagen: "servicio.png",
+        detalles: "Incluye anestesia y hospitalización 12h - Duración: 60 min"
+    },
+    {
+        id: "CI004",
+        nombre: "Esterilización macho felino",
+        categoria: "Cirugía",
+        tipo: "Servicio",
+        precio: "$50.000",
+        imagen: "servicio.png",
+        detalles: "Incluye anestesia - Duración: 45 min"
+    },
+    {
+        id: "CI005",
+        nombre: "Extirpación de tumor cutáneo",
+        categoria: "Cirugía",
+        tipo: "Servicio",
+        precio: "$120.000",
+        imagen: "servicio.png",
+        detalles: "Precio referencial; varía según tamaño - Duración: 60 min"
+    },
+    {
+        id: "CI006",
+        nombre: "Cesárea de urgencia",
+        categoria: "Cirugía",
+        tipo: "Servicio",
+        precio: "$180.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 120 min"
+    },
+    {
+        id: "DE001",
+        nombre: "Desparasitación interna pequeños (<10 kg)",
+        categoria: "Desparasitación",
+        tipo: "Servicio",
+        precio: "$8.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 5 min"
+    },
+    {
+        id: "DE002",
+        nombre: "Desparasitación interna medianos (10-25 kg)",
+        categoria: "Desparasitación",
+        tipo: "Servicio",
+        precio: "$9.500",
+        imagen: "servicio.png",
+        detalles: " - Duración: 5 min"
+    },
+    {
+        id: "DE003",
+        nombre: "Desparasitación interna grandes (>25 kg)",
+        categoria: "Desparasitación",
+        tipo: "Servicio",
+        precio: "$11.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 5 min"
+    },
+    {
+        id: "DE004",
+        nombre: "Desparasitación interna felina",
+        categoria: "Desparasitación",
+        tipo: "Servicio",
+        precio: "$8.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 5 min"
+    },
+    {
+        id: "DE005",
+        nombre: "Antiparasitario externo (pipeta)",
+        categoria: "Desparasitación",
+        tipo: "Servicio",
+        precio: "$7.500",
+        imagen: "servicio.png",
+        detalles: "Incluye aplicación - Duración: 5 min"
+    },
+    {
+        id: "EX001",
+        nombre: "Hemograma completo",
+        categoria: "Exámenes",
+        tipo: "Servicio",
+        precio: "$22.000",
+        imagen: "servicio.png",
+        detalles: "Resultado en 24-48 h - Duración: 30 min"
+    },
+    {
+        id: "EX002",
+        nombre: "Perfil bioquímico completo",
+        categoria: "Exámenes",
+        tipo: "Servicio",
+        precio: "$35.000",
+        imagen: "servicio.png",
+        detalles: "Resultado en 24-48 h - Duración: 30 min"
+    },
+    {
+        id: "EX003",
+        nombre: "Radiografía (1 proyección)",
+        categoria: "Exámenes",
+        tipo: "Servicio",
+        precio: "$28.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 20 min"
+    },
+    {
+        id: "EX004",
+        nombre: "Ecografía abdominal",
+        categoria: "Exámenes",
+        tipo: "Servicio",
+        precio: "$45.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 30 min"
+    },
+    {
+        id: "EX005",
+        nombre: "Test de leishmaniasis",
+        categoria: "Exámenes",
+        tipo: "Servicio",
+        precio: "$18.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 20 min"
+    },
+    {
+        id: "OT001",
+        nombre: "Corte de uñas",
+        categoria: "Otros",
+        tipo: "Servicio",
+        precio: "$5.000",
+        imagen: "servicio.png",
+        detalles: " - Duración: 15 min"
+    },
+    {
+        id: "OT002",
+        nombre: "Limpieza dental",
+        categoria: "Otros",
+        tipo: "Servicio",
+        precio: "$55.000",
+        imagen: "servicio.png",
+        detalles: "Requiere anestesia - Duración: 45 min"
+    },
+    {
+        id: "OT003",
+        nombre: "Microchip identificación",
+        categoria: "Otros",
+        tipo: "Servicio",
+        precio: "$15.000",
+        imagen: "servicio.png",
+        detalles: "Incluye registro - Duración: 10 min"
+    },
+    {
+        id: "OT004",
+        nombre: "Hospitalización (por día)",
+        categoria: "Otros",
+        tipo: "Servicio",
+        precio: "$30.000",
+        imagen: "servicio.png",
+        detalles: "Incluye monitoreo y alimentación básica - Duración: 24 h"
+    }
+];
+
+let catalogoDiv = document.getElementById('catalogo');
+
+function cargarCatalogo() {
+    catalogoDiv.innerHTML = '';
+    
+    for (let i = 0; i < catalogo.length; i++) {
+        let producto = catalogo[i];
+        
+        let card = document.createElement('div');
+        card.className = 'producto-card';
+        
+        let img = document.createElement('img');
+        img.src = producto.imagen;
+        img.alt = producto.nombre;
+        
+        let titulo = document.createElement('h3');
+        titulo.textContent = producto.nombre;
+        
+        let categoria = document.createElement('p');
+        categoria.textContent = producto.categoria;
+        
+        let precio = document.createElement('p');
+        precio.textContent = producto.precio;
+        precio.style.fontWeight = 'bold';
+        
+        let boton = document.createElement('button');
+        boton.className = 'btn-detalles';
+        boton.textContent = 'Ver Detalles';
+        
+        boton.onclick = function() {
+            alert('Has seleccionado: ' + producto.nombre);
+        };
+        
+        card.appendChild(img);
+        card.appendChild(titulo);
+        card.appendChild(categoria);
+        card.appendChild(precio);
+        card.appendChild(boton);
+        
+        catalogoDiv.appendChild(card);
+    }
+}
+
+window.onload = cargarCatalogo;
