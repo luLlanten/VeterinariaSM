@@ -234,39 +234,39 @@ function cargarCatalogo() {
     for (let i = 0; i < catalogo.length; i++) {
         let producto = catalogo[i];
         
-        let card = document.createElement('div');
-        card.className = 'producto-card';
         
-        let img = document.createElement('img');
-        img.src = producto.imagen;
-        img.alt = producto.nombre;
-        
-        let titulo = document.createElement('h3');
-        titulo.textContent = producto.nombre;
-        
-        let categoria = document.createElement('p');
-        categoria.textContent = producto.categoria;
-        
-        let precio = document.createElement('p');
-        precio.textContent = producto.precio;
-        precio.style.fontWeight = 'bold';
-        
-        let boton = document.createElement('button');
-        boton.className = 'btn-detalles';
-        boton.textContent = 'Ver Detalles';
-        
-        boton.onclick = function() {
-            alert('Has seleccionado: ' + producto.nombre);
-        };
-        
-        card.appendChild(img);
-        card.appendChild(titulo);
-        card.appendChild(categoria);
-        card.appendChild(precio);
-        card.appendChild(boton);
-        
-        catalogoDiv.appendChild(card);
+        catalogoDiv.innerHTML += `
+        <div class="producto-card">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.categoria}</p>
+            <p style="font-weight: bold;">${producto.precio}</p>
+            <button class="btn-detalles" onclick="verDetalle('${producto.id}')">
+                Ver detalle
+            </button>
+        </div>
+        `;
     }
+}
+
+function verDetalle(id) {
+
+
+    let productoSeleccionado;
+
+    for (let i = 0; i < catalogo.length; i++) {
+        if (catalogo[i].id === id) {
+            productoSeleccionado = catalogo[i]; 
+            break;
+        }
+    }
+
+    localStorage.setItem(
+        "producto",
+        JSON.stringify(productoSeleccionado)
+    );
+    console.log(productoSeleccionado);
+    window.location.href = "detalle.html";
 }
 
 window.onload = cargarCatalogo;
