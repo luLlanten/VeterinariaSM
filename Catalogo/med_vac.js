@@ -256,9 +256,6 @@ let catalogo = [
 
 let catalogoDiv = document.getElementById('catalogo_med');
 
-function cargarCatalogo() {
-    catalogoDiv.innerHTML = '';
-    
     for (let i = 0; i < catalogo.length; i++) {
         let producto = catalogo[i];
         
@@ -274,11 +271,8 @@ function cargarCatalogo() {
         </div>
         `;
     }
-}
 
 function verDetalle(id) {
-    console.log("aca estoy");
-
     let productoSeleccionado;
 
     for (let i = 0; i < catalogo.length; i++) {
@@ -293,7 +287,5 @@ function verDetalle(id) {
         JSON.stringify(productoSeleccionado)
     );
     console.log(productoSeleccionado);
-    window.location.href = "detalle.html";
+    window.location.href = "detalle_med.html";
 }
-
-window.onload = cargarCatalogo;
