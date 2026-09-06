@@ -227,10 +227,6 @@ let catalogo = [
 ];
 
 let catalogoDiv = document.getElementById('catalogo');
-
-function cargarCatalogo() {
-    catalogoDiv.innerHTML = '';
-    
     for (let i = 0; i < catalogo.length; i++) {
         let producto = catalogo[i];
         
@@ -247,7 +243,7 @@ function cargarCatalogo() {
         </div>
         `;
     }
-}
+
 
 function verDetalle(id) {
 
@@ -268,5 +264,3 @@ function verDetalle(id) {
     console.log(productoSeleccionado);
     window.location.href = "detalle.html";
 }
-
-window.onload = cargarCatalogo;
