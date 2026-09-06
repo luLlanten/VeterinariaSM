@@ -5,7 +5,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$15.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Consulta general.jpg",
         detalles: " - Duración: 30 min"
     },
     {
@@ -14,7 +14,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$25.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Consulta urgencia.jpg",
         detalles: "Fuera de horario +$10.000 - Duración: 30 min"
     },
     {
@@ -23,7 +23,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$10.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Control postoperatorio.jpg",
         detalles: " - Duración: 20 min"
     },
     {
@@ -32,7 +32,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$18.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Consulta ave conejo.jpg",
         detalles: " - Duración: 30 min"
     },
     {
@@ -41,7 +41,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$20.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Segunda opinión médica.jpg",
         detalles: "Requiere ficha previa - Duración: 40 min"
     },
     {
@@ -50,7 +50,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$80.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización hembra canina.jpg",
         detalles: "Incluye anestesia y hospitalización 24h - Duración: 90 min"
     },
     {
@@ -59,7 +59,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$60.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización macho canino.jpg",
         detalles: "Incluye anestesia - Duración: 60 min"
     },
     {
@@ -68,7 +68,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$65.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización hembra felina.jpg",
         detalles: "Incluye anestesia y hospitalización 12h - Duración: 60 min"
     },
     {
@@ -77,7 +77,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$50.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización macho felino.jpg",
         detalles: "Incluye anestesia - Duración: 45 min"
     },
     {
@@ -86,7 +86,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$120.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Extirpación de tumor cutáneo.jpg",
         detalles: "Precio referencial; varía según tamaño - Duración: 60 min"
     },
     {
@@ -95,7 +95,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$180.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Cesárea de urgencia.png",
         detalles: " - Duración: 120 min"
     },
     {
@@ -104,7 +104,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$8.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna pequeños (0 kg).jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -113,7 +113,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$9.500",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna medianos.jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -122,7 +122,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$11.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna grandes.jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -131,7 +131,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$8.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna felina.jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -140,7 +140,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$7.500",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Antiparasitario externo.jpg",
         detalles: "Incluye aplicación - Duración: 5 min"
     },
     {
@@ -149,7 +149,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$22.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Hemograma completo.jpg",
         detalles: "Resultado en 24-48 h - Duración: 30 min"
     },
     {
@@ -158,7 +158,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$35.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Perfil bioquímico completo.jpg",
         detalles: "Resultado en 24-48 h - Duración: 30 min"
     },
     {
@@ -167,7 +167,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$28.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Radiografía.jpg",
         detalles: " - Duración: 20 min"
     },
     {
@@ -176,7 +176,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$45.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Ecografía abdominal.jpg",
         detalles: " - Duración: 30 min"
     },
     {
@@ -185,7 +185,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$18.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Test de leishmaniasis.jpg",
         detalles: " - Duración: 20 min"
     },
     {
@@ -194,7 +194,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$5.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Corte de uñas.jpg",
         detalles: " - Duración: 15 min"
     },
     {
@@ -203,7 +203,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$55.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Limpieza dental.jpg",
         detalles: "Requiere anestesia - Duración: 45 min"
     },
     {
@@ -212,7 +212,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$15.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Microchip identificación.jpg",
         detalles: "Incluye registro - Duración: 10 min"
     },
     {
@@ -221,7 +221,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$30.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Hospitalización.jpg",
         detalles: "Incluye monitoreo y alimentación básica - Duración: 24 h"
     },
     {
@@ -230,7 +230,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$12.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunaantirrábicacanina.jpg",
                 detalles: "Obligatoria por ley - Duración: 10 min"
             },
             {
@@ -239,7 +239,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$18.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunasextuplecanina.png",
                 detalles: "Refuerzo anual - Duración: 10 min"
             },
             {
@@ -248,7 +248,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$15.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunabivalentefelina.jpg",
                 detalles: "Refuerzo anual - Duración: 10 min"
             },
             {
@@ -257,7 +257,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$17.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunatriplefelina.jpg",
                 detalles: "Refuerzo anual - Duración: 10 min"
             },
             {
@@ -266,7 +266,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$14.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/VacunaBordetellacanina.jpg",
                 detalles: "Tos de las perreras - Duración: 10 min"
             },
             {
@@ -275,7 +275,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$12.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacuna antirrábica felina.jpg",
                 detalles: " - Duración: 10 min"
             },
             
@@ -285,7 +285,7 @@ let catalogo = [
                 categoria: "Antibióticos",
                 tipo: "Medicamento",
                 precio: "$4.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Amoxibay250mg.jpg",
                 detalles: "Principio Activo: Amoxicilina - Stock: 45"
             },
             {
@@ -294,7 +294,7 @@ let catalogo = [
                 categoria: "Antibióticos",
                 tipo: "Medicamento",
                 precio: "$6.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Enrox50mg.jpg",
                 detalles: "Principio Activo: Enrofloxacino - Stock: 30"
             },
             {
@@ -303,7 +303,7 @@ let catalogo = [
                 categoria: "Antibióticos",
                 tipo: "Medicamento",
                 precio: "$3.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Metrobay 250mg.png",
                 detalles: "Principio Activo: Metronidazol - Stock: 28"
             },
             {
@@ -312,7 +312,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$9.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Nexgard.jpg",
                 detalles: "Principio Activo: Afoxolaner - Stock: 60"
             },
             {
@@ -321,7 +321,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$18.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Bravecto.png",
                 detalles: "Principio Activo: Fluralaner - Stock: 40"
             },
             {
@@ -330,7 +330,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$14.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Revolution Plus.jpg",
                 detalles: "Principio Activo: Selamectina+Sarolaner - Stock: 35"
             },
             {
@@ -339,7 +339,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$3.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Drontal Plus.jpg",
                 detalles: "Principio Activo: Praziquantel+Pamoato - Stock: 80"
             },
             {
@@ -348,7 +348,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$6.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Milbemax Gato.jpg",
                 detalles: "Principio Activo: Milbemicina+Praziq. - Stock: 50"
             },
             {
@@ -357,7 +357,7 @@ let catalogo = [
                 categoria: "Antiinflamatorios",
                 tipo: "Medicamento",
                 precio: "$4.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Meloxicam 1mg.jpeg",
                 detalles: "Principio Activo: Meloxicam - Stock: 55"
             },
             {
@@ -366,7 +366,7 @@ let catalogo = [
                 categoria: "Antiinflamatorios",
                 tipo: "Medicamento",
                 precio: "$9.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Carprofen50mg.png",
                 detalles: "Principio Activo: Carprofeno - Stock: 30"
             },
             {
@@ -375,7 +375,7 @@ let catalogo = [
                 categoria: "Dermatología",
                 tipo: "Medicamento",
                 precio: "$8.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Clorhexidina shampoo.jpg",
                 detalles: "Principio Activo: Clorhexidina 2% - Stock: 25"
             },
             {
@@ -384,7 +384,7 @@ let catalogo = [
                 categoria: "Dermatología",
                 tipo: "Medicamento",
                 precio: "$12.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Malaseb shampoo.jpg",
                 detalles: "Principio Activo: Miconazol+Clorhex. - Stock: 20"
             },
             {
@@ -393,7 +393,7 @@ let catalogo = [
                 categoria: "Dermatología",
                 tipo: "Medicamento",
                 precio: "$22.000",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Apoquel 16mg.jpg",
                 detalles: "Principio Activo: Oclacitinib - Stock: 18"
             },
             {
@@ -402,7 +402,7 @@ let catalogo = [
                 categoria: "Digestivo",
                 tipo: "Medicamento",
                 precio: "$5.600",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Probifor.jpeg",
                 detalles: "Principio Activo: Bacillus clausii - Stock: 40"
             },
             {
@@ -411,7 +411,7 @@ let catalogo = [
                 categoria: "Digestivo",
                 tipo: "Medicamento",
                 precio: "$3.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Omeprazol 10mg vet.jpg",
                 detalles: "Principio Activo: Omeprazol - Stock: 35"
             },
             {
@@ -420,7 +420,7 @@ let catalogo = [
                 categoria: "Cardíaco",
                 tipo: "Medicamento",
                 precio: "$28.000",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Vetmedin 2.5mg.jpg",
                 detalles: "Principio Activo: Pimobendan - Stock: 15"
             },
             {
@@ -429,7 +429,7 @@ let catalogo = [
                 categoria: "Analgésicos",
                 tipo: "Medicamento",
                 precio: "$5.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Tramadol 50mg vet.jpg",
                 detalles: "Principio Activo: Tramadol - Stock: 22"
             },
             {
@@ -438,7 +438,7 @@ let catalogo = [
                 categoria: "Vacunas",
                 tipo: "Medicamento",
                 precio: "$8.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Nobivac DHPPi.png",
                 detalles: "Principio Activo: Vacuna polivalente - Stock: 48"
             },
             {
@@ -447,7 +447,7 @@ let catalogo = [
                 categoria: "Vacunas",
                 tipo: "Medicamento",
                 precio: "$5.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Nobivac Rabies.jpg",
                 detalles: "Principio Activo: Vacuna antirrábica - Stock: 60"
             },
             {
@@ -456,7 +456,7 @@ let catalogo = [
                 categoria: "Vacunas",
                 tipo: "Medicamento",
                 precio: "$7.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Felocell CVR.jpg",
                 detalles: "Principio Activo: Vacuna triple felina - Stock: 36"
             },
             {
@@ -465,7 +465,7 @@ let catalogo = [
                 categoria: "Suplementos",
                 tipo: "Medicamento",
                 precio: "$9.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Omega.png",
                 detalles: "Principio Activo: Ácidos grasos omega - Stock: 30"
             },
             {
@@ -474,7 +474,7 @@ let catalogo = [
                 categoria: "Suplementos",
                 tipo: "Medicamento",
                 precio: "$14.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Condrovetforte.jpg",
                 detalles: "Principio Activo: Condroitín+Glucos. - Stock: 25"
             }
 ];
@@ -495,10 +495,7 @@ let mod = document.getElementById("mod");
     }
 
 function verDetalle(id) {
-
-
     let productoSeleccionado;
-
     for (let i = 0; i < catalogo.length; i++) {
         if (catalogo[i].id === id) {
             productoSeleccionado = catalogo[i]; 
