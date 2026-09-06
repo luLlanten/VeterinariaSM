@@ -5,7 +5,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$15.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Consulta general.jpg",
         detalles: " - Duración: 30 min"
     },
     {
@@ -14,7 +14,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$25.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Consulta urgencia.jpg",
         detalles: "Fuera de horario +$10.000 - Duración: 30 min"
     },
     {
@@ -23,7 +23,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$10.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Control postoperatorio.jpg",
         detalles: " - Duración: 20 min"
     },
     {
@@ -32,7 +32,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$18.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Consulta ave conejo.jpg",
         detalles: " - Duración: 30 min"
     },
     {
@@ -41,7 +41,7 @@ let catalogo = [
         categoria: "Consultas",
         tipo: "Servicio",
         precio: "$20.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Segunda opinión médica.jpg",
         detalles: "Requiere ficha previa - Duración: 40 min"
     },
     {
@@ -50,7 +50,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$80.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización hembra canina.jpg",
         detalles: "Incluye anestesia y hospitalización 24h - Duración: 90 min"
     },
     {
@@ -59,7 +59,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$60.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización macho canino.jpg",
         detalles: "Incluye anestesia - Duración: 60 min"
     },
     {
@@ -68,7 +68,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$65.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización hembra felina.jpg",
         detalles: "Incluye anestesia y hospitalización 12h - Duración: 60 min"
     },
     {
@@ -77,7 +77,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$50.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Esterilización macho felino.jpg",
         detalles: "Incluye anestesia - Duración: 45 min"
     },
     {
@@ -86,7 +86,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$120.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Extirpación de tumor cutáneo.jpg",
         detalles: "Precio referencial; varía según tamaño - Duración: 60 min"
     },
     {
@@ -95,7 +95,7 @@ let catalogo = [
         categoria: "Cirugía",
         tipo: "Servicio",
         precio: "$180.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Cesárea de urgencia.png",
         detalles: " - Duración: 120 min"
     },
     {
@@ -104,7 +104,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$8.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna pequeños (0 kg).jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -113,7 +113,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$9.500",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna medianos.jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -122,7 +122,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$11.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna grandes.jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -131,7 +131,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$8.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Desparasitación interna felina.jpg",
         detalles: " - Duración: 5 min"
     },
     {
@@ -140,7 +140,7 @@ let catalogo = [
         categoria: "Desparasitación",
         tipo: "Servicio",
         precio: "$7.500",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Antiparasitario externo.jpg",
         detalles: "Incluye aplicación - Duración: 5 min"
     },
     {
@@ -149,7 +149,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$22.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Hemograma completo.jpg",
         detalles: "Resultado en 24-48 h - Duración: 30 min"
     },
     {
@@ -158,7 +158,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$35.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Perfil bioquímico completo.jpg",
         detalles: "Resultado en 24-48 h - Duración: 30 min"
     },
     {
@@ -167,7 +167,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$28.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Radiografía.jpg",
         detalles: " - Duración: 20 min"
     },
     {
@@ -176,7 +176,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$45.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Ecografía abdominal.jpg",
         detalles: " - Duración: 30 min"
     },
     {
@@ -185,7 +185,7 @@ let catalogo = [
         categoria: "Exámenes",
         tipo: "Servicio",
         precio: "$18.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Test de leishmaniasis.jpg",
         detalles: " - Duración: 20 min"
     },
     {
@@ -194,7 +194,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$5.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Corte de uñas.jpg",
         detalles: " - Duración: 15 min"
     },
     {
@@ -203,7 +203,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$55.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Limpieza dental.jpg",
         detalles: "Requiere anestesia - Duración: 45 min"
     },
     {
@@ -212,7 +212,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$15.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Microchip identificación.jpg",
         detalles: "Incluye registro - Duración: 10 min"
     },
     {
@@ -221,7 +221,7 @@ let catalogo = [
         categoria: "Otros",
         tipo: "Servicio",
         precio: "$30.000",
-        imagen: "servicio.png",
+        imagen: "../Pag_principal/img/Hospitalización.jpg",
         detalles: "Incluye monitoreo y alimentación básica - Duración: 24 h"
     }
 ];

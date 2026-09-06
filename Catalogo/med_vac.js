@@ -5,7 +5,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$12.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunaantirrábicacanina.jpg",
                 detalles: "Obligatoria por ley - Duración: 10 min"
             },
             {
@@ -14,7 +14,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$18.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunasextuplecanina.png",
                 detalles: "Refuerzo anual - Duración: 10 min"
             },
             {
@@ -23,7 +23,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$15.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunabivalentefelina.jpg",
                 detalles: "Refuerzo anual - Duración: 10 min"
             },
             {
@@ -32,7 +32,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$17.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacunatriplefelina.jpg",
                 detalles: "Refuerzo anual - Duración: 10 min"
             },
             {
@@ -41,7 +41,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$14.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/VacunaBordetellacanina.jpg",
                 detalles: "Tos de las perreras - Duración: 10 min"
             },
             {
@@ -50,7 +50,7 @@ let catalogo = [
                 categoria: "Vacunación",
                 tipo: "Servicio",
                 precio: "$12.000",
-                imagen: "servicio.png",
+                imagen: "../Pag_principal/img/Vacuna antirrábica felina.jpg",
                 detalles: " - Duración: 10 min"
             },
             
@@ -60,7 +60,7 @@ let catalogo = [
                 categoria: "Antibióticos",
                 tipo: "Medicamento",
                 precio: "$4.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Amoxibay250mg.jpg",
                 detalles: "Principio Activo: Amoxicilina - Stock: 45"
             },
             {
@@ -69,7 +69,7 @@ let catalogo = [
                 categoria: "Antibióticos",
                 tipo: "Medicamento",
                 precio: "$6.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Enrox50mg.jpg",
                 detalles: "Principio Activo: Enrofloxacino - Stock: 30"
             },
             {
@@ -78,7 +78,7 @@ let catalogo = [
                 categoria: "Antibióticos",
                 tipo: "Medicamento",
                 precio: "$3.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Metrobay 250mg.png",
                 detalles: "Principio Activo: Metronidazol - Stock: 28"
             },
             {
@@ -87,7 +87,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$9.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Nexgard.jpg",
                 detalles: "Principio Activo: Afoxolaner - Stock: 60"
             },
             {
@@ -96,7 +96,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$18.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Bravecto.png",
                 detalles: "Principio Activo: Fluralaner - Stock: 40"
             },
             {
@@ -105,7 +105,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$14.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Revolution Plus.jpg",
                 detalles: "Principio Activo: Selamectina+Sarolaner - Stock: 35"
             },
             {
@@ -114,7 +114,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$3.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Drontal Plus.jpg",
                 detalles: "Principio Activo: Praziquantel+Pamoato - Stock: 80"
             },
             {
@@ -123,7 +123,7 @@ let catalogo = [
                 categoria: "Antiparasitarios",
                 tipo: "Medicamento",
                 precio: "$6.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Milbemax Gato.jpg",
                 detalles: "Principio Activo: Milbemicina+Praziq. - Stock: 50"
             },
             {
@@ -132,7 +132,7 @@ let catalogo = [
                 categoria: "Antiinflamatorios",
                 tipo: "Medicamento",
                 precio: "$4.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Meloxicam 1mg.jpeg",
                 detalles: "Principio Activo: Meloxicam - Stock: 55"
             },
             {
@@ -141,7 +141,7 @@ let catalogo = [
                 categoria: "Antiinflamatorios",
                 tipo: "Medicamento",
                 precio: "$9.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Carprofen50mg.png",
                 detalles: "Principio Activo: Carprofeno - Stock: 30"
             },
             {
@@ -150,7 +150,7 @@ let catalogo = [
                 categoria: "Dermatología",
                 tipo: "Medicamento",
                 precio: "$8.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Clorhexidina shampoo.jpg",
                 detalles: "Principio Activo: Clorhexidina 2% - Stock: 25"
             },
             {
@@ -159,7 +159,7 @@ let catalogo = [
                 categoria: "Dermatología",
                 tipo: "Medicamento",
                 precio: "$12.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Malaseb shampoo.jpg",
                 detalles: "Principio Activo: Miconazol+Clorhex. - Stock: 20"
             },
             {
@@ -168,7 +168,7 @@ let catalogo = [
                 categoria: "Dermatología",
                 tipo: "Medicamento",
                 precio: "$22.000",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Apoquel 16mg.jpg",
                 detalles: "Principio Activo: Oclacitinib - Stock: 18"
             },
             {
@@ -177,7 +177,7 @@ let catalogo = [
                 categoria: "Digestivo",
                 tipo: "Medicamento",
                 precio: "$5.600",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Probifor.jpeg",
                 detalles: "Principio Activo: Bacillus clausii - Stock: 40"
             },
             {
@@ -186,7 +186,7 @@ let catalogo = [
                 categoria: "Digestivo",
                 tipo: "Medicamento",
                 precio: "$3.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Omeprazol 10mg vet.jpg",
                 detalles: "Principio Activo: Omeprazol - Stock: 35"
             },
             {
@@ -195,7 +195,7 @@ let catalogo = [
                 categoria: "Cardíaco",
                 tipo: "Medicamento",
                 precio: "$28.000",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Vetmedin 2.5mg.jpg",
                 detalles: "Principio Activo: Pimobendan - Stock: 15"
             },
             {
@@ -204,7 +204,7 @@ let catalogo = [
                 categoria: "Analgésicos",
                 tipo: "Medicamento",
                 precio: "$5.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Tramadol 50mg vet.jpg",
                 detalles: "Principio Activo: Tramadol - Stock: 22"
             },
             {
@@ -213,7 +213,7 @@ let catalogo = [
                 categoria: "Vacunas",
                 tipo: "Medicamento",
                 precio: "$8.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Nobivac DHPPi.png",
                 detalles: "Principio Activo: Vacuna polivalente - Stock: 48"
             },
             {
@@ -222,7 +222,7 @@ let catalogo = [
                 categoria: "Vacunas",
                 tipo: "Medicamento",
                 precio: "$5.800",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Nobivac Rabies.jpg",
                 detalles: "Principio Activo: Vacuna antirrábica - Stock: 60"
             },
             {
@@ -231,7 +231,7 @@ let catalogo = [
                 categoria: "Vacunas",
                 tipo: "Medicamento",
                 precio: "$7.200",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Felocell CVR.jpg",
                 detalles: "Principio Activo: Vacuna triple felina - Stock: 36"
             },
             {
@@ -240,7 +240,7 @@ let catalogo = [
                 categoria: "Suplementos",
                 tipo: "Medicamento",
                 precio: "$9.900",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Omega.png",
                 detalles: "Principio Activo: Ácidos grasos omega - Stock: 30"
             },
             {
@@ -249,7 +249,7 @@ let catalogo = [
                 categoria: "Suplementos",
                 tipo: "Medicamento",
                 precio: "$14.500",
-                imagen: "medicamento.png",
+                imagen: "../Pag_principal/img/Condrovetforte.jpg",
                 detalles: "Principio Activo: Condroitín+Glucos. - Stock: 25"
             }
 ];
