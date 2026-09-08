@@ -19,3 +19,13 @@ if (productoJSON) {
     document.getElementById("nombre").textContent = "No se encontró el producto.";
     document.getElementById("descripcion").textContent = "Por favor, vuelve al catálogo y selecciona un servicio o medicamento.";
 }
+
+function agregarFicha() {
+    let productoJSON = localStorage.getItem("producto");
+
+    if (productoJSON) {
+        localStorage.setItem("medicamentoFicha", productoJSON);
+    }
+
+    window.location.href = "ficha.html";
+}
