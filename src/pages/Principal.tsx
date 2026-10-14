@@ -1,6 +1,6 @@
 import Footer from "../components/organisms/Footer"
 import Navbar from "../components/organisms/Navbar"
-
+import "../pages/Principal.css"
 function Principal(){
     return(
         <>
