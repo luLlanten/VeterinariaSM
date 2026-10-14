@@ -8,7 +8,7 @@ function Principal(){
         <section id="nosotros" className="container my-5">
     <div className="row align-items-center">
       <div className="col-md-6">
-        <img src="img/nosotros.jpg" alt="Equipo de la veterinaria" className="img-nosotros mb-4 mb-md-0"/>
+        <img src="public/images/nosotros.jpg" alt="Equipo de la veterinaria" className="img-nosotros mb-4 mb-md-0"/>
       </div>
       <div className="col-md-6">
         <h2>Sobre Nosotros</h2>
