@@ -1,6 +1,9 @@
 import './App.css'
 import { Route,Routes } from 'react-router-dom'
 import Principal from './pages/Principal'
+import Noticias from './pages/Noticias'
+import Login from './pages/Login'
+import Registro from './pages/Registro'
 function App() {
   return (
     <>
@@ -10,16 +13,16 @@ function App() {
       element={<Principal/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/noticias'
+      element={<Noticias/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/login'
+      element={<Login/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/registro'
+      element={<Registro/>}
       />
       <Route
       path='/'

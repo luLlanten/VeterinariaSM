@@ -43,7 +43,7 @@ function Principal(){
       <div className="row">
         <div className="col-md-4 mb-4">
           <div className="card tarjeta-noticia">
-            <img src="img/noticia1.jpg" alt="Campaña de vacunación" className="img-noticia"/>
+            <img src="public\images\noticia1.jpg" alt="Campaña de vacunación" className="img-noticia"/>
             <div className="card-body">
               <h5 className="card-title">Campaña de vacunación gratuita</h5>
               <p className="card-text">Durante este mes de septiembre ofrecemos vacunas antirrabicas sin costo para mascotas del sector.</p>
@@ -52,7 +52,7 @@ function Principal(){
         </div>
         <div className="col-md-4 mb-4">
           <div className="card tarjeta-noticia">
-            <img src="img/noticia2.jpg" alt="Nuevo horario de atención" className="img-noticia"/>
+            <img src="public\images\noticia2.jpg" alt="Nuevo horario de atención" className="img-noticia"/>
             <div className="card-body">
               <h5 className="card-title">Nuevo horario de atención</h5>
               <p className="card-text">Ahora atendemos también los domingos en la mañana desde las 08:00 hrs  hasta las 23:00 hrs para casos de urgencia.</p>
@@ -61,7 +61,7 @@ function Principal(){
         </div>
         <div className="col-md-4 mb-4">
           <div className="card tarjeta-noticia">
-            <img src="img/noticia3.jpg" alt="Jornada de esterilización" className="img-noticia"/>
+            <img src="public\images\noticia3.jpg" alt="Jornada de esterilización" className="img-noticia"/>
             <div className="card-body">
               <h5 className="card-title">Jornada de esterilización</h5>
               <p className="card-text">Inscribete a nuestra jornada de esterilizacion a precio reducido, cupos limitados.</p>

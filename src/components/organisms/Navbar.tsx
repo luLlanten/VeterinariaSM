@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Navbar(){
     return(
         <nav className="navbar navbar-expand-lg">
@@ -8,11 +10,10 @@ function Navbar(){
                 </button>
                 <div className="collapse navbar-collapse" id="menu">
                     <ul className="navbar-nav ms-auto align-items-lg-center">
-                        <li className="nav-item"><a className="nav-link" href="#nosotros">Nosotros</a></li>/*RECUERDEN CAMBIAR A Link LOS a */
-                        <li className="nav-item"><a className="nav-link" href="#noticias">Noticias</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#servicios">Servicios</a></li>
-                        <li className="nav-item"><a className="nav-link" href="../Login_reg/login.html">Iniciar Sesion</a></li>
-                        <li className="nav-item"><a className="boton-cuenta" href="../Login_reg/registro.html">Crear Cuenta</a></li>
+                        <li className="nav-item"><Link className="nav-link" to={"/noticias"}>Noticias</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to={"/servicios"}>Servicios</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to={"/login"}>Iniciar Sesion</Link></li>
+                        <li className="nav-item"><Link className="boton-cuenta" to={"/registro"}>Crear Cuenta</Link></li>
                     </ul>
                 </div>
             </div>
