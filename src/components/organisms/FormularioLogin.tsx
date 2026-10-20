@@ -15,7 +15,7 @@ function FormularioLogin(){
             alert("Debe Ingresar Su Correo");
             return;
         }
-        if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(correo)){
+        if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(correo)){
             alert("Ingrese Un Correo Valido")
             return;
         }

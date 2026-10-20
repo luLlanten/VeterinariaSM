@@ -4,11 +4,8 @@ function Navbar(){
     return(
         <nav className="navbar navbar-expand-lg">
             <div className="container">
-                <a className="navbar-brand" href="principal.html">Veterinaria San Marcos </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="menu">
+                <Link className="navbar-brand" to="/">Veterinaria San Marcos </Link>
+                <div className="drawer-body">
                     <ul className="navbar-nav ms-auto align-items-lg-center">
                         <li className="nav-item"><Link className="nav-link" to={"/noticias"}>Noticias</Link></li>
                         <li className="nav-item"><Link className="nav-link" to={"/servicios"}>Servicios</Link></li>

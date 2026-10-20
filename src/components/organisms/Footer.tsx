@@ -1,5 +1,6 @@
 function Footer(){
     return(
+        <footer className="py-4">
         <div className="container">
         <div className="row text-center text-md-start">
             <div className="col-md-6 mb-3 mb-md-0">
@@ -15,6 +16,7 @@ function Footer(){
         <hr/>
         <p className="text-center mb-0">&copy; 2026 Veterinaria San Marcos — Todos los derechos reservados</p>
         </div>
+        </footer>
     )
 }
 export default Footer;
