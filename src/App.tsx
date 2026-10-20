@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Registro from './pages/Registro'
 import PrincipalAdmin from './pages/PrincipalAdmin'
 import Catalogo from './pages/Catalogo'
+import Detalle from './pages/Detalle'
 import MedVac from './pages/MedVac'
 import Modificaciones from './pages/Modificaciones'
 function App() {
@@ -35,6 +36,10 @@ function App() {
       <Route
       path='/servicios'
       element={<Catalogo/>}
+      />
+      <Route
+      path='/servicio/:id'
+      element={<Detalle/>}
       />
       <Route
       path='/medicamentos'
