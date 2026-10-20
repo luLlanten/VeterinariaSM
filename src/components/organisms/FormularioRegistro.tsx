@@ -65,11 +65,11 @@ function FormularioRegistro(){
             valor={contrasena2}
             alCambiar={setContrasena2}
             />
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
                 Crear Cuenta
             </button>
             {creada && (
-                <Link to="/" className="btn btn-primary ms-2">
+                <Link to="/" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
                     Ir al inicio
                 </Link>
             )}

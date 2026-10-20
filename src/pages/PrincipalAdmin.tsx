@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import Footer from "../components/organisms/Footer"
-import Navbar from "../components/organisms/Navbar"
 import "../pages/Admin.css"
+import AdminNavbar from "../components/organisms/AdminNavbar"
 
 function PrincipalAdmin(){
     return(
         <>
-        <Navbar/>
+        <AdminNavbar/>
             <div style={{marginLeft: "20px", marginTop: "10px"}}>
                 <h1 style={{fontWeight: "bolder"}}>Administración</h1>
                 <br/>
@@ -61,7 +61,6 @@ function PrincipalAdmin(){
                     </tbody>
                 </table>
             </div>
-            <Footer/>
         </>
     )
 }
