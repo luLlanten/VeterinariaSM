@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Footer from "../components/organisms/Footer"
 import Navbar from "../components/organisms/Navbar"
 import "../pages/Principal.css"
@@ -132,8 +133,8 @@ function Noticias (){
 
             </div>
 
-            <div className="text-center mt-3">
-                <a href="principal.html" className="btn boton-opcion">Volver al inicio</a>
+           <div className="text-center mt-3">
+                <Link to="/" className="btn boton-opcion">Volver al inicio</Link>
             </div>
         </div>
 
