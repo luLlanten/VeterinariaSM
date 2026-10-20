@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 
 interface BotonProps{
-    id: number;
+    id: string;
+    ruta:String;
 }
 
 //Boton para Catalogo que llevara al detalle
 
-function BotonCatalogo ({id}: BotonProps){
+function BotonCatalogo ({id, ruta}: BotonProps){
     return(
         <Link
-            to={"//"+id}
+            to={ruta + id}
             className="btn btn-primary"
         >
+                Ver Producto
 
         </Link>
     );
