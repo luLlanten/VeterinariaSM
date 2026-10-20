@@ -17,13 +17,13 @@ function Principal(){
           <div id="carruselInicio" className="carousel slide img-inicio" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="public/images/portada2.jpg" className="d-block w-100" alt="Mascota en la veterinaria"/>
+                <img src="/images/portada2.jpg" className="d-block w-100" alt="Mascota en la veterinaria"/>
               </div>
               <div className="carousel-item">
-                <img src="public/images/portada3.jpg" className="d-block w-100" alt="Mascota jugando"/>
+                <img src="/images/portada3.jpg" className="d-block w-100" alt="Mascota jugando"/>
               </div>
               <div className="carousel-item">
-                <img src="public/images/portada4.jpg" className="d-block w-100" alt="Mascota en control veterinario"/>
+                <img src="/images/portada4.jpg" className="d-block w-100" alt="Mascota en control veterinario"/>
               </div>
             </div>
 
