@@ -15,6 +15,11 @@ function Principal(){
         </div>
         <div className="col-md-6 text-center">
           <div id="carruselInicio" className="carousel slide img-inicio" data-bs-ride="carousel">
+            <div className="carousel-indicators">
+              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="0" className="active"></button>
+              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="1" ></button>
+              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="2" ></button>
+            </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img src="/images/portada2.jpg" className="d-block w-100" alt="Mascota en la veterinaria"/>
@@ -25,12 +30,6 @@ function Principal(){
               <div className="carousel-item">
                 <img src="/images/portada4.jpg" className="d-block w-100" alt="Mascota en control veterinario"/>
               </div>
-            </div>
-
-            <div className="carousel-indicators">
-              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="0" className="active"></button>
-              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="1" ></button>
-              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="2" ></button>
             </div>
           </div>
         </div>
