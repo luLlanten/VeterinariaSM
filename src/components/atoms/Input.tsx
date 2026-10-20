@@ -3,14 +3,15 @@ type Props={
     nombre: string;
     valor: string;
     alCambiar: (valor: string) => void;
+    clase?: string;
 }
 
-function Input({tipo, nombre, valor, alCambiar}: Props){
+function Input({tipo, nombre, valor, alCambiar, clase = "form-control"}: Props){
     return(
         <input
         type={tipo}
         name={nombre}
-        className="form-control"
+        className={clase}
 
         value={valor}
         onChange={(e) => alCambiar(e.target.value)}
