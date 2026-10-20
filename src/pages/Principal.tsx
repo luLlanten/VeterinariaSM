@@ -101,7 +101,7 @@ function Principal(){
         </div>
       </div>
       <div className="text-center">
-        <Link to="/noticias" className="btn boton-opcion">Ver mas</Link>
+        <Link to="/noticias" className="boton-opcion">Ver mas</Link>
       </div>
     </div>
   </section>
@@ -114,14 +114,14 @@ function Principal(){
         <div className="tarjeta-opcion text-center">
           <h4>Catalogo de Servicios</h4>
           <p>Consultas, cirugias, peluqueria y mas servicios para tu mascota.</p>
-          <Link to="/catalogo" className="btn boton-opcion">Ver Servicios</Link>
+          <Link to="/catalogo" className="boton-opcion">Ver Servicios</Link>
         </div>
       </div>
       <div className="col-md-5 mb-4">
         <div className="tarjeta-opcion text-center">
           <h4>Medicamentos y Vacunas</h4>
           <p>Revisa nuestro catalogo de medicamentos y el calendario de vacunacion.</p>
-          <Link to="/medicamentos" className="btn boton-opcion">Ver Medicamentos</Link>
+          <Link to="/medicamentos" className="boton-opcion">Ver Medicamentos</Link>
         </div>
       </div>
     </div>
