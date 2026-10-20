@@ -10,6 +10,7 @@ import Detalle from './pages/Detalle'
 import MedVac from './pages/MedVac'
 import Modificaciones from './pages/Modificaciones'
 import DetalleMed from './pages/DetalleMed'
+import Ficha from './pages/Ficha'
 function App() {
   return (
     <>
@@ -50,6 +51,10 @@ function App() {
       path='/modificaciones'
       element={<Modificaciones/>}
       />
+      <Route
+      path='/ficha'
+      element={<Ficha/>}
+      /> 
       <Route 
       path='/medicamentos' 
       element={<MedVac/>} 

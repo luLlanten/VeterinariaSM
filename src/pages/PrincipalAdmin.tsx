@@ -61,6 +61,7 @@ function PrincipalAdmin(){
                     </tbody>
                 </table>
             </div>
+            <Footer/>
         </>
     )
 }
