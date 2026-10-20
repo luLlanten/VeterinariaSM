@@ -5,6 +5,9 @@ import Noticias from './pages/Noticias'
 import Login from './pages/Login'
 import Registro from './pages/Registro'
 import PrincipalAdmin from './pages/PrincipalAdmin'
+import Catalogo from './pages/Catalogo'
+import MedVac from './pages/MedVac'
+import Modificaciones from './pages/Modificaciones'
 function App() {
   return (
     <>
@@ -30,16 +33,16 @@ function App() {
       element={<PrincipalAdmin/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/servicios'
+      element={<Catalogo/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/medicamentos'
+      element={<MedVac/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/modificaciones'
+      element={<Modificaciones/>}
       />
     </Routes>
     </>

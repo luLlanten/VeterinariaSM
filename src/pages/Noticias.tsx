@@ -18,7 +18,7 @@ function Noticias (){
             <div className="row">
                 <div className="col-md-4 mb-4">
                     <div className="card tarjeta-noticia h-100">
-                        <img src="img/noticia1.jpg" alt="Campaña de vacunación" className="img-noticia"/>
+                        <img src="public/images/noticia1.jpg" alt="Campaña de vacunación" className="img-noticia"/>
                         <div className="card-body">
                             <h5 className="card-title">Campaña de vacunacion gratuita</h5>
                             <p className="card-text">
@@ -37,7 +37,7 @@ function Noticias (){
 
             <div className="col-md-4 mb-4">
                 <div className="card tarjeta-noticia h-100">
-                <img src="img/noticia2.jpg" alt="Nuevo horario de atención" className="img-noticia"/>
+                <img src="public/images/noticia2.jpg" alt="Nuevo horario de atención" className="img-noticia"/>
                     <div className="card-body">
                         <h5 className="card-title">Nuevo horario de atención</h5>
                         <p className="card-text">
@@ -56,7 +56,7 @@ function Noticias (){
 
             <div className="col-md-4 mb-4">
                 <div className="card tarjeta-noticia h-100">
-                <img src="img/noticia3.jpg" alt="Jornada de esterilización" className="img-noticia"/>
+                <img src="public/images/noticia3.jpg" alt="Jornada de esterilización" className="img-noticia"/>
                     <div className="card-body">
                         <h5 className="card-title">Jornada de esterilización</h5>
                         <p className="card-text">
@@ -75,7 +75,7 @@ function Noticias (){
 
             <div className="col-md-4 mb-4">
                 <div className="card tarjeta-noticia h-100">
-                <img src="img/noticia4.jpg" alt="Nueva sala de rayos X" className="img-noticia"/>
+                <img src="public/images/noticia4.jpg" alt="Nueva sala de rayos X" className="img-noticia"/>
                 <div className="card-body">
                     <h5 className="card-title">Nueva sala de rayos X</h5>
                     <p className="card-text">
@@ -94,7 +94,7 @@ function Noticias (){
 
             <div className="col-md-4 mb-4">
                 <div className="card tarjeta-noticia h-100">
-                <img src="img/noticia5.jpg" alt="Charla de tenencia responsable" className="img-noticia"/>
+                <img src="public/images/noticia5.jpg" alt="Charla de tenencia responsable" className="img-noticia"/>
                 <div className="card-body">
                     <h5 className="card-title">Charla de tenencia responsable</h5>
                     <p className="card-text">
@@ -113,7 +113,7 @@ function Noticias (){
 
             <div className="col-md-4 mb-4">
                 <div className="card tarjeta-noticia h-100">
-                <img src="img/noticia6.jpg" alt="Descuento en peluquería" className="img-noticia"/>
+                <img src="public/images/noticia6.jpg" alt="Descuento en peluquería" className="img-noticia"/>
                 <div className="card-body">
                     <h5 className="card-title">Descuento en peluquería canina</h5>
                     <p className="card-text">

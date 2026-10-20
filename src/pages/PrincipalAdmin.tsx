@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
 import Footer from "../components/organisms/Footer"
 import Navbar from "../components/organisms/Navbar"
+import "../pages/Admin.css"
 
 function PrincipalAdmin(){
     return(
@@ -13,7 +15,7 @@ function PrincipalAdmin(){
             </div>
                 <br/><br/>
                 <div className="contenedores">
-                    <a href="modificaciones.html" className="linkeado">
+                    <Link to="/modificaciones" className="linkeado">
                     <section className="contenedor">
                         <h3 style={{fontWeight:" bold"}}>Inventario</h3>
                         <p>
@@ -24,7 +26,7 @@ function PrincipalAdmin(){
                             catalogo.
                         </p>
                     </section>
-                    </a>
+                    </Link>
                     <a className="linkeado" onClick={()=>alert('Opcion no disponible temporalmente')}>
                     <section className="contenedor">
                         <h3 style={{fontWeight: "bold"}}>Balance</h3>

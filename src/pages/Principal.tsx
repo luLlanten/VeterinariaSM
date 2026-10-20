@@ -1,10 +1,42 @@
 import Footer from "../components/organisms/Footer"
 import Navbar from "../components/organisms/Navbar"
 import "../pages/Principal.css"
+import { Link } from "react-router-dom"
 function Principal(){
     return(
         <>
         <Navbar/>
+          <header className="inicio">
+    <div className="container">
+      <div className="row align-items-center">
+        <div className="col-md-6 text-center text-md-start">
+          <h1>Cuidamos a quienes mas amas</h1>
+          <p className="lead">Atención veterinaria cercana, calida y profesional para tu mascota</p>
+        </div>
+        <div className="col-md-6 text-center">
+          <div id="carruselInicio" className="carousel slide img-inicio" data-bs-ride="carousel">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img src="public/images/portada2.jpg" className="d-block w-100" alt="Mascota en la veterinaria"/>
+              </div>
+              <div className="carousel-item">
+                <img src="public/images/portada3.jpg" className="d-block w-100" alt="Mascota jugando"/>
+              </div>
+              <div className="carousel-item">
+                <img src="public/images/portada4.jpg" className="d-block w-100" alt="Mascota en control veterinario"/>
+              </div>
+            </div>
+
+            <div className="carousel-indicators">
+              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="0" className="active"></button>
+              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="1" ></button>
+              <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="2" ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
         <section id="nosotros" className="container my-5">
     <div className="row align-items-center">
       <div className="col-md-6">
@@ -70,7 +102,7 @@ function Principal(){
         </div>
       </div>
       <div className="text-center">
-        <a href="noticias.html" className="btn boton-opcion">Ver mas</a>
+        <Link to="/noticias" className="btn boton-opcion">Ver mas</Link>
       </div>
     </div>
   </section>
@@ -83,14 +115,14 @@ function Principal(){
         <div className="tarjeta-opcion text-center">
           <h4>Catalogo de Servicios</h4>
           <p>Consultas, cirugias, peluqueria y mas servicios para tu mascota.</p>
-          <a href="../Catalogo/catalogo.html" className="btn boton-opcion">Ver Servicios</a>
+          <Link to="/catalogo" className="btn boton-opcion">Ver Servicios</Link>
         </div>
       </div>
       <div className="col-md-5 mb-4">
         <div className="tarjeta-opcion text-center">
           <h4>Medicamentos y Vacunas</h4>
           <p>Revisa nuestro catalogo de medicamentos y el calendario de vacunacion.</p>
-          <a href="../Catalogo/med_vac.html" className="btn boton-opcion">Ver Medicamentos</a>
+          <Link to="/medicamentos" className="btn boton-opcion">Ver Medicamentos</Link>
         </div>
       </div>
     </div>
