@@ -1,11 +1,15 @@
 import React, {useState} from "react";
 import CampoInput from "../molecules/CampoInput";
+import { Link } from "react-router-dom";
+import Principal from "../../pages/Principal";
 
 
 
 function FormularioLogin(){
     const[correo, setCorreo] = useState("");
     const[contrasena, setContrasena] = useState("");
+    const formatoNormal =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+    const formatoAdmin=/^[a-zA-Z0-9._-]+'sanmarcos.cl'$/
 
     const Login = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -15,15 +19,14 @@ function FormularioLogin(){
             alert("Debe Ingresar Su Correo");
             return;
         }
-        if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(correo)){
+        if (!formatoNormal.test(correo)&&!formatoAdmin.test(correo)){
             alert("Ingrese Un Correo Valido")
-            return;
-        }
+            return;}
         if (contrasena.trim() === ""){
             alert("Debe Ingresar Una Contraseña");
             return;
         }
-        alert("Bienvenidos a la Veterinaria San Marcos")
+
     }
 
     return(

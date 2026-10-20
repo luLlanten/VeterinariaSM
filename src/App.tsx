@@ -4,6 +4,7 @@ import Principal from './pages/Principal'
 import Noticias from './pages/Noticias'
 import Login from './pages/Login'
 import Registro from './pages/Registro'
+import PrincipalAdmin from './pages/PrincipalAdmin'
 function App() {
   return (
     <>
@@ -25,8 +26,8 @@ function App() {
       element={<Registro/>}
       />
       <Route
-      path='/'
-      element=""
+      path='/admin'
+      element={<PrincipalAdmin/>}
       />
       <Route
       path='/'
