@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 interface BotonProps{
     id: string;
-    ruta:String;
+    ruta:string;
 }
 
 //Boton para Catalogo que llevara al detalle
