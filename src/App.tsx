@@ -50,9 +50,13 @@ function App() {
       path='/modificaciones'
       element={<Modificaciones/>}
       />
-      <Route path='/medicamentos' element={<MedVac/>} 
+      <Route 
+      path='/medicamentos' 
+      element={<MedVac/>} 
       />
-      <Route path='/medicamento/:id' element={<DetalleMed/>} 
+      <Route 
+      path='/medicamento/:id' 
+      element={<DetalleMed/>} 
       />
     </Routes>
     </>
