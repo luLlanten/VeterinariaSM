@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import CampoInput from "../molecules/CampoInput";
-import { Link, Links, Route, Router, useRouteLoaderData } from "react-router-dom";
-import Principal from "../../pages/Principal";
 
 
 
