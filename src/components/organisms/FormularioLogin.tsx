@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import CampoInput from "../molecules/CampoInput";
-
+import { Link } from "react-router-dom";
 
 
 function FormularioLogin(){
     const[correo, setCorreo] = useState("");
     const[contrasena, setContrasena] = useState("");
+    const[ruta, setRuta] = useState("");
     const formatoNormal =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
     const formatoAdmin=/^[a-zA-Z0-9._-]+@+sanmarcos+\.+cl$/
 
@@ -21,32 +22,32 @@ function FormularioLogin(){
             alert("Debe Ingresar Una Contraseña");
             return;
         }
-
-        if (!formatoNormal.test(correo)&&!formatoAdmin.test(correo)){
-            alert("Ingrese Un Correo Valido")
+         if (formatoAdmin.test(correo)){
+            alert("Ingreso correcto");
+            setRuta("/admin");
             return;
-        }else{if(formatoAdmin.test(correo)){
-                window.location.href="/admin"}
-            else{
-                if(formatoNormal.test(correo)){
-                window.location.href="/"
-            }
-            }
         }
+        if (formatoNormal.test(correo)){
+            alert("Ingreso correcto");
+            setRuta("/");
+            return;
+        }
+        alert("Ingrese Un Correo Valido");
     }
+        
 
     return(
         <form onSubmit={Login} noValidate>
             <CampoInput
             etiqueta="Correo"
-            tipo="text"
+            tipo="password"
             nombre="correo"
             valor={correo}
             alCambiar={setCorreo}
             />
             <CampoInput
             etiqueta="Contrasena"
-            tipo="text"
+            tipo="password"
             nombre="contrasena"
             valor={contrasena}
             alCambiar={setContrasena}
@@ -54,6 +55,11 @@ function FormularioLogin(){
             <button type="submit" className="btn btn-primary">
                 Iniciar Sesion
             </button>
+             {ruta !== "" && (
+                <Link to={ruta} className="btn btn-primary ms-2">
+                    Continuar
+                </Link>
+             )}
             
 
         </form>
