@@ -52,11 +52,11 @@ function FormularioLogin(){
             valor={contrasena}
             alCambiar={setContrasena}
             />
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
                 Iniciar Sesion
             </button>
              {ruta !== "" && (
-                <Link to={ruta} className="btn btn-primary ms-2">
+                <Link to={"/"} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
                     Continuar
                 </Link>
              )}
