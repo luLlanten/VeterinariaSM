@@ -9,6 +9,7 @@ import Catalogo from './pages/Catalogo'
 import Detalle from './pages/Detalle'
 import MedVac from './pages/MedVac'
 import Modificaciones from './pages/Modificaciones'
+import DetalleMed from './pages/DetalleMed'
 function App() {
   return (
     <>
@@ -48,6 +49,10 @@ function App() {
       <Route
       path='/modificaciones'
       element={<Modificaciones/>}
+      />
+      <Route path='/medicamentos' element={<MedVac/>} 
+      />
+      <Route path='/medicamento/:id' element={<DetalleMed/>} 
       />
     </Routes>
     </>
