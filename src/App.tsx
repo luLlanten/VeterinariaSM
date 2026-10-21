@@ -13,6 +13,8 @@ import DetalleMed from './pages/DetalleMed'
 import Ficha from './pages/Ficha'
 import DetalleMod from './pages/DetalleMod'
 import Agregar from './pages/Agregar'
+import FichaReal from './pages/FichaReal'
+
 function App() {
   return (
     <>
@@ -73,7 +75,12 @@ function App() {
       path='/agregar'
       element={<Agregar/>}
       />
+      <Route
+      path='/ficha-real'
+      element={<FichaReal/>}
+      />
     </Routes>
+    
     </>
   )
 }
