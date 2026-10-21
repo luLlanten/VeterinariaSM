@@ -64,10 +64,6 @@ function App() {
       element={<Ficha/>}
       /> 
       <Route 
-      path='/medicamentos' 
-      element={<MedVac/>} 
-      />
-      <Route 
       path='/medicamento/:id' 
       element={<DetalleMed/>} 
       />
