@@ -11,6 +11,7 @@ import MedVac from './pages/MedVac'
 import Modificaciones from './pages/Modificaciones'
 import DetalleMed from './pages/DetalleMed'
 import Ficha from './pages/Ficha'
+import DetalleMod from './pages/DetalleMod'
 function App() {
   return (
     <>
@@ -50,6 +51,10 @@ function App() {
       <Route
       path='/modificaciones'
       element={<Modificaciones/>}
+      />
+      <Route
+      path='/modificacion/:id'
+      element={<DetalleMod/>}
       />
       <Route
       path='/ficha'
