@@ -12,6 +12,7 @@ import Modificaciones from './pages/Modificaciones'
 import DetalleMed from './pages/DetalleMed'
 import Ficha from './pages/Ficha'
 import DetalleMod from './pages/DetalleMod'
+import Agregar from './pages/Agregar'
 function App() {
   return (
     <>
@@ -67,6 +68,10 @@ function App() {
       <Route 
       path='/medicamento/:id' 
       element={<DetalleMed/>} 
+      />
+      <Route
+      path='/agregar'
+      element={<Agregar/>}
       />
     </Routes>
     </>
