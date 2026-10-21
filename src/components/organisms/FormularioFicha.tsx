@@ -22,6 +22,8 @@ function FormularioFicha(){
     const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+                e.preventDefault();
+
         if (medicamento.trim() === ""){
             alert("Debe Ingresar El Medicamento");
             return;
@@ -30,12 +32,36 @@ function FormularioFicha(){
             alert("Debe Ingresar El Propietario");
             return;
         }
-        if (telefono.trim() !== "" && telefono.trim().length < 8){
-            alert("El Telefono debe tener al menos 8 digitos");
+        if (telefono.trim() === ""){
+            alert("Debe Ingresar El Telefono");
+            return;
+        }
+        if (!/^[0-9]{8,}$/.test(telefono)){
+            alert("Ingrese Un Telefono Valido");
+            return;
+        }
+        if (direccion.trim() === ""){
+            alert("Debe Ingresar La Direccion");
             return;
         }
         if (especie.trim() === ""){
             alert("Debe Ingresar La Especie");
+            return;
+        }
+        if (identificacion.trim() === ""){
+            alert("Debe Ingresar La Identificacion");
+            return;
+        }
+        if (sexo.trim() === ""){
+            alert("Debe Ingresar El Sexo");
+            return;
+        }
+        if (raza.trim() === ""){
+            alert("Debe Ingresar La Raza");
+            return;
+        }
+        if (antecedentes.trim() === ""){
+            alert("Debe Ingresar Los Antecedentes");
             return;
         }
         alert("Ficha guardada con exito");
