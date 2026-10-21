@@ -40,14 +40,14 @@ function FormularioLogin(){
         <form onSubmit={Login} noValidate>
             <CampoInput
             etiqueta="Correo"
-            tipo="password"
+            tipo="text"
             nombre="correo"
             valor={correo}
             alCambiar={setCorreo}
             />
             <CampoInput
             etiqueta="Contrasena"
-            tipo="password"
+            tipo="text"
             nombre="contrasena"
             valor={contrasena}
             alCambiar={setContrasena}
@@ -56,7 +56,7 @@ function FormularioLogin(){
                 Iniciar Sesion
             </button>
              {ruta !== "" && (
-                <Link to={"/"} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
+                <Link to={ruta} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
                     Continuar
                 </Link>
              )}
