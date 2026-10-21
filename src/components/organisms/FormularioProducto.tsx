@@ -104,10 +104,10 @@ function FormularioProducto(){
             alCambiar={setDetalles}
             />
 
-            <Link to="/modificaciones" className="btn btn-secondary me-2">
+            <Link to="/modificaciones" className="admin-btn admin-btn-claro me-2">
                 Volver
             </Link>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="admin-btn">
                 Guardar
             </button>
         </form>

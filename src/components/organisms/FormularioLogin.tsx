@@ -47,7 +47,7 @@ function FormularioLogin(){
             />
             <CampoInput
             etiqueta="Contrasena"
-            tipo="text"
+            tipo="password"
             nombre="contrasena"
             valor={contrasena}
             alCambiar={setContrasena}
