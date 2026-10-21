@@ -15,6 +15,8 @@ function FormularioProducto(){
     const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+                e.preventDefault();
+
         if (id.trim() === ""){
             alert("Debe Ingresar El Id");
             return;
@@ -37,6 +39,14 @@ function FormularioProducto(){
         }
         if (!/^[0-9]+$/.test(precio)){
             alert("Ingrese Un Precio Valido");
+            return;
+        }
+        if (imagen.trim() === ""){
+            alert("Debe Ingresar La Imagen");
+            return;
+        }
+        if (detalles.trim() === ""){
+            alert("Debe Ingresar Los Detalles");
             return;
         }
         alert("Producto guardado sin exito");
