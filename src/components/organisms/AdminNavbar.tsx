@@ -16,7 +16,7 @@ function AdminNavbar(){
                 <Link className="nav-link" to="/modificaciones">Modificar</Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/catalogo">Ver catalogo</Link>
+                <Link className="nav-link" to="/servicios">Ver catalogo</Link>
                 </li>
             </ul>
             </div>
