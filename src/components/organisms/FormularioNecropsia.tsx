@@ -34,11 +34,19 @@ function FormularioNecropsia(){
     const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        if (fechaNecropsia.trim() === ""){
+            alert("Debe Ingresar La Fecha De Necropsia");
+            return;
+        }
         if (veterinario.trim() === ""){
             alert("Debe Ingresar El Veterinario");
             return;
         }
-        if (telefonoVet.trim() !== "" && !/^[0-9]{8,}$/.test(telefonoVet)){
+        if (telefonoVet.trim() === ""){
+            alert("Debe Ingresar El Telefono Del Veterinario");
+            return;
+        }
+        if (!/^[0-9]{8,}$/.test(telefonoVet)){
             alert("Ingrese Un Telefono Valido Para El Veterinario");
             return;
         }
@@ -46,16 +54,104 @@ function FormularioNecropsia(){
             alert("Debe Ingresar El Propietario");
             return;
         }
-        if (telefonoProp.trim() !== "" && !/^[0-9]{8,}$/.test(telefonoProp)){
+        if (telefonoProp.trim() === ""){
+            alert("Debe Ingresar El Telefono Del Propietario");
+            return;
+        }
+        if (!/^[0-9]{8,}$/.test(telefonoProp)){
             alert("Ingrese Un Telefono Valido Para El Propietario");
+            return;
+        }
+        if (direccion.trim() === ""){
+            alert("Debe Ingresar La Direccion");
             return;
         }
         if (especie.trim() === ""){
             alert("Debe Ingresar La Especie");
             return;
         }
-        if (peso.trim() !== "" && !/^[0-9]+([.,][0-9]+)?$/.test(peso)){
+        if (identificacion.trim() === ""){
+            alert("Debe Ingresar La Identificacion");
+            return;
+        }
+        if (sexo.trim() === ""){
+            alert("Debe Ingresar El Sexo");
+            return;
+        }
+        if (raza.trim() === ""){
+            alert("Debe Ingresar La Raza");
+            return;
+        }
+        if (fechaNacimiento.trim() === ""){
+            alert("Debe Ingresar La Fecha De Nacimiento");
+            return;
+        }
+        if (edad.trim() === ""){
+            alert("Debe Ingresar La Edad Estimada");
+            return;
+        }
+        if (peso.trim() === ""){
+            alert("Debe Ingresar El Peso");
+            return;
+        }
+        if (!/^[0-9]+([.,][0-9]+)?$/.test(peso)){
             alert("Ingrese Un Peso Valido");
+            return;
+        }
+        if (condicion.trim() === ""){
+            alert("Debe Ingresar La Condicion Corporal");
+            return;
+        }
+        if (descomposicion.trim() === ""){
+            alert("Debe Ingresar El Grado De Descomposicion");
+            return;
+        }
+        if (antecedentes.trim() === ""){
+            alert("Debe Ingresar Los Antecedentes");
+            return;
+        }
+        if (piel.trim() === ""){
+            alert("Debe Ingresar Piel, Mucosas Y Anexos");
+            return;
+        }
+        if (aberturas.trim() === ""){
+            alert("Debe Ingresar Las Aberturas Naturales");
+            return;
+        }
+        if (respiratorio.trim() === ""){
+            alert("Debe Ingresar El Sistema Respiratorio");
+            return;
+        }
+        if (cardiovascular.trim() === ""){
+            alert("Debe Ingresar El Sistema Cardiovascular");
+            return;
+        }
+        if (digestivo.trim() === ""){
+            alert("Debe Ingresar El Sistema Digestivo");
+            return;
+        }
+        if (reproductor.trim() === ""){
+            alert("Debe Ingresar El Sistema Reproductor");
+            return;
+        }
+        if (urinario.trim() === ""){
+            alert("Debe Ingresar El Sistema Urinario");
+            return;
+        }
+        if (inmunitario.trim() === ""){
+            alert("Debe Ingresar El Sistema Inmunitario");
+            return;
+        }
+        if (nervioso.trim() === ""){
+            alert("Debe Ingresar El Sistema Nervioso");
+            return;
+        }
+        if (otros.trim() === ""){
+            alert("Debe Ingresar Otros");
+            return;
+        }
+        if (muestras.trim() === ""){
+            alert("Debe Ingresar Las Muestras Remitidas");
             return;
         }
         alert("Ficha guardada con exito");
