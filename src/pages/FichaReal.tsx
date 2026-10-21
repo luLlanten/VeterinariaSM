@@ -5,18 +5,19 @@ import "../pages/Admin.css"
 
 function FichaReal(){
     return(
-        <>
-        <header>
+        <div className="admin-layout">
             <AdminNavbar/>
-        </header>
-        <div style={{backgroundColor:"rgb(61, 61, 61)", marginTop:"0%"}}>
-            <Link to="/modificaciones" className="btn btn-light">Volver</Link>
+            <div className="admin-barra container py-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <div>
+                    <h2 className="admin-titulo">Ficha de necropsia</h2>
+                    <p className="admin-subtitulo">Complete todos los campos de la ficha.</p>
+                </div>
+                <Link to="/modificaciones" className="admin-btn admin-btn-claro">Volver</Link>
+            </div>
+            <div className="necropsia-mesa">
+                <FormularioNecropsia/>
+            </div>
         </div>
-        <div className="container my-5">
-            <h2 className="mb-4">Ficha de necropsia</h2>
-            <FormularioNecropsia/>
-        </div>
-        </>
     )
 }
 export default FichaReal

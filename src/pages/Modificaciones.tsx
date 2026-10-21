@@ -5,19 +5,23 @@ import "../pages/Admin.css"
 
 function Modificaciones(){
     return(
-        <>
-        <header>
+        <div className="admin-layout">
             <AdminNavbar/>
-        </header>
-        <main>
-            <div style={{backgroundColor:"rgb(61, 61, 61)", marginTop:"0%"}}>
-                <Link to="/agregar" className="btn btn-light me-2">Agregar</Link>
-                <Link to="/ficha-real" className="btn btn-light">Crear Ficha</Link>
-            </div>
-            <h2>Vista catalogo</h2>
-            <hr/>
-            <div className="container pb-5">
-                <div className="row g-3">
+            <div className="container py-5">
+
+                <div className="admin-hero mb-4 d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <div>
+                        <h1>Inventario</h1>
+                        <p>Vista del catálogo: servicios, medicamentos y vacunas.</p>
+                    </div>
+                    <div className="d-flex flex-wrap gap-2">
+                        <Link to="/agregar" className="admin-btn admin-btn-claro">+ Agregar producto</Link>
+                        <Link to="/ficha-real" className="admin-btn admin-btn-claro">Crear Ficha</Link>
+                    </div>
+                </div>
+
+                <div className="admin-grid">
+                    <div className="row g-4">
                 <div className="col-12 col-md-6 col-lg-3">
                     <CardProducto
                         id="SV001"
@@ -548,10 +552,12 @@ function Modificaciones(){
                         ruta="/modificacion/"
                     />
                 </div>
+                
+                    </div>
                 </div>
+
             </div>
-        </main>
-        </>
+        </div>
     )
 }
 export default Modificaciones

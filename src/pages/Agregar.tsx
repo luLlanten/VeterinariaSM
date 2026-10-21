@@ -4,19 +4,22 @@ import "../pages/Admin.css"
 
 function Agregar(){
     return(
-        <>
-        <header>
+        <div className="admin-layout">
             <AdminNavbar/>
-        </header>
-        <div className="container my-5">
-            <h2>Agregar nuevo producto</h2>
-            <hr/>
-            <div className="col-md-8 col-lg-6 mx-auto">
-                <h4 className="text-center mb-3">Inserte los datos del producto</h4>
-                <FormularioProducto/>
+            <div className="container py-5">
+                <div className="admin-hero mb-4">
+                    <h1>Agregar nuevo producto</h1>
+                    <p>Inserte los datos del producto que desea añadir al catálogo.</p>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-md-8 col-lg-6">
+                        <div className="admin-panel">
+                            <FormularioProducto/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </>
     )
 }
 export default Agregar

@@ -20,50 +20,51 @@ function DetalleMod(){
 
     if (!producto){
         return(
-            <>
-            <header>
+            <div className="admin-layout">
                 <AdminNavbar/>
-            </header>
-            <div className="container my-5 text-center">
-                <h2>No se encontró el producto.</h2>
-                <p>Por favor, vuelve al catálogo y selecciona un servicio o medicamento.</p>
-                <BotonVolverCatalogo ruta="/modificaciones"/>
-            </div>
-            </>
-        );
-    }
-
-    return(
-        <>
-        <header>
-            <AdminNavbar/>
-        </header>
-        <div className="container my-5">
-            <h1 className="text-center mb-4">Detalle del Servicio</h1>
-            <div className="row justify-content-center">
-                <div className="col-md-6 col-lg-5">
-                    <div className="caja-info text-center shadow-sm">
-                        <img
-                            src={producto.imagen}
-                            alt={producto.titulo}
-                            className="img-fluid rounded mb-3"
-                            style={{maxHeight:"250px", objectFit:"cover"}}
-                        />
-                        <h2 className="mb-2">{producto.titulo}</h2>
-                        <p className="fs-4 fw-bold mb-2">Precio: ${producto.precio}</p>
-                        <p className="text-muted mb-4">{producto.descripcion}</p>
-                        <button
-                            className="btn btn-secondary me-2"
-                            onClick={() => alert("No hay base de datos")}
-                        >
-                            Editar
-                        </button>
+                <div className="container py-5 text-center">
+                    <div className="admin-panel">
+                        <h2>No se encontró el producto.</h2>
+                        <p>Por favor, vuelve al catálogo y selecciona un servicio o medicamento.</p>
                         <BotonVolverCatalogo ruta="/modificaciones"/>
                     </div>
                 </div>
             </div>
+        );
+    }
+
+    return(
+        <div className="admin-layout">
+            <AdminNavbar/>
+            <div className="container py-5">
+                <div className="admin-hero mb-4">
+                    <h1>Detalle del producto</h1>
+                    <p>{producto.categoria} · Código {producto.id}</p>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-md-8 col-lg-6">
+                        <div className="admin-panel text-center">
+                            <img
+                                src={producto.imagen}
+                                alt={producto.titulo}
+                                className="img-fluid rounded mb-3"
+                                style={{maxHeight:"280px", objectFit:"cover"}}
+                            />
+                            <h2 className="mb-2">{producto.titulo}</h2>
+                            <p className="fs-3 fw-bold mb-2" style={{color:"#33553A"}}>${producto.precio}</p>
+                            <p className="admin-subtitulo mb-4">{producto.descripcion}</p>
+                            <button
+                                className="admin-btn me-2"
+                                onClick={() => alert("No hay base de datos")}
+                            >
+                                Editar
+                            </button>
+                            <BotonVolverCatalogo ruta="/modificaciones"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </>
     );
 }
 

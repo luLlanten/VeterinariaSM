@@ -1,103 +1,366 @@
-header{
-    background-color: black;
-    color: white;
-    font-family: monospace;
+/* ===== Panel de administracion ===== */
+.admin-layout{
+    min-height: 100vh;
+    background-color: #EEF1EC;
+    color: #1F2D22;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
-main{
-    background-color: white;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+
+/* ----- Barra superior ----- */
+.admin-nav{
+    background-color: #1F3324;
+    border-bottom: 3px solid #4C7A50;
+    padding: 12px 0;
 }
-.contenedor{
-    border:3px solid black;
+.admin-nav .navbar-brand{
+    color: #E4EEDB;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+.admin-nav .navbar-brand span{
+    background-color: #4C7A50;
+    color: #fff;
     border-radius: 6px;
-    box-shadow: 10px black;
-    background-color: white;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 20px;
-    margin-right: 20px;
+    padding: 2px 8px;
+    font-size: .75rem;
+    margin-left: 8px;
+    vertical-align: middle;
 }
-.contenedores{
+.admin-nav .nav-link{
+    color: #C9D8C5;
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-left: 6px;
+    transition: background-color .2s, color .2s;
+}
+.admin-nav .nav-link:hover{
+    background-color: #33553A;
+    color: #fff;
+}
+.admin-nav .navbar-toggler{
+    border-color: #4C7A50;
+}
+
+/* ----- Encabezado de cada pagina ----- */
+.admin-hero{
+    background: linear-gradient(120deg, #33553A 0%, #4C7A50 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 0 8px 24px rgba(31,51,36,.18);
+}
+.admin-hero h1{
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.admin-hero p{
+    margin: 0;
+    color: #E4EEDB;
+}
+.admin-titulo{
+    color: #1F3324;
+    font-weight: 700;
+    margin: 0;
+}
+.admin-subtitulo{
+    color: #5C6F5F;
+    margin: 0;
+}
+
+/* ----- Tarjetas de opciones ----- */
+.admin-opcion{
+    display: block;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 26px;
+    text-decoration: none;
+    color: #1F2D22;
+    border: 1px solid #DDE5DA;
+    box-shadow: 0 2px 8px rgba(31,51,36,.06);
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    cursor: pointer;
+}
+.admin-opcion:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(31,51,36,.15);
+    border-color: #4C7A50;
+    color: #1F2D22;
+}
+.admin-opcion h3{
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1F3324;
+    margin: 14px 0 8px;
+}
+.admin-opcion p{
+    margin: 0;
+    color: #5C6F5F;
+    font-size: .95rem;
+}
+.admin-icono{
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background-color: #E4EEDB;
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
 }
-.linkeado{
-    color: whitesmoke;
-    text-decoration: dashed;
+.admin-irA{
+    display: inline-block;
+    margin-top: 14px;
+    font-weight: 600;
+    color: #33553A;
 }
-.linkeado:hover{
-    color: rgb(227, 250, 250);
-    text-decoration: underline;
+
+/* ----- Paneles y tablas ----- */
+.admin-panel{
+    background-color: #fff;
+    border: 1px solid #DDE5DA;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 2px 8px rgba(31,51,36,.06);
 }
-th,td{
-    border: 2px solid black;
-    padding: 10px;            
+.admin-panel h2{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1F3324;
+}
+.admin-tabla{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 12px;
+}
+.admin-tabla th{
+    background-color: #E4EEDB;
+    color: #1F3324;
+    font-weight: 700;
+    padding: 12px 16px;
+    border: none;
     text-align: left;
 }
- .ficha-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            color: #000000;
-        }
-        .ficha {
-            border: 1px solid #000;
-            padding: 25px;
-            margin-bottom: 20px;
-            background-color: #fff;
-        }
-        .lineas_escritura {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 10px;
-        }
-        .lineas_escritura label {
-            font-weight: bold;
-            margin-right: 5px;
-            white-space: nowrap;
-        }
-        .input-line {
-            border: none;
-            border-bottom: 2px dotted #000;
-            background-color: transparent;
-            flex-grow: 1;
-            outline: none;
-            padding: 0 5px;
-            box-shadow: none !important;
-        }
-        .input-line:focus {
-            border-bottom: 2px solid #000;
-        }
-        .titulo_seccion {
-            text-decoration: underline;
-            font-weight: bold;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        .textarea-clean {
-            width: 100%;
-            border: none;
-            outline: none;
-            resize: vertical;
-            background-color: transparent;
-        }
-        .historial_examenes {
-            margin-bottom: 30px;
-        }
-        .historial_examenes p {
-            margin-bottom: 5px;
-        }
-.producto-card {
-  background-color: #9e9e9d;
-  border-left: 5px solid #2c2e2c;
-  border-radius: 10px;
-  padding: 20px;
-  width: 260px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.admin-tabla th:first-child{ border-radius: 10px 0 0 10px; }
+.admin-tabla th:last-child{ border-radius: 0 10px 10px 0; }
+.admin-tabla td{
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 1px solid #EEF1EC;
+}
+.admin-tabla tr:hover td{
+    background-color: #F6F9F4;
+}
+.admin-rol{
+    display: inline-block;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+.rol-admin{ background-color: #1F3324; color: #fff; }
+.rol-vet{ background-color: #CFE3CD; color: #1F3324; }
+.rol-cliente{ background-color: #EEF1EC; color: #5C6F5F; border: 1px solid #DDE5DA; }
+
+/* ----- Botones ----- */
+.admin-btn{
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #33553A;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .2s, transform .2s;
+}
+.admin-btn:hover{
+    background-color: #1F3324;
+    color: #fff;
+    transform: translateY(-1px);
+}
+.admin-btn-claro{
+    background-color: #fff;
+    color: #33553A;
+    border: 1px solid #33553A;
+}
+.admin-btn-claro:hover{
+    background-color: #E4EEDB;
+    color: #1F3324;
+}
+
+/* ----- Catalogo del admin ----- */
+.admin-grid .card{
+    border: 1px solid #DDE5DA;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(31,51,36,.06);
+    transition: transform .2s, box-shadow .2s;
+}
+.admin-grid .card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(31,51,36,.15);
+}
+.admin-grid .card-text{
+    color: #5C6F5F;
+}
+.admin-grid .btn-primary{
+    background-color: #33553A;
+    border-color: #33553A;
+}
+.admin-grid .btn-primary:hover{
+    background-color: #1F3324;
+    border-color: #1F3324;
+}
+
+/* ===== Ficha de necropsia (hoja de papel) ===== */
+.necropsia-mesa{
+    background-color: #D9DDD6;
+    padding: 32px 12px 60px;
+}
+.necropsia-hoja{
+    max-width: 860px;
+    margin: 0 auto 28px;
+    background-color: #FFFEFB;
+    color: #111;
+    border: 1px solid #B8BDB4;
+    box-shadow: 0 6px 20px rgba(0,0,0,.18);
+    padding: 36px 44px;
+    position: relative;
+    font-family: 'Times New Roman', Georgia, serif;
+}
+.necropsia-membrete{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 3px double #111;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
+}
+.necropsia-membrete h1{
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #111;
+    text-transform: uppercase;
+}
+.necropsia-membrete p{
+    margin: 2px 0 0;
+    font-size: .85rem;
+    color: #444;
+}
+.necropsia-hojanum{
+    font-size: .8rem;
+    border: 1px solid #111;
+    padding: 2px 10px;
+    letter-spacing: 1px;
+}
+.necropsia-titulo{
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+    color: #111;
+    text-transform: uppercase;
+}
+.necropsia-hoja .lineas_escritura{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+.necropsia-hoja .lineas_escritura label{
+    font-weight: 700;
+    margin: 0 6px 0 0;
+    white-space: nowrap;
+    font-size: .95rem;
+}
+.necropsia-hoja .input-line{
+    flex-grow: 1;
+    min-width: 0;
+    border: none;
+    border-bottom: 1px dotted #111;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0 6px;
+    outline: none;
+    box-shadow: none;
+    font-family: 'Courier New', monospace;
+    color: #0B2A6B;
+    font-size: .95rem;
+}
+.necropsia-hoja .input-line:focus{
+    border-bottom: 1px solid #0B2A6B;
+    background-color: #F3F7FF;
+}
+.necropsia-seccion{
+    background-color: #111;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: .85rem;
+    padding: 4px 12px;
+    margin: 24px 0 14px;
+}
+.necropsia-etiqueta{
+    font-weight: 700;
+    font-size: .95rem;
+    margin: 12px 0 2px;
+}
+.necropsia-etiqueta em{
+    font-weight: 400;
+    color: #444;
+    font-size: .85rem;
+}
+.necropsia-texto{
+    width: 100%;
+    border: 1px solid #B8BDB4;
+    background-image: repeating-linear-gradient(transparent, transparent 25px, #C7CCC3 26px);
+    background-color: transparent;
+    line-height: 26px;
+    padding: 0 8px;
+    resize: vertical;
+    outline: none;
+    font-family: 'Courier New', monospace;
+    color: #0B2A6B;
+    font-size: .95rem;
+}
+.necropsia-texto:focus{
+    border-color: #0B2A6B;
+}
+.necropsia-firma{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    text-align: center;
+    font-size: .85rem;
+}
+.necropsia-firma div{
+    border-top: 1px solid #111;
+    width: 38%;
+    padding-top: 4px;
+}
+.necropsia-acciones{
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 576px){
+    .necropsia-hoja{ padding: 22px 16px; }
+    .necropsia-membrete{ flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+@media print{
+    .admin-nav, .admin-barra, .necropsia-acciones{ display: none !important; }
+    .necropsia-mesa{ background: #fff; padding: 0; }
+    .necropsia-hoja{ box-shadow: none; border: none; page-break-after: always; }
 }
