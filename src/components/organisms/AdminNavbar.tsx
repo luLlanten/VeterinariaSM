@@ -5,7 +5,7 @@ function AdminNavbar(){
         <nav className="navbar navbar-expand-lg admin-nav" data-bs-theme="dark">
             <div className="container">
                 <Link className="navbar-brand" to="/admin">
-                    Veterinaria San Marcos<span>ADMIN</span>
+                    Veterinaria San Marcos<span>ADMINISTRACION</span>
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
