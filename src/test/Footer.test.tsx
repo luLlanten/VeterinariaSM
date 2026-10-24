@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 
 import Footer from "../components/organisms/Footer";
 
-test("El Footer renderiza la información de contacto, ubicación y copyright", () => {
+test("El Footer renderiza la información de contacto y ubicación ", () => {
     render(<Footer />);
 
     const telefono = screen.getByText("+56 9 99989647");
