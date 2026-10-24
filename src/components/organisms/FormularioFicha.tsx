@@ -2,14 +2,8 @@ import React, {useState} from "react";
 import LineaFicha from "../molecules/LineaFicha";
 
 function FormularioFicha(){
-    // Si venimos de "Agregar a ficha", el medicamento viene guardado en localStorage
-    const guardado = localStorage.getItem("producto");
-    let nombreMedicamento = "";
-    if (guardado){
-        nombreMedicamento = JSON.parse(guardado).titulo;
-    }
 
-    const[medicamento, setMedicamento] = useState(nombreMedicamento);
+    const[medicamento, setMedicamento] = useState("");
     const[propietario, setPropietario] = useState("");
     const[telefono, setTelefono] = useState("");
     const[direccion, setDireccion] = useState("");
@@ -21,8 +15,6 @@ function FormularioFicha(){
 
     const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-                e.preventDefault();
 
         if (medicamento.trim() === ""){
             alert("Debe Ingresar El Medicamento");
