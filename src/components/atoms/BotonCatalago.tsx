@@ -13,7 +13,7 @@ function BotonCatalogo ({id, ruta}: BotonProps){
             to={ruta + id}
             className="btn btn-primary"
         >
-                Ver Producto
+            Ver Producto
 
         </Link>
     );
