@@ -156,12 +156,12 @@ h2 {
 }
 
 .seccion-detalle{
-  background-color: #F5F1E6;
+  background-color: #f1ebd7;
   border-color: #33553A;
-  border: 5px solid;
-  border-radius: 5%;
+  border: 3px solid;
+  border-radius: 7%;
   width: 450px;
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
 footer {

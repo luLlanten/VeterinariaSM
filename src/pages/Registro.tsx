@@ -9,7 +9,7 @@ function Registro(){
         <Navbar/>
         <section className="tarjeta-opcion" style={{width:"50%",backgroundColor:" #223526",marginLeft:"25%",marginBottom:"10%" ,marginTop:"10%"}}>
             <div style={{marginLeft:"15%",marginRight:"15%"}}>
-                <h2 className="mb-4">Crear Cuenta</h2>
+                <h2 className="mb-4" style={{color:"whitesmoke"}}>Crear Cuenta</h2>
                 <FormularioRegistro/>
             </div>
        </section>

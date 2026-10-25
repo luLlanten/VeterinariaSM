@@ -9,7 +9,7 @@ function Login(){
         <Navbar/>
         <section className="tarjeta-opcion" style={{width:"50%",backgroundColor:" #223526",marginLeft:"25%",marginBottom:"10%" ,marginTop:"10%"}}>
             <div style={{marginLeft:"15%",marginRight:"15%"}}>
-                <h2 className="mb-4">Inicio de Sesión</h2>
+                <h2 className="mb-3" style={{color:"whitesmoke"}}>Inicio de Sesión</h2>
                 <FormularioLogin/>
             </div>
        </section>

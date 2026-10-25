@@ -113,7 +113,7 @@ function Principal(){
       <div className="col-md-5 mb-4">
         <div className="tarjeta-opcion text-center">
           <h4>Catalogo de Servicios</h4>
-          <p>Consultas, cirugias, peluqueria y mas servicios para tu mascota.</p>
+          <p>Consultas, cirugias, peluqueria y mas servicios <br />para tu mascota.</p>
           <Link to="/servicios" className="boton-opcion">Ver Servicios</Link>
         </div>
       </div>

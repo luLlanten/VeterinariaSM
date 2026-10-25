@@ -11,7 +11,7 @@ function BotonCatalogo ({id, ruta}: BotonProps){
     return(
         <Link
             to={ruta + id}
-            className="btn btn-primary"
+            className="boton-opcion2"
         >
             Ver Producto
 
