@@ -3,7 +3,7 @@ import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import BotonVolverCatalogo from "../components/atoms/BotonVolverCatologo";
 import { medicamentos } from "../data/Medicamentos";
-
+import "../pages/Principal.css"
 function DetalleMed(){
     const {id} = useParams();
     const medicamento = medicamentos.find(
@@ -29,14 +29,15 @@ function DetalleMed(){
         <div className="container my-5">
             <h1 className="text-center mb-4">Detalle del medicamento</h1>
             <div className="row g-4 align-items-center">
-                <div className="col-12 col-md-6">
+                <div className="col-md-6">
                     <img
                         src={medicamento.imagen}
                         alt={medicamento.titulo}
-                        className="img-fluid rounded"
+                        className="rounded"
+                        style={{maxWidth:"540px", maxHeight:"400px"}}
                     />
                 </div>
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 seccion-detalle">
                     <p className="mb-1">{medicamento.categoria}</p>
                     <h2>{medicamento.titulo}</h2>
                     <p>{medicamento.descripcion}</p>

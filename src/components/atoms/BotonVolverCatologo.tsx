@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import "../../pages/principal.css";
 
 //Boton de detalle para volver al Catalogo
 
@@ -11,7 +11,7 @@ function BotonVolverCatalogo({ ruta }: BotonVolverProps){
     return(
         <Link
             to={ruta}
-            className='btn btn-primary'
+            className='boton-opcion2'
         >
             Volver 
         </Link>

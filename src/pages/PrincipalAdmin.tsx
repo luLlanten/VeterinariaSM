@@ -19,7 +19,7 @@ function PrincipalAdmin(){
                 <div className="row g-4 mb-5">
                     <div className="col-12 col-md-4">
                         <Link to="/modificaciones" className="admin-opcion">
-                            <div className="admin-icono">📦</div>
+                            <img src="images/icono_caja.png" alt="ic_inventario" className="admin-icono" />
                             <h3>Inventario</h3>
                             <p>
                                 Aquí puedes observar un detalle resumido del stock
@@ -31,7 +31,7 @@ function PrincipalAdmin(){
                     </div>
                     <div className="col-12 col-md-4">
                         <a className="admin-opcion" onClick={()=>alert('Opcion no disponible temporalmente')}>
-                            <div className="admin-icono">💰</div>
+                            <img src="images/icono_bolsaDinero.png" alt="ic_balance" className="admin-icono" />
                             <h3>Balance</h3>
                             <p>
                                 Aquí encontrarás un resumen de los últimos pagos
@@ -42,7 +42,7 @@ function PrincipalAdmin(){
                     </div>
                     <div className="col-12 col-md-4">
                         <Link to="/ficha-real" className="admin-opcion">
-                            <div className="admin-icono">🩺</div>
+                            <img src="images/icono_estetoscopio.png" alt="ic_Fichas" className="admin-icono" />
                             <h3>Fichas</h3>
                             <p>
                                 Aquí tendrás acceso a las fichas médicas de los

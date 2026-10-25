@@ -3,6 +3,7 @@ import Navbar from "../components/organisms/Navbar";
 import BotonVolverCatalogo from "../components/atoms/BotonVolverCatologo";
 import { servicios } from "../data/servicios";
 import Footer from "../components/organisms/Footer";
+import "../pages/Principal.css"
 
 function Detalle(){
    const {id} = useParams();
@@ -29,14 +30,15 @@ function Detalle(){
         <div className="container my-5">
             <h1 className="text-center mb-4">Detalle del servicio</h1>
             <div className="row g-4 align-items-center">
-                <div className="col-12 col-md-6">
+                <div className="col-md-6">
                     <img
                         src={servicio.imagen}
                         alt={servicio.titulo}
-                        className="img-fluid rounded"
+                        className="rounded"
+                        style={{maxWidth:"540px", maxHeight:"400px"}}
                     />
                 </div>
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 seccion-detalle">
                     <p className="mb-1">{servicio.categoria}</p>
                     <h2>{servicio.titulo}</h2>
                     <p>{servicio.descripcion}</p>

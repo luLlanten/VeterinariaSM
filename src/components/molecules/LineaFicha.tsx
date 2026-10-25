@@ -12,9 +12,9 @@ type Props ={
 function LineaFicha({etiqueta,tipo,nombre,valor,alCambiar}: Props){
     return(
         <div className="lineas_escritura">
-            <label>
+            <h5>
                 {etiqueta}
-            </label>
+            </h5>
 
             <Input
             tipo={tipo}

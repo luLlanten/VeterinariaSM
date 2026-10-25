@@ -135,12 +135,34 @@ h2 {
   margin-top: 10px;
   text-decoration: none;
 }
+.boton-opcion2 {
+  background-color: #33553A;
+  color: #F5F1E6;
+  font-weight: bolder;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-decoration: none;
+}
 
 .boton-opcion:hover {
   background-color: #E4EEDB;
   color: #33553A;
 }
+.boton-opcion2:hover {
+  background-color: #E4EEDB;
+  color: #33553A;
+}
 
+.seccion-detalle{
+  background-color: #F5F1E6;
+  border-color: #33553A;
+  border: 5px solid;
+  border-radius: 5%;
+  width: 450px;
+  padding-bottom: 20px;
+}
 
 footer {
   background-color: #33553A;
@@ -167,4 +189,8 @@ footer hr {
   border-radius: 12px;
   max-height: 320px;
   object-fit: cover;
+}
+.imagen-carrusel{
+  width: 336px;
+  height: 224px;
 }

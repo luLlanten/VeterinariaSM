@@ -22,13 +22,13 @@ function Principal(){
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="/images/portada2.jpg" className="d-block w-100" alt="Mascota en la veterinaria"/>
+                <img src="/images/portada2.jpg" className="d-block w-100 imagen-carrusel" alt="Mascota en la veterinaria"/>
               </div>
               <div className="carousel-item">
-                <img src="/images/portada3.jpg" className="d-block w-100" alt="Mascota jugando"/>
+                <img src="/images/portada3.jpg" className="d-block w-100 imagen-carrusel" alt="Mascota jugando"/>
               </div>
               <div className="carousel-item">
-                <img src="/images/portada4.jpg" className="d-block w-100" alt="Mascota en control veterinario"/>
+                <img src="/images/portada4.jpg" className="d-block w-100 imagen-carrusel" alt="Mascota en control veterinario"/>
               </div>
             </div>
           </div>
