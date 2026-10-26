@@ -34,7 +34,7 @@ function DetalleMed(){
                         src={medicamento.imagen}
                         alt={medicamento.titulo}
                         className="rounded"
-                        style={{maxWidth:"540px", maxHeight:"400px"}}
+                        style={{width:"540px",maxHeight:"540px",paddingLeft:"10%"}}
                     />
                 </div>
                 <div className="col-12 col-md-6 seccion-detalle">
