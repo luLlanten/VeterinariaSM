@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+        discovery:
+            locator:
+                enabled: true
+                lower-case-service-id: true
+            routes: 
+              - id: cliente-lobby
+                uri: lb://cliente-lobby
+                predicates:
+                  - path=/**
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka/
+
+server:
+    port: 8080
