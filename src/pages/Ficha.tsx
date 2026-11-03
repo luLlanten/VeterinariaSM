@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import FormularioFicha from "../components/organisms/FormularioFicha";
-import "../pages/Style.css";
+import "../pages/Principal.css";
 
 function Ficha(){
     return(
@@ -13,7 +13,7 @@ function Ficha(){
                 <FormularioFicha/>
             </div>
             <div className="text-center mt-3">
-                <Link to="/" className="btn boton-opcion">Volver a la Pagina Principal</Link>
+                <Link to="/" className="boton-opcion2">Volver a la Pagina Principal</Link>
             </div>
         </div>
         <Footer/>

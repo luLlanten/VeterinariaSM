@@ -134,7 +134,7 @@ function Noticias (){
             </div>
 
            <div className="text-center mt-3">
-                <Link to="/" className="btn boton-opcion">Volver al inicio</Link>
+                <Link to="/" className="boton-opcion2">Volver al inicio</Link>
             </div>
         </div>
 

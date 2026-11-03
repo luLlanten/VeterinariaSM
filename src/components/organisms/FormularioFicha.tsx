@@ -149,11 +149,11 @@ function FormularioFicha(){
             onChange={(e) => setAntecedentes(e.target.value)}
             />
 
-            <div className="d-flex flex-wrap gap-2 mt-3">
-                <button type="button" className="btn btn-primary" onClick={() => window.print()}>
+            <div className="d-flex flex-wrap gap-3 mt-3">
+                <button type="button" className="boton-opcion2" onClick={() => window.print()}>
                     Imprimir Ficha
                 </button>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="boton-opcion2">
                     Guardar Ficha
                 </button>
             </div>
