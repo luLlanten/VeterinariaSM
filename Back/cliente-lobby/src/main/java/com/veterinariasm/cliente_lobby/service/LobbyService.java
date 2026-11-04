@@ -97,6 +97,9 @@ public class LobbyService {
             return null;
         }
     }
+
+    //agregar recuperar cuenta
+
     //metodos generales, serviran en los otros ms 
     public Optional<User> buscarUser(Integer id){
         return Optional.of(repoUser.findById(id).get());
