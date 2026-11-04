@@ -35,7 +35,7 @@ public class Admin {
     @Column (nullable = false)
     private Date fechaIngreso;
 
-    @Column (nullable = false)
+    @Column (nullable = false,unique = false)
     private String correo;
 
     @Column (nullable = false,length = 16)

@@ -1,13 +1,12 @@
 package com.veterinariasm.cliente_lobby.service;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.veterinariasm.cliente_lobby.dto.AdminDTO;
 import com.veterinariasm.cliente_lobby.dto.UserDTO;
 import com.veterinariasm.cliente_lobby.model.Admin;
 import com.veterinariasm.cliente_lobby.model.User;
@@ -49,7 +48,8 @@ public class LobbyService {
         } 
     }
 
-    public UserDTO registroUser(Boolean valido, String correo,String contrasena){//primer paso a creacion de una cuenta, dependera de las validaciones del front 
+    public UserDTO registroUser(Boolean valido, String correo,String contrasena){
+        //primer paso a creacion de una cuenta, dependera de las validaciones del front 
         if (valido){
             UserDTO userDTO= new UserDTO(correo,contrasena);
             return userDTO;
@@ -58,16 +58,56 @@ public class LobbyService {
         }
     } 
     public User crearUser(UserDTO userDTO,String numbre,String apellido, String direccion,Integer telefono){
-        User usuarioNuevo=new User();
-        usuarioNuevo.setNombre(numbre);
-        usuarioNuevo.setApellido(apellido);
-        usuarioNuevo.setFechaIngreso(new Date());
-        usuarioNuevo.setCorreo(userDTO.getCorreo());
-        usuarioNuevo.setContrasena(userDTO.getContrasena());
-        usuarioNuevo.setDireccion(direccion);
-        usuarioNuevo.setTelefono(telefono);
-        usuarioNuevo.setTipo(false);
-        return usuarioNuevo;
+        if(userDTO.equals(null)){
+            User usuarioNuevo=new User();
+            usuarioNuevo.setNombre(numbre);
+            usuarioNuevo.setApellido(apellido);
+            usuarioNuevo.setFechaIngreso(new Date());
+            usuarioNuevo.setCorreo(userDTO.getCorreo());
+            usuarioNuevo.setContrasena(userDTO.getContrasena());
+            usuarioNuevo.setDireccion(direccion);
+            usuarioNuevo.setTelefono(telefono);
+            usuarioNuevo.setTipo(false);
+            repoUser.save(usuarioNuevo);
+            return usuarioNuevo;}
+        else{
+            return null;
+        }
     }//el tipo de useuario se setea aparte, por default sera false(cliente) 
-
+    public AdminDTO registroAdmin(Boolean valido, String correo,String contrasena){
+        if (valido){
+            AdminDTO userDTO= new AdminDTO(correo,contrasena);
+            return userDTO;
+        }else{
+            return null;
+        }
+    }//lo dejare igual que el user por ahora, pero yo creo que faltaria añadir algo mas para validar un admin
+    public Admin crearAdmin(AdminDTO adminDTO,String nombre,String apellido,Integer telefono){
+        if(adminDTO.equals(null)){
+            Admin adminNuevo=new Admin();
+            adminNuevo.setCorreo(adminDTO.getCorreo());
+            adminNuevo.setContrasena(adminDTO.getContrasena());
+            adminNuevo.setNombre(nombre);
+            adminNuevo.setFechaIngreso(new Date());
+            adminNuevo.setApellido(apellido);
+            adminNuevo.setTelefono(telefono);
+            repoAdmin.save(adminNuevo);
+            return adminNuevo;
+        }else{
+            return null;
+        }
+    }
+    //metodos generales, serviran en los otros ms 
+    public Optional<User> buscarUser(Integer id){
+        return Optional.of(repoUser.findById(id).get());
+    }
+    public Optional<Admin> buscarAdmin(Integer id){
+        return Optional.of(repoAdmin.findById(id).get());
+    }
+    public Optional<User> buscarUserPorCorreo(String correo){
+        return Optional.of(repoUser.findByCorreo(correo));
+    }
+    public Optional<Admin> buscarAdminPorCorreo(String correo){
+        return Optional.of(repoAdmin.findByCorreo(correo));
+    }
 }
