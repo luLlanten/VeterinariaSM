@@ -1,5 +1,11 @@
 package com.veterinariasm.compra.repo;
 
-public interface BoletaRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.veterinariasm.compra.model.Boleta;
+
+@Repository 
+public interface BoletaRepo extends JpaRepository<Boleta,Integer>{
 
 }

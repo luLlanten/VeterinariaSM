@@ -22,12 +22,6 @@ public class Carrito {
     @Column 
     private Integer total;
 
-    @Column
-    private Integer descuentos;
-
-    @Column (nullable = false)
-    private Integer aniadidos;
-
     @Column (name= "usuario_id")
     private Integer usuarioId;
 }
