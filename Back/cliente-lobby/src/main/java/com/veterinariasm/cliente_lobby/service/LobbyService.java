@@ -15,6 +15,7 @@ import com.veterinariasm.cliente_lobby.repo.UserRepo;
 
 @Service 
 public class LobbyService {
+    
     @Autowired 
     private AdminRepo repoAdmin;
 
