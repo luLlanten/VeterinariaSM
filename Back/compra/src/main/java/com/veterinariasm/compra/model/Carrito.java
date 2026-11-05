@@ -20,7 +20,7 @@ public class Carrito {
     private Integer cantidad;
 
     @Column 
-    private Integer total;
+    private Double total;
 
     @Column (name= "usuario_id")
     private Integer usuarioId;

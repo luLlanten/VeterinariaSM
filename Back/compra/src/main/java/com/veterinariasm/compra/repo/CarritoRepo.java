@@ -7,5 +7,5 @@ import com.veterinariasm.compra.model.Carrito;
 
 @Repository 
 public interface CarritoRepo extends JpaRepository<Carrito,Integer> {
-
+    Carrito findByUsuarioId(Integer id);
 }

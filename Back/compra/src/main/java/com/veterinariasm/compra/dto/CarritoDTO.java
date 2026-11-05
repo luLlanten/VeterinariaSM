@@ -10,6 +10,4 @@ import lombok.NoArgsConstructor;
 public class CarritoDTO {
     private Integer cantidad;
     private Integer total;
-    private Integer descuentos;
-    private Integer aniadidos;
 }

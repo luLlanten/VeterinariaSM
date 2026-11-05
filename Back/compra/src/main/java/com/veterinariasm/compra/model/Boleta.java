@@ -21,9 +21,6 @@ public class Boleta {
     @Column (nullable = false)
     private Date fecha;
 
-    @Column (nullable = false)
-    private Double total;
-
     @Column (name = "id_carrito")
-    private Integer carritoId;
+    private Carrito carrito;
 }
