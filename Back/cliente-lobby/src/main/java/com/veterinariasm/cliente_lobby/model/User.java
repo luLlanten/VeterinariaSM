@@ -33,6 +33,9 @@ public class User {
     @Column (nullable = false)
     private Boolean tipo;
 
+    @Column (nullable = false)
+    private Boolean activo;
+
     @Column (nullable = false,length = 100)
     private String direccion;
 
