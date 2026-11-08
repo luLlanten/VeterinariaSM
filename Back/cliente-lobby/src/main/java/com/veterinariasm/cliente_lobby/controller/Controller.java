@@ -1,5 +1,7 @@
 package com.veterinariasm.cliente_lobby.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -135,6 +137,22 @@ public class Controller {
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping ("/users")
+    public ResponseEntity<List<User>> listUsers(){
+        try {
+            return ResponseEntity.ok(service.todosLosUsers());
+        } catch (Exception e) {
+            return ResponseEntity.noContent().build();
+        }
+    }
+    @GetMapping ("/admins")
+    public ResponseEntity<List<Admin>> listAdmins(){
+        try {
+            return ResponseEntity.ok(service.todosLosAdmins());
+        } catch (Exception e) {
+            return ResponseEntity.noContent().build();
         }
     }
     

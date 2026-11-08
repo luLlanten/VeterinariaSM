@@ -1,6 +1,7 @@
 package com.veterinariasm.cliente_lobby.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,5 +144,11 @@ public class LobbyService {
     }
     public Optional<Admin> buscarAdminPorCorreo(String correo){
         return Optional.of(repoAdmin.findByCorreo(correo));
+    }
+    public List<User> todosLosUsers(){
+        return repoUser.findAll();
+    }
+    public List<Admin> todosLosAdmins(){
+        return repoAdmin.findAll();
     }
 }
