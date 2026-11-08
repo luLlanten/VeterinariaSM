@@ -41,4 +41,7 @@ public class Admin {
     @Column (nullable = false,length = 16)
     private String contrasena;
 
+    @Column (nullable = false)
+    private Boolean activo;
+
 }
