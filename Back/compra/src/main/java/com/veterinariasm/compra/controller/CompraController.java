@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.veterinariasm.compra.dto.ProdCarritoDTO;
+import com.veterinariasm.compra.model.Boleta;
 import com.veterinariasm.compra.model.Carrito;
 import com.veterinariasm.compra.model.MedCarrito;
 import com.veterinariasm.compra.model.SerCarrito;
@@ -100,6 +101,55 @@ public class CompraController {
         }
     }
 
+    //comunicacion con admin
+    @GetMapping ("/admin/boletas")
+    public ResponseEntity<List<Boleta>> getAllBoletas(){
+        try {
+            return ResponseEntity.ok(service.todasLasBoletas());
+        } catch (Exception e) {
+            return ResponseEntity.noContent().build();
+        }
+    }
+    @GetMapping("/admin/carritos")
+    public ResponseEntity<List<Carrito>> getAllCarritos(){
+        try{
+            return ResponseEntity.ok(service.todosLosCarritos());
+        }catch(Exception e){
+            return ResponseEntity.noContent().build();
+        }
+    }
+    @GetMapping ("/admin/boletas/{id}")
+    public ResponseEntity<Boleta> getBoleta(@PathVariable Integer id){
+        try {
+            return ResponseEntity.ok(service.buscarBoleta(id));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping ("/admin/boletas/carrito")
+    public ResponseEntity<List<Boleta>> getBoletasByCarrito(@RequestBody Carrito carrito){
+        try{
+            return ResponseEntity.ok(service.buscarBoletasPorCarrito(carrito));
+        }catch(Exception e){
+            return ResponseEntity.noContent().build();
+        }
+    }
+    @GetMapping ("/admin/carrito/{id}")
+    public ResponseEntity<Carrito> getCarritoById(@PathVariable Integer id){
+        try {
+            return ResponseEntity.ok(service.buscarCarritoPorId(id));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping ("/admin/carrito/user/{id}")
+    public ResponseEntity<Carrito>getCarritoByUser(@PathVariable Integer id ){
+        try {
+            return ResponseEntity.ok(service.buscarCarritoPorUsuario(id));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }

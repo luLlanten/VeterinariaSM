@@ -133,4 +133,24 @@ public class CompraService {
         //la lista de productos tiene por objetivo ser mostrada en la boleta visual del cliente, 
         //la boleta nuestra solo guardara el carrito, que ya guarda los demas datos
     }
+
+    //metodos para admin
+    public List<Boleta> todasLasBoletas(){
+        return boletaRepo.findAll();
+    }
+    public Boleta buscarBoleta(Integer id){
+        return boletaRepo.findById(id).get();
+    }
+    public List<Boleta> buscarBoletasPorCarrito(Carrito carrito){
+        return boletaRepo.findByCarrito(carrito);
+    }
+    public List<Carrito> todosLosCarritos(){
+        return carritoRepo.findAll();
+    }
+    public Carrito buscarCarritoPorId(Integer id){
+        return carritoRepo.findById(id).get();
+    }
+    public Carrito buscarCarritoPorUsuario(Integer id){
+        return carritoRepo.findByUsuarioId(id);
+    }
 }
