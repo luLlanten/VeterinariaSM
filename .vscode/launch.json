@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ClienteLobbyApplication<cliente-lobby>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.veterinariasm.cliente_lobby.ClienteLobbyApplication",
+            "projectName": "cliente-lobby",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
