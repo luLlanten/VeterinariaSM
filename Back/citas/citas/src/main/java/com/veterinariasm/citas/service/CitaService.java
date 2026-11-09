@@ -41,6 +41,7 @@ public class CitaService {
 //=====================================================================================================
     public Cita crearCitaServicio(ServicioRegistroDTO servicioDTO){
         Cita cita = new Cita();
+        cita.setVigencia(true);
 
         CitaServicio citaServicio = new CitaServicio(servicioDTO.getServicio().getId(), cita.getId());
         citaServicioRepo.save(citaServicio);
@@ -90,4 +91,13 @@ public class CitaService {
         return citaHistorialRepo.findByCita(cita);
     }
 
+    public void modificarCita(Cita cita){
+        Cita citaViejo = citaRepo.findById(cita.getId()).get();
+        citaViejo.setFecha(cita.getFecha());
+    }
+
+    public void eliminarCita(Integer id){
+        Cita cita = citaRepo.findById(id).get();
+        cita.setVigencia(false);
+    }
 }

@@ -29,4 +29,7 @@ public class Cita {
 
     @Column (name = "usuario_id")
     private Integer idUsuario;
+
+    @Column (nullable = false)
+    private Boolean vigencia;
 }
