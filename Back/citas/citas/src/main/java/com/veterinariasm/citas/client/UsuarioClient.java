@@ -4,11 +4,13 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.veterinariasm.citas.dto.ServicioDTO;
+import com.veterinariasm.citas.dto.UsuarioDTO;
 
-@FeignClient(name = "cita-client")
-public interface CitaClient {
+@FeignClient (name = "cliente-lobby")
+public interface UsuarioClient {
 
-    @GetMapping("/{id}")
-    ServicioDTO obtenerServicioPorId(@PathVariable("id") Integer id);
+    @GetMapping ("/user/{id}")
+    UsuarioDTO findUsuarioDTOById(@PathVariable Integer id);
+    
+
 }
