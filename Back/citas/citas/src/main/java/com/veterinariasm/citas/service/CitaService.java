@@ -2,10 +2,16 @@ package com.veterinariasm.citas.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
-import com.veterinariasm.citas.client.CitaClient;
+import com.veterinariasm.citas.client.ServicioClient;
+import com.veterinariasm.citas.client.UsuarioClient;
 import com.veterinariasm.citas.dto.ServicioDTO;
+import com.veterinariasm.citas.dto.ServicioRegistroDTO;
+import com.veterinariasm.citas.dto.UsuarioDTO;
 import com.veterinariasm.citas.model.Cita;
 import com.veterinariasm.citas.model.CitaHistorial;
 import com.veterinariasm.citas.model.CitaServicio;
@@ -26,33 +32,62 @@ public class CitaService {
     private CitaHistorialRepo citaHistorialRepo;
 
     @Autowired
-    private CitaClient citaClient;
+    private UsuarioClient usuarioClient;
 
-    public CitaServicio crearCitaServicio(ServicioDTO servicioDTO){
+    @Autowired
+    private ServicioClient servicioClient;
+
+
+//=====================================================================================================
+    public Cita crearCitaServicio(ServicioRegistroDTO servicioDTO){
         Cita cita = new Cita();
-        cita.setFecha(new java.util.Date());
-        citaRepo.save(cita);
 
-        CitaServicio citaServicio = new CitaServicio(servicioDTO.getId(), cita.getId());
+        CitaServicio citaServicio = new CitaServicio(servicioDTO.getServicio().getId(), cita.getId());
         citaServicioRepo.save(citaServicio);
-        return citaServicio;
+        cita.setFecha(servicioDTO.getFecha());
+        return citaRepo.save(cita);
     }
+
+    public ServicioRegistroDTO linkear(Integer idUser, Integer idServicio){
+        UsuarioDTO user = usuarioClient.findUsuarioDTOById(idUser);
+        ServicioDTO servicio = servicioClient.findServicioDTOById(idServicio);
+
+        ServicioRegistroDTO servicioRegistro = new ServicioRegistroDTO();
+        servicioRegistro.setServicio(servicio);
+        servicioRegistro.setUsuario(user);
+        return servicioRegistro;
+    }
+
+    public ServicioRegistroDTO registrarFecha(Date fecha,ServicioRegistroDTO servicioRegistroDTO){
+        servicioRegistroDTO.setFecha(fecha);
+        return servicioRegistroDTO;
+    }
+//=====================================================================================================
 
     public CitaHistorial guardarHistorial(Cita cita){
         CitaHistorial historial = new CitaHistorial();
-        historial.setFecha_registro(new java.sql.Date(System.currentTimeMillis())); 
-        historial.setFecha_cita(new java.sql.Date(cita.getFecha().getTime())); 
+        historial.setFecha_registro(new Date()); 
+        historial.setFecha_cita(cita.getFecha()); 
         historial.setRealizada(false); 
         
         citaHistorialRepo.save(historial);
         return historial;
     }
 
-    public ServicioDTO obtenerServicioPorCita(Integer citaId) {
-        Optional<CitaServicio> relacion = citaServicioRepo.findById(citaId);
-        if (relacion.isPresent()) {
-            return citaClient.obtenerServicioPorId(relacion.get().getServicio_id());
-        }
-        return null;
+    public CitaHistorial buscarHistorialPorId(Integer id){
+        return citaHistorialRepo.findById(id).get();
     }
+
+    public Cita buscarCitaPorId(Integer id){
+        return citaRepo.findById(id).get();
+    }
+
+    public  List<Cita> buscarCitasPorUsuario(Integer id){
+        return citaRepo.findByIdUsuario(id);
+    }
+
+    public CitaHistorial buscarHistorialPorUsuario(Cita cita){
+        return citaHistorialRepo.findByCita(cita);
+    }
+
 }

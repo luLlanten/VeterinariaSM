@@ -4,9 +4,13 @@ package com.veterinariasm.citas.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.veterinariasm.citas.model.Cita;
 import com.veterinariasm.citas.model.CitaHistorial;
+import java.util.List;
+
 
 @Repository 
 public interface CitaHistorialRepo extends JpaRepository<CitaHistorial, Integer> {
-
+CitaHistorial findByCita(Cita cita);
+    
 }

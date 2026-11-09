@@ -26,4 +26,7 @@ public class Cita {
 
     @Column (nullable = false)
     private Date fecha;
+
+    @Column (name = "usuario_id")
+    private Integer idUsuario;
 }
