@@ -2,6 +2,7 @@ package com.veterinariasm.compra.model;
 
 import java.util.Date;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity  
 @Table (name = "boleta")
+@Schema (description = "Guarda los datos de compra del carrito, incluyendo la fecha")
 public class Boleta {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
