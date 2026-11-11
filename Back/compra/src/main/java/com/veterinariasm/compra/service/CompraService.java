@@ -59,6 +59,7 @@ public class CompraService {
         Carrito carrito=carritoRepo.findById(id).get();
         carrito.setCantidad(0);
         carrito.setTotal(0.0);
+        carritoRepo.save(carrito);
         //Mantiene los id del cliente y el propio
     }
     public void aniadirServicio(Integer idServ, Integer idCarrito){
@@ -70,6 +71,7 @@ public class CompraService {
         serCarritoRepo.save(serCarrito);
         carrito.setCantidad(carrito.getCantidad()+1);
         carrito.setTotal(carrito.getTotal()+servicio.getPrecio());
+        carritoRepo.save(carrito);
     }
     public List<SerCarrito> verServiciosElegidos(Integer idCarrito){
         //muestra todos los servicios guareadados en el carrito
@@ -93,6 +95,7 @@ public class CompraService {
         medCarritoRepo.save(medCarrito);
         carrito.setCantidad(carrito.getCantidad()+1);
         carrito.setTotal(carrito.getTotal()+med.getPrecio());
+        carritoRepo.save(carrito);
     }
     public List<MedCarrito> verMedicamentosElegidos(Integer idCarrito){
         Carrito carrito=carritoRepo.findById(idCarrito).get();

@@ -114,12 +114,14 @@ public class LobbyService {
         //aca no uso optional porque en teoria el usuario ya inicio sesion, es decir, no se encontrara con un usuario nulo
         User user=repoUser.findByCorreo(userDTO.getCorreo());
         user.setActivo(false);
+        repoUser.save(user);
     }//como tal no se borra el usuario, solo se desactiva
 
     public void deleteAdmin(AdminDTO userDTO){
         //igual que en delete user pero en admin
         Admin user=repoAdmin.findByCorreo(userDTO.getCorreo());
         user.setActivo(false);
+        repoAdmin.save(user);
     }
 
     public void updateUser(User user){
@@ -129,6 +131,7 @@ public class LobbyService {
         userViejo.setNombre(user.getNombre());
         userViejo.setDireccion(user.getDireccion());
         userViejo.setTelefono(user.getTelefono());
+        repoUser.save(userViejo);
     }//la contraseña se cambiara en otro metodo (recuperar cuenta)
 
     public void updateAdmin(Admin user){
@@ -137,6 +140,7 @@ public class LobbyService {
         userViejo.setApellido(user.getApellido());
         userViejo.setNombre(user.getNombre());
         userViejo.setTelefono(user.getTelefono());
+        repoAdmin.save(userViejo);
     }
 
     //agregar recuperar cuenta

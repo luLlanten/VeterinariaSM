@@ -93,10 +93,12 @@ public class CitaService {
     public void modificarCita(Cita cita){
         Cita citaViejo = citaRepo.findById(cita.getId()).get();
         citaViejo.setFecha(cita.getFecha());
+        citaRepo.save(citaViejo);
     }
 
     public void eliminarCita(Integer id){
         Cita cita = citaRepo.findById(id).get();
         cita.setVigencia(false);
+        citaRepo.save(cita);
     }
 }
