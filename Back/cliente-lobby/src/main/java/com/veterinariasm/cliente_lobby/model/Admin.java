@@ -2,6 +2,7 @@ package com.veterinariasm.cliente_lobby.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
@@ -60,6 +61,7 @@ public class Admin {
 
     @Column (nullable = false,length = 16)
     @Size (min = 8)
+    @JsonProperty (access = JsonProperty.Access.WRITE_ONLY)
     private String contrasena;
 
     @Column (nullable = false)
