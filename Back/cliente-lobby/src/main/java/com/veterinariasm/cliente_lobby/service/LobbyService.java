@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.veterinariasm.cliente_lobby.dto.AdminDTO;
 import com.veterinariasm.cliente_lobby.dto.UserDTO;
 import com.veterinariasm.cliente_lobby.model.Admin;
@@ -23,11 +25,15 @@ public class LobbyService {
     @Autowired 
     private UserRepo repoUser;
 
+    @Autowired 
+    private PasswordEncoder passwordEncoder;
+
+
     public Boolean loginUser(UserDTO userDTO){
         //primero buscara el correo, luego confirmara si la contraseña corresponde con la del usuario del correo
         Optional<User> user = Optional.of(repoUser.findByCorreo(userDTO.getCorreo()));
         if (user.isPresent()){
-            if(user.get().getContrasena().equals(userDTO.getContrasena())&& user.get().getActivo()){
+            if(user.get().getContrasena().equals(passwordEncoder.encode(userDTO.getContrasena()))&& user.get().getActivo()){
                 return true;
             }else{
                 return false;
@@ -40,7 +46,7 @@ public class LobbyService {
         //primero buscara el correo, luego confirmara si la contraseña corresponde con la del usuario admin del correo
         Optional<Admin> user = Optional.of(repoAdmin.findByCorreo(adminDTO.getCorreo()));
         if (user.isPresent()){
-            if(user.get().getContrasena().equals(adminDTO.getCorreo())&& user.get().getActivo()){
+            if(user.get().getContrasena().equals(passwordEncoder.encode(adminDTO.getContrasena()))&& user.get().getActivo()){
                 return true;
             }else{
                 return false;
@@ -60,13 +66,14 @@ public class LobbyService {
         }
     } 
     public User crearUser(UserDTO userDTO,String numbre,String apellido, String direccion,Integer telefono){
-        if(userDTO.equals(null)){
+        if(!userDTO.equals(null)){
             User usuarioNuevo=new User();
+            String contraEncriptada= passwordEncoder.encode(userDTO.getContrasena());
             usuarioNuevo.setNombre(numbre);
             usuarioNuevo.setApellido(apellido);
             usuarioNuevo.setFechaIngreso(new Date());
             usuarioNuevo.setCorreo(userDTO.getCorreo());
-            usuarioNuevo.setContrasena(userDTO.getContrasena());
+            usuarioNuevo.setContrasena(contraEncriptada);
             usuarioNuevo.setDireccion(direccion);
             usuarioNuevo.setTelefono(telefono);
             usuarioNuevo.setTipo(false);
@@ -88,8 +95,9 @@ public class LobbyService {
     public Admin crearAdmin(AdminDTO adminDTO,String nombre,String apellido,Integer telefono){
         if(adminDTO.equals(null)){
             Admin adminNuevo=new Admin();
+            String contraEncriptada= passwordEncoder.encode(adminDTO.getContrasena());
             adminNuevo.setCorreo(adminDTO.getCorreo());
-            adminNuevo.setContrasena(adminDTO.getContrasena());
+            adminNuevo.setContrasena(contraEncriptada);
             adminNuevo.setNombre(nombre);
             adminNuevo.setFechaIngreso(new Date());
             adminNuevo.setApellido(apellido);
@@ -152,4 +160,6 @@ public class LobbyService {
     public List<Admin> todosLosAdmins(){
         return repoAdmin.findAll();
     }
+
+
 }

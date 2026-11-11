@@ -2,6 +2,8 @@ package com.veterinariasm.cliente_lobby.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -61,6 +63,7 @@ public class User {
 
     @Column (nullable = false,length = 16)
     @Size (min = 8)
+    @JsonProperty (access = JsonProperty.Access.WRITE_ONLY) // permite mandar json, pero no recibir por parte del usuario.
     private String contrasena;
     
     //olvide poner las contraseñas y los correos 
