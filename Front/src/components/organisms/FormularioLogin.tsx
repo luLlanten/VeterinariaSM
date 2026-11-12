@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import CampoInput from "../molecules/CampoInput";
 import { Link } from "react-router-dom";
-
+import type { SubmitEvent } from "react";
 
 function FormularioLogin(){
     const[correo, setCorreo] = useState("");
@@ -9,10 +9,12 @@ function FormularioLogin(){
     const[ruta, setRuta] = useState("");
     const formatoNormal =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
     const formatoAdmin=/^[a-zA-Z0-9._-]+@+sanmarcos+\.+cl$/
+    const [enviando, setEnviando] =useState(false);
 
-    const Login = (e: React.SubmitEvent<HTMLFormElement>) => {
+    const Login = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        if (enviando) return;
 
         if (correo.trim() === ""){
             alert("Debe Ingresar Su Correo");
@@ -23,11 +25,39 @@ function FormularioLogin(){
             return;
         }
          if (formatoAdmin.test(correo)){
+            setEnviando(true);
+            try{
+                const respuesta = await fetch(
+                    "http://localhost:8080/lobby/login/admin"
+                );
+                if(!respuesta.ok){
+                    throw new Error(`Error HTTP ${respuesta.status}`);
+                }
+            }catch(error){
+                console.error("Error al ingresar",error);
+                alert("Intente ingresar nuevamente")
+                setEnviando(false)
+                return;
+            }
             alert("Ingreso correcto");
             setRuta("/admin");
             return;
         }
         if (formatoNormal.test(correo)){
+            setEnviando(true);
+            try{
+                const respuesta = await fetch(
+                    "http://localhost:8080/lobby/login"
+                );
+                if(!respuesta.ok){
+                    throw new Error(`Error HTTP ${respuesta.status}`);
+                }
+            }catch(error){
+                console.error("Error al ingresar",error);
+                alert("Intente ingresar nuevamente")
+                setEnviando(false)
+                return;
+            }
             alert("Ingreso correcto");
             setRuta("/");
             return;
@@ -52,8 +82,8 @@ function FormularioLogin(){
             valor={contrasena}
             alCambiar={setContrasena}
             />
-            <button type="submit" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
-                Iniciar Sesion
+            <button type="submit" disabled={enviando} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
+                {enviando ? "Ingresando":"Iniciar Sesion" }
             </button>
              {ruta !== "" && (
                 <Link to={ruta} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>

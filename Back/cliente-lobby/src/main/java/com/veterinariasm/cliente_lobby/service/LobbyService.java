@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.veterinariasm.cliente_lobby.dto.AdminDTO;
 import com.veterinariasm.cliente_lobby.dto.UserDTO;
 import com.veterinariasm.cliente_lobby.model.Admin;
@@ -23,11 +25,15 @@ public class LobbyService {
     @Autowired 
     private UserRepo repoUser;
 
+    @Autowired 
+    private PasswordEncoder passwordEncoder;
+
+
     public Boolean loginUser(UserDTO userDTO){
         //primero buscara el correo, luego confirmara si la contraseña corresponde con la del usuario del correo
         Optional<User> user = Optional.of(repoUser.findByCorreo(userDTO.getCorreo()));
         if (user.isPresent()){
-            if(user.get().getContrasena().equals(userDTO.getContrasena())&& user.get().getActivo()){
+            if(user.get().getContrasena().equals(passwordEncoder.encode(userDTO.getContrasena()))&& user.get().getActivo()){
                 return true;
             }else{
                 return false;
@@ -40,7 +46,7 @@ public class LobbyService {
         //primero buscara el correo, luego confirmara si la contraseña corresponde con la del usuario admin del correo
         Optional<Admin> user = Optional.of(repoAdmin.findByCorreo(adminDTO.getCorreo()));
         if (user.isPresent()){
-            if(user.get().getContrasena().equals(adminDTO.getCorreo())&& user.get().getActivo()){
+            if(user.get().getContrasena().equals(passwordEncoder.encode(adminDTO.getContrasena()))&& user.get().getActivo()){
                 return true;
             }else{
                 return false;
@@ -60,13 +66,14 @@ public class LobbyService {
         }
     } 
     public User crearUser(UserDTO userDTO,String numbre,String apellido, String direccion,Integer telefono){
-        if(userDTO.equals(null)){
+        if(!userDTO.equals(null)){
             User usuarioNuevo=new User();
+            String contraEncriptada= passwordEncoder.encode(userDTO.getContrasena());
             usuarioNuevo.setNombre(numbre);
             usuarioNuevo.setApellido(apellido);
             usuarioNuevo.setFechaIngreso(new Date());
             usuarioNuevo.setCorreo(userDTO.getCorreo());
-            usuarioNuevo.setContrasena(userDTO.getContrasena());
+            usuarioNuevo.setContrasena(contraEncriptada);
             usuarioNuevo.setDireccion(direccion);
             usuarioNuevo.setTelefono(telefono);
             usuarioNuevo.setTipo(false);
@@ -88,8 +95,9 @@ public class LobbyService {
     public Admin crearAdmin(AdminDTO adminDTO,String nombre,String apellido,Integer telefono){
         if(adminDTO.equals(null)){
             Admin adminNuevo=new Admin();
+            String contraEncriptada= passwordEncoder.encode(adminDTO.getContrasena());
             adminNuevo.setCorreo(adminDTO.getCorreo());
-            adminNuevo.setContrasena(adminDTO.getContrasena());
+            adminNuevo.setContrasena(contraEncriptada);
             adminNuevo.setNombre(nombre);
             adminNuevo.setFechaIngreso(new Date());
             adminNuevo.setApellido(apellido);
@@ -106,12 +114,14 @@ public class LobbyService {
         //aca no uso optional porque en teoria el usuario ya inicio sesion, es decir, no se encontrara con un usuario nulo
         User user=repoUser.findByCorreo(userDTO.getCorreo());
         user.setActivo(false);
+        repoUser.save(user);
     }//como tal no se borra el usuario, solo se desactiva
 
     public void deleteAdmin(AdminDTO userDTO){
         //igual que en delete user pero en admin
         Admin user=repoAdmin.findByCorreo(userDTO.getCorreo());
         user.setActivo(false);
+        repoAdmin.save(user);
     }
 
     public void updateUser(User user){
@@ -121,6 +131,7 @@ public class LobbyService {
         userViejo.setNombre(user.getNombre());
         userViejo.setDireccion(user.getDireccion());
         userViejo.setTelefono(user.getTelefono());
+        repoUser.save(userViejo);
     }//la contraseña se cambiara en otro metodo (recuperar cuenta)
 
     public void updateAdmin(Admin user){
@@ -129,6 +140,7 @@ public class LobbyService {
         userViejo.setApellido(user.getApellido());
         userViejo.setNombre(user.getNombre());
         userViejo.setTelefono(user.getTelefono());
+        repoAdmin.save(userViejo);
     }
 
     //agregar recuperar cuenta
@@ -152,4 +164,6 @@ public class LobbyService {
     public List<Admin> todosLosAdmins(){
         return repoAdmin.findAll();
     }
+
+
 }

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Veterinaria San Marcos">
+  <circle cx="32" cy="32" r="32" fill="#F5F1E6"/>
+  <g fill="#33553A"><g transform="rotate(-20 17 28)"><ellipse cx="17" cy="28" rx="5" ry="7"/></g><g transform="rotate(-8 25.5 17)"><ellipse cx="25.5" cy="17" rx="5" ry="7.2"/></g><g transform="rotate(8 38.5 17)"><ellipse cx="38.5" cy="17" rx="5" ry="7.2"/></g><g transform="rotate(20 47 28)"><ellipse cx="47" cy="28" rx="5" ry="7"/></g><path d="M32 29C22 29 14 38 14 45C14 51 19 54 24 53C28 52 29 51 32 51C35 51 36 52 40 53C45 54 50 51 50 45C50 38 42 29 32 29Z"/></g>
+  <g fill="#F5F1E6"><rect x="30" y="38" width="4" height="10" rx="1"/><rect x="27" y="41" width="10" height="4" rx="1"/></g>
+</svg>

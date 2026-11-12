@@ -8,7 +8,6 @@ import com.veterinariasm.citas.model.Cita;
 import com.veterinariasm.citas.model.CitaHistorial;
 
 
-
 @Repository 
 public interface CitaHistorialRepo extends JpaRepository<CitaHistorial, Integer> {
 CitaHistorial findByCita(Cita cita);

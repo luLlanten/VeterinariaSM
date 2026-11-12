@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,10 +21,12 @@ public class Carrito {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false) 
+    @Column(nullable = false)
+    @Min (value = 1) 
     private Integer cantidad;
 
     @Column 
+    @Min (value = 0)
     private Double total;
 
     @Column (name= "usuario_id")
