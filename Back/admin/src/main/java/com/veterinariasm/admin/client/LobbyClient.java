@@ -1,5 +1,7 @@
 package com.veterinariasm.admin.client;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,4 +16,10 @@ public interface LobbyClient {
 
     @GetMapping ("/user/{id}")
     UserDTO findUserById(@PathVariable Integer id);
+
+    @GetMapping ("/users")
+    List<UserDTO>listUsers();
+
+    @GetMapping ("/admins")
+    List<AdminDTO>listAdmins();
 }
