@@ -47,24 +47,27 @@ public class Admin {
     private String apellido;
 
     @Column (nullable = false,length = 8)
-    @Pattern (regexp = "^[0-9]$")
     @Schema (description = "telefono (contacto del usuario)")
     private Integer telefono;
 
     @Column (nullable = false, name = "fecha_ingreso")
     @Temporal(TemporalType.TIMESTAMP) 
+    @Schema (description = "fecha de ingreso (para saber en que fecha se ha ingresado el usuario)")
     private Date fechaIngreso;
 
     @Column (nullable = false,unique = false)
     @Email 
+    @Schema (description = "correo (correo del usuario)")
     private String correo;
 
     @Column (nullable = false,length = 16)
     @Size (min = 8)
     @JsonProperty (access = JsonProperty.Access.WRITE_ONLY)
+    @Schema (description = "contrasena (contrasena del usuario)")
     private String contrasena;
 
     @Column (nullable = false)
+    @Schema (description = "estado del usuario (para saber si es un usuario con cuenta valida o invalida)")
     private Boolean activo;
 
 }
