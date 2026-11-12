@@ -22,6 +22,8 @@ import com.veterinariasm.compra.repo.CarritoRepo;
 import com.veterinariasm.compra.repo.MedCarritoRepo;
 import com.veterinariasm.compra.repo.SerCarritoRepo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Service 
 public class CompraService {
     @Autowired 
@@ -42,6 +44,7 @@ public class CompraService {
     @Autowired 
     private UsuarioClient usuarioClient;
 
+    @Schema (description = "metodo para crear carrito")
     public Carrito crearCarrito(Integer id){
         UsuarioDTO usuarioDTO=usuarioClient.finUsuarioDTO(id);
         if(!usuarioDTO.equals(null) && carritoRepo.findByUsuarioId(usuarioDTO.getId()).equals(null)){
@@ -54,6 +57,8 @@ public class CompraService {
             return null;
         }
     }
+
+    @Schema (description = "metodo para vaciar carrito")
     public void vaciarCarrito(Integer id){
         //Vacia el carrito despues de realizar una compra
         Carrito carrito=carritoRepo.findById(id).get();
@@ -62,6 +67,8 @@ public class CompraService {
         carritoRepo.save(carrito);
         //Mantiene los id del cliente y el propio
     }
+
+    @Schema (description = "metodo para agregar servicio")
     public void aniadirServicio(Integer idServ, Integer idCarrito){
         //desde servicio, se mandan los datos del servicio elegido a un sercarrito, el cual identifica al carrito 
         //luego, a medida que se crea un sercarrito, este suma los precios 
@@ -73,12 +80,16 @@ public class CompraService {
         carrito.setTotal(carrito.getTotal()+servicio.getPrecio());
         carritoRepo.save(carrito);
     }
+
+    @Schema (description = "metodo para ver los servicios elegidos")
     public List<SerCarrito> verServiciosElegidos(Integer idCarrito){
         //muestra todos los servicios guareadados en el carrito
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         List<SerCarrito> lista=serCarritoRepo.findByCarrito(carrito);
         return lista;
     }
+
+    @Schema (description = "metodo para eliminar servicio")
     public void eliminarServicio(Integer idServicio,Integer idCarrito){
         //elimina los servicios del carrito individualmente (deberia ser a opcion del usuario)
         ServicioDTO servicio = catalogoClient.findServicioDTO(idServicio);
@@ -88,6 +99,7 @@ public class CompraService {
     }
 
     //igual que servicios, pero para medicamentos
+    @Schema (description = "metodo para agregar medicamento")
     public void aniadirMedicamento(Integer idMed, Integer idCarrito){
         MedicamentoDTO med = catalogoClient.findMedicamentoDTO(idMed);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
@@ -97,11 +109,15 @@ public class CompraService {
         carrito.setTotal(carrito.getTotal()+med.getPrecio());
         carritoRepo.save(carrito);
     }
+
+    @Schema (description = "metodo para ver medicamentos elegidos")
     public List<MedCarrito> verMedicamentosElegidos(Integer idCarrito){
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         List<MedCarrito> lista=medCarritoRepo.findByCarrito(carrito);
         return lista;
     }
+
+    @Schema (description = "metodo para eliminar medicamento")
     public void eliminarMedicamento(Integer idMedicamento,Integer idCarrito){
         MedicamentoDTO medicamento = catalogoClient.findMedicamentoDTO(idMedicamento);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
@@ -109,6 +125,7 @@ public class CompraService {
         medCarritoRepo.delete(medCarrito);
     }
 
+    @Schema (description = "metodo para comprar")
     public List<ProdCarritoDTO> comprar(Carrito carrito){
         //se llama al carrito y a los sercarrito y medcarritos que tengan los mismos id de usuario y carrito
         //aqui tambien se guarda la boleta
@@ -136,22 +153,34 @@ public class CompraService {
         //la boleta nuestra solo guardara el carrito, que ya guarda los demas datos
     }
 
+
     //metodos para admin
+    @Schema (description = "metodo que muestra todas las boletas")
     public List<Boleta> todasLasBoletas(){
         return boletaRepo.findAll();
     }
+
+    @Schema (description = "metodo para buscar boleta por id")
     public Boleta buscarBoleta(Integer id){
         return boletaRepo.findById(id).get();
     }
+
+    @Schema (description = "metodo para buscar boletas por el carrito")
     public List<Boleta> buscarBoletasPorCarrito(Carrito carrito){
         return boletaRepo.findByCarrito(carrito);
     }
+
+    @Schema (description = "metodo para mostrar todos los carritos")
     public List<Carrito> todosLosCarritos(){
         return carritoRepo.findAll();
     }
+
+    @Schema (description = "metodo para buscar carrito por id")
     public Carrito buscarCarritoPorId(Integer id){
         return carritoRepo.findById(id).get();
     }
+    
+    @Schema (description = "metodo para buscar carrito por el usuario")
     public Carrito buscarCarritoPorUsuario(Integer id){
         return carritoRepo.findByUsuarioId(id);
     }

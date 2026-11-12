@@ -67,7 +67,7 @@ public class Admin {
     private String contrasena;
 
     @Column (nullable = false)
-    @Schema (description = "estado del usuario (para saber si es un usuario con cuenta valida o invalida)")
+    @Schema (description = "estado del usuario (para saber si es un usuario con cuenta activa o inactiva)")
     private Boolean activo;
 
 }

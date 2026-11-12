@@ -40,6 +40,17 @@ public class FichaController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @PostMapping("/necropsia")
+    public ResponseEntity<Necropsia>crearNecropsia(@RequestBody Necropsia necropsia) {
+        try {
+            Necropsia nuevo = fichaService.crearNecropsia(necropsia);
+            return ResponseEntity.ok(nuevo);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    
     
     @PatchMapping ("/editar-ficha/{id}")
     public ResponseEntity<Mascota> darAlta(@PathVariable Integer id){
