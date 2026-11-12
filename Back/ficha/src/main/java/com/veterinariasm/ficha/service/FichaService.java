@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.veterinariasm.ficha.client.UsuarioClient;
 import com.veterinariasm.ficha.dto.FichaDTO;
 import com.veterinariasm.ficha.dto.MascotaDTO;
+import com.veterinariasm.ficha.dto.UsuarioDTO;
 import com.veterinariasm.ficha.model.Ficha;
 import com.veterinariasm.ficha.model.Mascota;
 import com.veterinariasm.ficha.model.Necropsia;
@@ -29,13 +30,18 @@ public class FichaService {
 
     public Boolean crearFicha(FichaDTO ficha){
         try{
-        Ficha nuevo = new Ficha();
-        nuevo.setFecha_ficha(new Date());
-        nuevo.setAntecedentes(ficha.getAntecedentes());
-        nuevo.setIdUsuario(ficha.getUsuarioDTO());
-        nuevo.setIdMascota(ficha.getMascotaDTO());
-        fichaRepo.save(nuevo);
-        return true;
+            Ficha nuevo = new Ficha();
+            UsuarioDTO usuario= usuarioClient.findUsuarioDTOById(ficha.getUsuarioDTO());
+            if(!usuario.equals(null)){
+                nuevo.setFecha_ficha(new Date());
+                nuevo.setAntecedentes(ficha.getAntecedentes());
+                nuevo.setIdUsuario(usuario.getId());
+                nuevo.setIdMascota(ficha.getMascotaDTO());
+                fichaRepo.save(nuevo);
+                return true;
+            }else{
+                return false;
+            }
         }catch (Exception e) {
             return false;
         }
@@ -53,6 +59,7 @@ public class FichaService {
         nuevo.setRaza(mascota.getRaza());
         nuevo.setActivo(mascota.getActivo());
         nuevo.setChip(mascota.getChip());
+        nuevo.setIdUsuario(null);
         return mascotaRepo.save(nuevo);
     }
 
@@ -91,5 +98,7 @@ public class FichaService {
         Mascota mascota = mascotaRepo.findById(id).get();
         mascota.setActivo(false);
     }
+
+
 
 }
