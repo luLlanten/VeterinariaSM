@@ -12,6 +12,7 @@ function Navbar(){
                     <ul className="navbar-nav ms-auto align-items-lg-center">
                         <li className="nav-item"><a className="nav-link" href="/#noticias">Noticias</a></li>
                         <li className="nav-item"><a className="nav-link" href="/#servicios">Servicios</a></li>
+                        <li className="nav-item"><Link className="nav-link" to={"/nosotros"}>Nosotros</Link></li>
                         <li className="nav-item"><Link className="nav-link" to={"/login"}>Iniciar Sesion</Link></li>
                         <li className="nav-item"><Link className="boton-cuenta" to={"/registro"}>Crear Cuenta</Link></li>
                     </ul>
