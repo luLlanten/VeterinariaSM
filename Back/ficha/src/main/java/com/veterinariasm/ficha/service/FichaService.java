@@ -69,11 +69,11 @@ public class FichaService {
         return mascotaRepo.save(mascota);
     }
 
-    public List<Mascota> buscarMascotaPorId(Integer id){
+    public List<Mascota> buscarMascotaPorUsuario(Integer id){
         return mascotaRepo.findByIdUsuario(id);
     }
 
-    public List<Ficha> buscarFichaPorId(Integer id){
+    public List<Ficha> buscarFichaPorUsuario(Integer id){
         return fichaRepo.findByIdUsuario(id);
     }
 
@@ -99,6 +99,23 @@ public class FichaService {
         mascota.setActivo(false);
     }
 
+    public Mascota buscarMascotaPorId(Integer id){
+        return mascotaRepo.findById(id).get();
+    }
 
-
+    public Ficha buscarFichaPorId(Integer id){
+        return fichaRepo.findById(id).get();
+    }
+    public Necropsia buscarNecropsiaPorId(Integer id){
+        return necropsiaRepo.findById(id).get();
+    }
+    public List<Mascota> todasLasMascotas(){
+        return mascotaRepo.findAll();
+    }
+    public List<Ficha> todasLasFichas(){
+        return fichaRepo.findAll();
+    }
+    public List<Necropsia> todasLasNecropsias(){
+        return necropsiaRepo.findAll();
+    }
 }

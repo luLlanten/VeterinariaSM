@@ -30,7 +30,7 @@ public class FichaController {
     @Autowired 
     private FichaService fichaService;
 
-    @PostMapping("/crear/ficha")
+    @PostMapping("/crear")
     public ResponseEntity<Mascota> crearFichaMascota(@RequestBody FichaCompletaDTO ficha) {
         try{
             Boolean creado = fichaService.crearFicha(ficha.getFicha());
@@ -41,7 +41,7 @@ public class FichaController {
         }
     }
     
-    @PatchMapping ("/editar/ficha/{id}")
+    @PatchMapping ("/editar-ficha/{id}")
     public ResponseEntity<Mascota> darAlta(@PathVariable Integer id){
         try{
             Mascota mascota = fichaService.darAlta(id);
@@ -51,10 +51,10 @@ public class FichaController {
         }
     }
 
-    @GetMapping("/ficha/{id}")
-    public ResponseEntity<List<Mascota>> buscarMascotaPorId(@PathVariable Integer id) {
+    @GetMapping("/mascota/user/{id}")
+    public ResponseEntity<List<Mascota>> buscarMascotaPorUser(@PathVariable Integer id) {
         try {
-            List<Mascota> buscar = fichaService.buscarMascotaPorId(id);
+            List<Mascota> buscar = fichaService.buscarMascotaPorUsuario(id);
             if (!buscar.equals(null)) 
                 {return ResponseEntity.ok(buscar);}
             else{
@@ -65,10 +65,10 @@ public class FichaController {
         }
     }
 
-    @GetMapping("/ficha/{id}")
-    public ResponseEntity<List<Ficha>> buscarFichaPorId(@PathVariable Integer id) {
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<Ficha>> buscarFichaPorIdUser(@PathVariable Integer id) {
         try {
-            List<Ficha> buscar = fichaService.buscarFichaPorId(id);
+            List<Ficha> buscar = fichaService.buscarFichaPorUsuario(id);
             if (!buscar.equals(null)) 
                 {return ResponseEntity.ok(buscar);}
             else{
@@ -79,7 +79,7 @@ public class FichaController {
         }
     }
 
-    @GetMapping("/necropsia/{id}")
+    @GetMapping("/necropsia/mascota/{id}")
     public ResponseEntity<Necropsia> buscarNecropsiaPorIdMascota(@PathVariable Integer id) {
         try {
             Necropsia buscar = fichaService.buscarNecropsiaPorIdMascota(id);
@@ -93,7 +93,7 @@ public class FichaController {
         }
     }
 
-    @GetMapping("/necropsia/{id}")
+    @GetMapping("/necropsia/user/{id}")
     public ResponseEntity<List<Necropsia>> buscarNecropsiaPorIdUsuario(@PathVariable Integer id) {
         try {
             List<Necropsia> buscar = fichaService.buscarNecropsiaPorIdUsuario(id);
@@ -107,7 +107,7 @@ public class FichaController {
         }
     }
 
-    @PutMapping("/editar/ficha/{id}")
+    @PutMapping("/editar-mascota/{id}")
     public ResponseEntity<Mascota> modificarMascota(@RequestBody Mascota mascota) {
         try {
             fichaService.modificarMascota(mascota);
@@ -118,7 +118,7 @@ public class FichaController {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Void> desactivarCita(@PathVariable Integer id){
+    public ResponseEntity<Void> desactivarMascota(@PathVariable Integer id){
         try{
             fichaService.desactivarMascota(id);
             return ResponseEntity.noContent().build();
@@ -126,5 +126,73 @@ public class FichaController {
             return ResponseEntity.notFound().build();
         }
     } 
+
+    @GetMapping ("/{id}")
+    public ResponseEntity<Ficha> getFichaById(@PathVariable Integer id){
+        try {
+            Ficha ficha=fichaService.buscarFichaPorId(id);
+            if (ficha.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(ficha);
+            }
+             
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping
+    public ResponseEntity<List<Ficha>>getAllFicha(){
+        List<Ficha> lista=fichaService.todasLasFichas();
+        if(lista.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }else{
+            return ResponseEntity.ok(lista);
+        }
+    }
+    @GetMapping ("/mascota/{id}")
+    public ResponseEntity<Mascota>getMascotaPorId(Integer id){
+        try {
+            Mascota mascota=fichaService.buscarMascotaPorId(id);
+            if (mascota.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(mascota);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping ("/mascota")
+    public ResponseEntity<List<Mascota>>getAllMascota(){
+        List<Mascota> lista=fichaService.todasLasMascotas();
+        if(lista.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }else{
+            return ResponseEntity.ok(lista);
+        }
+    }
+    @GetMapping("/necropsia/{id}")
+    public ResponseEntity<Necropsia>getNecropsiaPorId(Integer id){
+        try {
+            Necropsia necropsia=fichaService.buscarNecropsiaPorId(id);
+            if (necropsia.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(necropsia);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping ("/necropsia")
+    public ResponseEntity<List<Necropsia>>getAllNecropsia(){
+        List<Necropsia> lista=fichaService.todasLasNecropsias();
+        if(lista.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }else{
+            return ResponseEntity.ok(lista);
+        }
+    }
 
 }
