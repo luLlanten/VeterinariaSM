@@ -164,6 +164,14 @@ public class LobbyService {
     public List<Admin> todosLosAdmins(){
         return repoAdmin.findAll();
     }
-
+    public User setearVeterinario(Integer id){
+        User user=repoUser.findById(id).get();
+        if(!user.equals(null)){
+            user.setTipo(true);
+            return repoUser.save(user);
+        }else{
+            return null;
+        }
+    }
 
 }

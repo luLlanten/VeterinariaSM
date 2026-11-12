@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.veterinariasm.admin.dto.AdminDTO;
@@ -22,4 +23,7 @@ public interface LobbyClient {
 
     @GetMapping ("/admins")
     List<AdminDTO>listAdmins();
+
+    @PatchMapping ("/user/veterinario/{id}")
+    UserDTO setVeterinario(@PathVariable Integer id);
 }

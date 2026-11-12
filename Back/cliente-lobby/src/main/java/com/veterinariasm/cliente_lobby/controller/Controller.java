@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -155,7 +156,19 @@ public class Controller {
             return ResponseEntity.noContent().build();
         }
     }
-    
+    @PatchMapping ("/user/veterinario/{id}")
+    public ResponseEntity<User> setVeterinario(@PathVariable Integer id){
+        try {
+            User user=service.setearVeterinario(id);
+            if(user.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(user);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
 
 }
