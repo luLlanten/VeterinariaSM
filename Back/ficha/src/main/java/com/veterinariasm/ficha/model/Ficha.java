@@ -16,10 +16,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor 
 @NoArgsConstructor 
 @Entity 
-@Table (name = "ficha_cliente")
+@Table (name = "ficha")
 public class Ficha {
 
     @Id 
+    @Column (name = "ficha_id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 

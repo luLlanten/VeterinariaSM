@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.veterinariasm.citas.model.Cita;
 import com.veterinariasm.citas.model.CitaHistorial;
-import java.util.List;
+
 
 
 @Repository 

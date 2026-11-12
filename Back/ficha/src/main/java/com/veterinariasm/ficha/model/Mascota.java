@@ -34,7 +34,7 @@ public class Mascota {
     private Double peso;
 
     @Column 
-    private Double tamaño;
+    private Double tamanio;
 
     @Column (nullable = false)
     private Date fecha_ingreso;

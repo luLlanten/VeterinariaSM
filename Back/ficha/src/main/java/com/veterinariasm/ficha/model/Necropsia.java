@@ -48,7 +48,7 @@ public class Necropsia {
     @Column (name = "usuario_id")
     private Integer idUsuario;
 
-    @Column (name = "mascota_id")
+    @Column (name = "mascota_id", unique = true)
     private Integer idMascota;
 
 }
