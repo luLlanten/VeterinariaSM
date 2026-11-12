@@ -15,10 +15,7 @@ import com.veterinariasm.admin.dto.NecropsiaDTO;
 
 @FeignClient (name = "ficha")
 public interface FichaClient {
-    @PatchMapping ("/editar-ficha/{id}")
-    MascotaDTO darAlta(@PathVariable Integer id);
-
-    @GetMapping("/user/{id}")
+    @GetMapping("/mascota/user/{id}")
     List<MascotaDTO> buscarMascotaPorUser(@PathVariable Integer id);
 
     @GetMapping("/user/{id}")
@@ -30,9 +27,6 @@ public interface FichaClient {
     @GetMapping("/necropsia/user/{id}")
     List<NecropsiaDTO>buscarNecropsiaPorIdUsuario(@PathVariable Integer id);
 
-    @PutMapping("/editar-mascota/{id}")
-    MascotaDTO modificarMascota(@RequestBody MascotaDTO mascota);
-
     @GetMapping ("/{id}")
     FichaDTO getFichaById(@PathVariable Integer id);
 
@@ -40,13 +34,13 @@ public interface FichaClient {
     List<FichaDTO>getAllFicha();
 
     @GetMapping ("/mascota/{id}")
-    MascotaDTO getMascotaPorId(Integer id);
+    MascotaDTO getMascotaPorId(@PathVariable Integer id);
 
     @GetMapping ("/mascota")
     List<MascotaDTO>getAllMascota();
 
     @GetMapping("/necropsia/{id}")
-    NecropsiaDTO getNecropsiaPorId(Integer id);
+    NecropsiaDTO getNecropsiaPorId(@PathVariable Integer id);
 
     @GetMapping ("/necropsia")
     List<NecropsiaDTO> getAllNecropsia();

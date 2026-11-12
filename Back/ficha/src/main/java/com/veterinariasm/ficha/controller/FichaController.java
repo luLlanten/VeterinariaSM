@@ -151,7 +151,7 @@ public class FichaController {
         }
     }
     @GetMapping ("/mascota/{id}")
-    public ResponseEntity<Mascota>getMascotaPorId(Integer id){
+    public ResponseEntity<Mascota>getMascotaPorId(@PathVariable Integer id){
         try {
             Mascota mascota=fichaService.buscarMascotaPorId(id);
             if (mascota.equals(null)){
@@ -173,7 +173,7 @@ public class FichaController {
         }
     }
     @GetMapping("/necropsia/{id}")
-    public ResponseEntity<Necropsia>getNecropsiaPorId(Integer id){
+    public ResponseEntity<Necropsia>getNecropsiaPorId(@PathVariable Integer id){
         try {
             Necropsia necropsia=fichaService.buscarNecropsiaPorId(id);
             if (necropsia.equals(null)){
