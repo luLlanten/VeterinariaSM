@@ -16,6 +16,8 @@ import com.veterinariasm.ficha.repo.FichaRepo;
 import com.veterinariasm.ficha.repo.MascotaRepo;
 import com.veterinariasm.ficha.repo.NecropsiaRepo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Service 
 public class FichaService {
 
@@ -28,6 +30,7 @@ public class FichaService {
     private UsuarioClient usuarioClient;
 
 
+    @Schema (description = "metodo para crear la ficha")
     public Boolean crearFicha(FichaDTO ficha){
         try{
             Ficha nuevo = new Ficha();
@@ -47,6 +50,7 @@ public class FichaService {
         }
     }
 
+    @Schema (description = "metodo para crear una mascota")
     public Mascota crearMascota(MascotaDTO mascota, Boolean fichaCreada){
         Mascota nuevo = new Mascota();
         nuevo.setNombre(mascota.getNombre());
@@ -63,28 +67,47 @@ public class FichaService {
         return mascotaRepo.save(nuevo);
     }
 
+    @Schema (description = "metodo para crear la necropsia")
+    public Necropsia crearNecropsia (Necropsia necropsia){
+        Necropsia nuevo = new Necropsia();
+        nuevo.setFecha(new Date());
+        nuevo.setCondicion_corporal_visual(necropsia.getCondicion_corporal_visual());
+        nuevo.setGrado_de_descomposicion(necropsia.getGrado_de_descomposicion());
+        nuevo.setExamen(necropsia.getExamen());
+        nuevo.setMuestra_remitidas(necropsia.getMuestra_remitidas());
+        nuevo.setIdUsuario(necropsia.getIdUsuario());
+        nuevo.setIdMascota(necropsia.getIdMascota());
+        return necropsiaRepo.save(nuevo);
+    }
+
+    @Schema (description = "metodo para ingresar la fecha de alta de la mascota")
     public Mascota darAlta(Integer id){
         Mascota mascota = mascotaRepo.findById(id).get();
         mascota.setFecha_alta(new Date());
         return mascotaRepo.save(mascota);
     }
 
+    @Schema (description = "metodo para buscar la mascota por el id del usuario")
     public List<Mascota> buscarMascotaPorUsuario(Integer id){
         return mascotaRepo.findByIdUsuario(id);
     }
 
+    @Schema (description = "metodo para buscar ficha por el id del usuario")
     public List<Ficha> buscarFichaPorUsuario(Integer id){
         return fichaRepo.findByIdUsuario(id);
     }
 
+    @Schema (description = "metodo para buscar necropsia por el id de la mascota")
     public Necropsia buscarNecropsiaPorIdMascota(Integer id){
         return necropsiaRepo.findByIdMascota(id);
     }
 
+    @Schema (description = "metodo para buscar necropsia por el id del usuario")
     public List<Necropsia> buscarNecropsiaPorIdUsuario(Integer id){
         return necropsiaRepo.findByIdUsuario(id);
     }
 
+    @Schema (description = "metodo para modificar a la mascota")
     public Mascota modificarMascota(Mascota mascota){
         Mascota mascotaVieja = mascotaRepo.findById(mascota.getId()).get();
         mascotaVieja.setActivo(mascota.getActivo());
@@ -94,27 +117,38 @@ public class FichaService {
     }
 
 
+    @Schema (description = "metodo para desactivar a una mascota")
     public void desactivarMascota(Integer id){
         Mascota mascota = mascotaRepo.findById(id).get();
         mascota.setActivo(false);
     }
 
+    @Schema (description = "metodo para buscar mascota por el id")
     public Mascota buscarMascotaPorId(Integer id){
         return mascotaRepo.findById(id).get();
     }
 
+    @Schema (description = "metodo para buscar ficha por id")
     public Ficha buscarFichaPorId(Integer id){
         return fichaRepo.findById(id).get();
     }
+
+    @Schema (description = "metodo para buscar necropsia por id")
     public Necropsia buscarNecropsiaPorId(Integer id){
         return necropsiaRepo.findById(id).get();
     }
+
+    @Schema (description = "metodo para buscar a todas las mascotas")
     public List<Mascota> todasLasMascotas(){
         return mascotaRepo.findAll();
     }
+
+    @Schema (description = "metodo para buscar todas las fichas")
     public List<Ficha> todasLasFichas(){
         return fichaRepo.findAll();
     }
+
+    @Schema (description = "metodo para buscar todas las necropsias")
     public List<Necropsia> todasLasNecropsias(){
         return necropsiaRepo.findAll();
     }

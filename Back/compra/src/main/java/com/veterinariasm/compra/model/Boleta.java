@@ -22,11 +22,14 @@ import lombok.NoArgsConstructor;
 public class Boleta {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Schema (description = "id de la boleta")
     private Integer id;
 
     @Column (nullable = false)
+    @Schema (description = "fecha de la boleta")
     private Date fecha;
 
     @Column (name = "id_carrito")
+    @Schema (description = "id del carrito")
     private Carrito carrito;
 }
