@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 
+
 function Navbar(){
     return(
         <nav className="navbar navbar-expand-lg">
@@ -13,6 +14,7 @@ function Navbar(){
                         <li className="nav-item"><a className="nav-link" href="/#noticias">Noticias</a></li>
                         <li className="nav-item"><a className="nav-link" href="/#servicios">Servicios</a></li>
                         <li className="nav-item"><Link className="nav-link" to={"/nosotros"}>Nosotros</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to={"/carrito"}>Carrito</Link></li>
                         <li className="nav-item"><Link className="nav-link" to={"/login"}>Iniciar Sesion</Link></li>
                         <li className="nav-item"><Link className="boton-cuenta" to={"/registro"}>Crear Cuenta</Link></li>
                     </ul>

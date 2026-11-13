@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
+import BotonAgregarCarrito from "../components/atoms/BotonAgregarCarrito";
+import { agregarAlCarrito } from "../data/carrito";
 import BotonVolverCatalogo from "../components/atoms/BotonVolverCatologo";
 import { medicamentos } from "../data/Medicamentos";
 import "../pages/Principal.css"
+
 function DetalleMed(){
     const {id} = useParams();
     const medicamento = medicamentos.find(
@@ -21,6 +24,10 @@ function DetalleMed(){
             <Footer/>
             </>
         );
+    }
+
+    const agregar = () => {
+        agregarAlCarrito(medicamento.id, medicamento.titulo, medicamento.precio, medicamento.imagen);
     }
 
     return(
@@ -42,7 +49,10 @@ function DetalleMed(){
                     <h2>{medicamento.titulo}</h2>
                     <p>{medicamento.descripcion}</p>
                     <p className="fs-3 fw-bold">${medicamento.precio}</p>
-                    <BotonVolverCatalogo ruta="/medicamentos"/>
+                    <div className="d-flex gap-2">
+                        <BotonVolverCatalogo ruta="/medicamentos"/>
+                        <BotonAgregarCarrito ruta="/carrito" alAgregar={agregar}/>
+                    </div>
                 </div>
             </div>
         </div>
