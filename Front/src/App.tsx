@@ -16,6 +16,7 @@ import Agregar from './pages/Agregar'
 import FichaReal from './pages/FichaReal'
 import Nosotros from './pages/Nosotros'
 import Carrito from './pages/Carrito'
+import Mascota from './pages/Mascota'
 
 function App() {
   return (
@@ -84,6 +85,10 @@ function App() {
             <Route
       path='/carrito'
       element={<Carrito/>}
+      />
+      <Route
+      path='/mascota'
+      element={<Mascota/>}
       />
     </Routes>
     
