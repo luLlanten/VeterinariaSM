@@ -30,4 +30,8 @@ public class Medicamento {
     @Column (nullable=false)
     @Min (value = 0)
     private Double precio;
+
+    @Column (nullable = false)
+    @Min(value=0)
+    private Integer cantidad;
 }

@@ -136,13 +136,13 @@ public class CompraService {
         List<ProdCarritoDTO> productos=new ArrayList<>();
         List<SerCarrito> listaServicios = serCarritoRepo.findByCarrito(carrito);
         List<MedCarrito> listaMedicamentos=medCarritoRepo.findByCarrito(carrito);
-            if(!listaServicios.equals(null)){
+            if(!listaServicios.isEmpty()){
                 for (SerCarrito serCarrito:listaServicios){
                     ProdCarritoDTO producto=new ProdCarritoDTO(serCarrito,null);
                     productos.add(producto);
                 }
             }
-            if(!listaMedicamentos.equals(null)){
+            if(!listaMedicamentos.isEmpty()){
                 for(MedCarrito medCarrito:listaMedicamentos){
                     ProdCarritoDTO producto=new ProdCarritoDTO(null, medCarrito);
                     productos.add(producto);
