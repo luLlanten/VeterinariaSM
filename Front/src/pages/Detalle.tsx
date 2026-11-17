@@ -51,7 +51,7 @@ function Detalle(){
                     <p className="fs-3 fw-bold">${servicio.precio}</p>
                     <div className="d-flex gap-2">
                         <BotonVolverCatalogo ruta="/servicios"/>
-                        <BotonAgregarCarrito ruta="/carrito" alAgregar={agregar}/>
+                        <BotonAgregarCarrito ruta="/ficha" alAgregar={agregar}/>
                     </div>
                 </div>
             </div>
