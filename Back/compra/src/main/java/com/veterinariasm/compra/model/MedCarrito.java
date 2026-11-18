@@ -19,14 +19,15 @@ import lombok.NoArgsConstructor;
 @Entity 
 @Table (name = "med_carrito")
 @Schema (description = "llamara al id de medicamento y de carrito")
-public class MedCarrito {
-    @EmbeddedId 
-    @Column (name = "medicamento_id")
-    @Schema (description = "id del medicamento")
-    private MedicamentoDTO medicamentoDTO;
+public class MedCarrito { 
 
+    @EmbeddedId
     @ManyToOne 
     @JoinColumn (name="carrito_id")
     @Schema (description = "id del carrito")
     private Carrito carrito;
+
+    @Column (name = "medicamento_id")
+    @Schema (description = "id del medicamento")
+    private MedicamentoDTO medicamentoDTO;
 }

@@ -12,23 +12,23 @@ spring:
                 uri: lb://cliente-lobby
                 predicates:
                   - path=/lobby/**
-                id: citas
+              - id: citas
                 uri: lb://citas
                 predicates:
                   - path=/citas/**
-                id: catalogo
+              - id: catalogo
                 uri: lb://catalogo
                 predicates:
                   - path=/catalogo/**
-                id: admin
+              - id: admin
                 uri: lb://admin
                 predicates:
                   - path=/administracion/**
-                id: compra
+              - id: compra
                 uri: lb://compra
                 predicates:
                   - path=/compra/**
-                id: ficha
+              - id: ficha
                 uri: lb://ficha
                 predicates:
                   - path=/ficha/**

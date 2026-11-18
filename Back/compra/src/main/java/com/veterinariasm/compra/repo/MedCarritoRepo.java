@@ -9,6 +9,6 @@ import com.veterinariasm.compra.model.Carrito;
 import com.veterinariasm.compra.model.MedCarrito;;
 
 @Repository 
-public interface MedCarritoRepo extends JpaRepository<MedCarrito,Integer> { 
+public interface MedCarritoRepo extends JpaRepository<MedCarrito,Carrito> { 
     List<MedCarrito> findByCarrito(Carrito carrito);
 }

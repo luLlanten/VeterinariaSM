@@ -21,12 +21,12 @@ import lombok.NoArgsConstructor;
 @Schema (description = "servicio que se solicito")
 public class SerCarrito {
     @EmbeddedId 
-    @Column (name = "servicio_id")
-    @Schema (description = "id del servicio")
-    private ServicioDTO servicioDTO;
-
     @ManyToOne 
     @JoinColumn (name="carrito_id")
     @Schema (description = "id del carrito")
     private Carrito carrito;
+
+    @Column (name = "servicio_id")
+    @Schema (description = "id del servicio")
+    private ServicioDTO servicioDTO;
 }

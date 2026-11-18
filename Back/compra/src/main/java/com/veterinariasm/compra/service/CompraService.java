@@ -74,7 +74,7 @@ public class CompraService {
         //luego, a medida que se crea un sercarrito, este suma los precios 
         ServicioDTO servicio = catalogoClient.getServiciosById(idServ);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
-        SerCarrito serCarrito=new SerCarrito(servicio,carrito);
+        SerCarrito serCarrito=new SerCarrito(carrito,servicio);
         serCarritoRepo.save(serCarrito);
         carrito.setCantidad(carrito.getCantidad()+1);
         carrito.setTotal(carrito.getTotal()+servicio.getPrecio());
@@ -94,7 +94,7 @@ public class CompraService {
         //elimina los servicios del carrito individualmente (deberia ser a opcion del usuario)
         ServicioDTO servicio = catalogoClient.getServiciosById(idServicio);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
-        SerCarrito serCarrito=new SerCarrito(servicio,carrito);
+        SerCarrito serCarrito=new SerCarrito(carrito,servicio);
         serCarritoRepo.delete(serCarrito);
     }
 
@@ -103,7 +103,7 @@ public class CompraService {
     public void aniadirMedicamento(Integer idMed, Integer idCarrito){
         MedicamentoDTO med = catalogoClient.getMedicamentoById(idMed);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
-        MedCarrito medCarrito=new MedCarrito(med,carrito);
+        MedCarrito medCarrito=new MedCarrito(carrito,med);
         medCarritoRepo.save(medCarrito);
         carrito.setCantidad(carrito.getCantidad()+1);
         carrito.setTotal(carrito.getTotal()+med.getPrecio());
@@ -121,7 +121,7 @@ public class CompraService {
     public void eliminarMedicamento(Integer idMedicamento,Integer idCarrito){
         MedicamentoDTO medicamento = catalogoClient.getMedicamentoById(idMedicamento);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
-        MedCarrito medCarrito=new MedCarrito(medicamento,carrito);
+        MedCarrito medCarrito=new MedCarrito(carrito,medicamento);
         medCarritoRepo.delete(medCarrito);
     }
 
