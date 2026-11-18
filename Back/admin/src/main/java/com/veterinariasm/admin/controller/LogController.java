@@ -21,10 +21,8 @@ import com.veterinariasm.admin.dto.CitaDTO;
 import com.veterinariasm.admin.dto.CitaHistorialDTO;
 import com.veterinariasm.admin.dto.FichaDTO;
 import com.veterinariasm.admin.dto.MascotaDTO;
-import com.veterinariasm.admin.dto.MedCreateDTO;
 import com.veterinariasm.admin.dto.MedicamentoDTO;
 import com.veterinariasm.admin.dto.NecropsiaDTO;
-import com.veterinariasm.admin.dto.ServCreateDTO;
 import com.veterinariasm.admin.dto.ServicioDTO;
 import com.veterinariasm.admin.dto.UserDTO;
 import com.veterinariasm.admin.model.Log;
@@ -439,7 +437,7 @@ public class LogController {
         }
     }
     @PostMapping ("/medicamentos")
-    public ResponseEntity<MedicamentoDTO> createMedicamento(@RequestBody MedCreateDTO medCreateDTO,@RequestParam Integer idAdmin){
+    public ResponseEntity<MedicamentoDTO> createMedicamento(@RequestBody MedicamentoDTO medCreateDTO,@RequestParam Integer idAdmin){
         try {
             MedicamentoDTO medicamentoDTO=service.createMedicamento(medCreateDTO, idAdmin);
             if(medicamentoDTO.equals(null)){
@@ -452,7 +450,7 @@ public class LogController {
         }
     }
     @PostMapping ("/servicios")
-    public ResponseEntity<ServicioDTO> createServicio(@RequestBody ServCreateDTO servCreateDTO,@RequestParam Integer idAdmin){
+    public ResponseEntity<ServicioDTO> createServicio(@RequestBody ServicioDTO servCreateDTO,@RequestParam Integer idAdmin){
         try {
             ServicioDTO servicioDTO=service.createServicio(servCreateDTO, idAdmin);
             if(servicioDTO.equals(null)){

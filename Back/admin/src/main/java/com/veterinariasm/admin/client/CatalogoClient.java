@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.veterinariasm.admin.dto.MedCreateDTO;
 import com.veterinariasm.admin.dto.MedicamentoDTO;
-import com.veterinariasm.admin.dto.ServCreateDTO;
 import com.veterinariasm.admin.dto.ServicioDTO;
 
 @FeignClient (name = "catalogo")
@@ -35,9 +33,9 @@ public interface CatalogoClient {
     ServicioDTO updateServicios(@RequestBody ServicioDTO servicioDTO);
 
     @PostMapping ("/medicamentos")
-    MedicamentoDTO createMedicamento(@RequestBody MedCreateDTO medCreateDTO);
+    MedicamentoDTO createMedicamento(@RequestBody MedicamentoDTO medCreateDTO);
 
     @PostMapping ("/servicios")
-    ServicioDTO createServicio(@RequestBody ServCreateDTO servCreateDTO);
+    ServicioDTO createServicio(@RequestBody ServicioDTO servCreateDTO);
 
 }

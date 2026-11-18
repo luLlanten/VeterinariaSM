@@ -18,10 +18,8 @@ import com.veterinariasm.admin.dto.CitaDTO;
 import com.veterinariasm.admin.dto.CitaHistorialDTO;
 import com.veterinariasm.admin.dto.FichaDTO;
 import com.veterinariasm.admin.dto.MascotaDTO;
-import com.veterinariasm.admin.dto.MedCreateDTO;
 import com.veterinariasm.admin.dto.MedicamentoDTO;
 import com.veterinariasm.admin.dto.NecropsiaDTO;
-import com.veterinariasm.admin.dto.ServCreateDTO;
 import com.veterinariasm.admin.dto.ServicioDTO;
 import com.veterinariasm.admin.dto.UserDTO;
 import com.veterinariasm.admin.model.Log;
@@ -163,7 +161,7 @@ public class LogService {
         log.setRuta("updateServ");
         return catalogoClient.updateServicios(servicioDTO);
     }
-    public MedicamentoDTO createMedicamento( MedCreateDTO medCreateDTO, Integer idAdmin){
+    public MedicamentoDTO createMedicamento( MedicamentoDTO medCreateDTO, Integer idAdmin){
         MedicamentoDTO medicamentoDTO=catalogoClient.createMedicamento(medCreateDTO);
         Log log=new Log();
         log.setAdminId(idAdmin);
@@ -171,7 +169,7 @@ public class LogService {
         log.setRuta("createMed");
         return medicamentoDTO;
     }
-    public ServicioDTO createServicio( ServCreateDTO servCreateDTO, Integer idAdmin){
+    public ServicioDTO createServicio( ServicioDTO servCreateDTO, Integer idAdmin){
         ServicioDTO servicioDTO=catalogoClient.createServicio(servCreateDTO);
         Log log=new Log();
         log.setAdminId(idAdmin);
