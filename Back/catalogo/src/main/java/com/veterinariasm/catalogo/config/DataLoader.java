@@ -28,13 +28,16 @@ public class DataLoader {
                 Servicios s13 = repo.save(new Servicios(null,"Desparasitación","Desparasitación interna medianos (10-25 kg)",9500.0,"/images/desparasitacion-interna-medianos.jpg"));
                 Servicios s14 = repo.save(new Servicios(null,"Desparasitación","Desparasitación interna grandes (>25 kg)",11000.0,"/images/desparasitacion-interna-grandes.jpg"));
                 Servicios s15 = repo.save(new Servicios(null,"Desparasitación","Desparasitación interna felina",8000.0,"/images/desparasitacion-interna-felina.jpg"));
-                Servicios s16 = repo.save(new Servicios(null,"Desparasitación","Antiparasitario externo (pipeta)",180000.0,"/images/cesarea-de-urgencia.png"));
-                Servicios s17 = repo.save(new Servicios(null,"Desparasitación","Hemograma completo",180000.0,"/images/cesarea-de-urgencia.png"));
-                Servicios s18 = repo.save(new Servicios(null,"Desparasitación","Perfil bioquímico completo",180000.0,"/images/cesarea-de-urgencia.png"));
-                Servicios s19 = repo.save(new Servicios(null,"Desparasitación","Cesárea de urgencia",180000.0,"/images/cesarea-de-urgencia.png"));
-                Servicios s20 = repo.save(new Servicios(null,"Desparasitación","Cesárea de urgencia",180000.0,"/images/cesarea-de-urgencia.png"));
-
-
+                Servicios s16 = repo.save(new Servicios(null,"Desparasitación","Antiparasitario externo (pipeta)",7500.0,"/images/antiparasitario-externo.jpg"));
+                Servicios s17 = repo.save(new Servicios(null,"Exámenes","Hemograma completo",22000.0,"/images/hemograma-completo.jpg"));
+                Servicios s18 = repo.save(new Servicios(null,"Exámenes","Perfil bioquímico completo",35000.0,"/images/perfil-bioquimico-completo.jpg"));
+                Servicios s19 = repo.save(new Servicios(null,"Exámenes","Radiografía (1 proyección)",28000.0,"/images/radiografia.jpg"));
+                Servicios s20 = repo.save(new Servicios(null,"Exámenes","Ecografía abdominal",45000.0,"/images/ecografia-abdominal.jpg"));
+                Servicios s21 = repo.save(new Servicios(null,"Exámenes","Test de leishmaniasis",18000.0,"/images/test-de-leishmaniasis.jpg"));
+                Servicios s22 = repo.save(new Servicios(null,"Otros","Corte de uñas",5000.0,"/images/corte-de-unas.jpg"));
+                Servicios s23 = repo.save(new Servicios(null,"Otros","Limpieza dental",55000.0,"/images/limpieza-dental.jpg"));
+                Servicios s24 = repo.save(new Servicios(null,"Otros","Microchip identificación",15000.0,"/images/microchip-identificacion.jpg"));
+                Servicios s25 = repo.save(new Servicios(null,"Otros","Hospitalización (por día)",30000.0,"/images/hospitalizacion.jpg"));
             }
         };
     }
