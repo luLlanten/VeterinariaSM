@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,11 @@ import com.veterinariasm.admin.dto.CitaDTO;
 import com.veterinariasm.admin.dto.CitaHistorialDTO;
 import com.veterinariasm.admin.dto.FichaDTO;
 import com.veterinariasm.admin.dto.MascotaDTO;
+import com.veterinariasm.admin.dto.MedCreateDTO;
+import com.veterinariasm.admin.dto.MedicamentoDTO;
 import com.veterinariasm.admin.dto.NecropsiaDTO;
+import com.veterinariasm.admin.dto.ServCreateDTO;
+import com.veterinariasm.admin.dto.ServicioDTO;
 import com.veterinariasm.admin.dto.UserDTO;
 import com.veterinariasm.admin.model.Log;
 import com.veterinariasm.admin.service.LogService;
@@ -354,9 +360,112 @@ public class LogController {
     }
 
     //catalogo
+    @GetMapping ("/catalogo/medicamentos")
+    public ResponseEntity<List<MedicamentoDTO>> listarMedicamentos(){
+        try {
+            List<MedicamentoDTO> lista=service.listarMedicamentos();
+            if(lista.isEmpty()){
+                return ResponseEntity.noContent().build();
+            }else{
+                return ResponseEntity.ok(lista);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping ("/catalogo/servicios")
+    public ResponseEntity<List<ServicioDTO>> listarServicios(){
+        try {
+            List<ServicioDTO> lista=service.listarServicios();
+            if(lista.isEmpty()){
+                return ResponseEntity.noContent().build();
+            }else{
+                return ResponseEntity.ok(lista);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping ("/medicamentos/{id}")
+    public ResponseEntity<MedicamentoDTO> getMedicamentoById(@PathVariable Integer id){
+        try {
+            MedicamentoDTO medicamentoDTO=service.getMedicamentoById(id);
+            if(medicamentoDTO.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(medicamentoDTO);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping ("/servicios/{id}")
+    public ResponseEntity<ServicioDTO> getServicioById(@PathVariable Integer id){
+        try {
+            ServicioDTO servicioDTO=service.getServiciosById(id);
+            if(servicioDTO.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(servicioDTO);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @PutMapping ("/update/med")
+    public ResponseEntity<MedicamentoDTO> updateMedicamento(@RequestBody MedicamentoDTO medicamento,@RequestParam Integer idAdmin){
+        try {
+            MedicamentoDTO medicamentoDTO=service.updateMedicamento(medicamento, idAdmin);
+            if(medicamentoDTO.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(medicamentoDTO);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @PutMapping ("/update/med")
+    public ResponseEntity<ServicioDTO> updateServicios(@RequestBody ServicioDTO servicioDTO,@RequestParam Integer idAdmin){
+        try {
+            ServicioDTO servicioDTO2=service.updateServicios(servicioDTO, idAdmin);
+            if(servicioDTO2.equals(null)){
+                return ResponseEntity.notFound().build();
+            }else{
+                return ResponseEntity.ok(servicioDTO2);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @PostMapping ("/medicamentos")
+    public ResponseEntity<MedicamentoDTO> createMedicamento(@RequestBody MedCreateDTO medCreateDTO,@RequestParam Integer idAdmin){
+        try {
+            MedicamentoDTO medicamentoDTO=service.createMedicamento(medCreateDTO, idAdmin);
+            if(medicamentoDTO.equals(null)){
+                return ResponseEntity.noContent().build();
+            }else{
+                return ResponseEntity.ok(medicamentoDTO);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @PostMapping ("/servicios")
+    public ResponseEntity<ServicioDTO> createServicio(@RequestBody ServCreateDTO servCreateDTO,@RequestParam Integer idAdmin){
+        try {
+            ServicioDTO servicioDTO=service.createServicio(servCreateDTO, idAdmin);
+            if(servicioDTO.equals(null)){
+                return ResponseEntity.noContent().build();
+            }else{
+                return ResponseEntity.ok(servicioDTO);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
 
-    
     //admin
     @GetMapping ("/log")
     public ResponseEntity<List<Log>> getAllLogs(){

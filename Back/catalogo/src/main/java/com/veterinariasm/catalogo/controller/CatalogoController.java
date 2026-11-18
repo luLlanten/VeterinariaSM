@@ -96,6 +96,7 @@ public class CatalogoController {
         }
     }
 
+    //desde aqui: uso unico para admin
     @PutMapping ("/update/med")
     public ResponseEntity<Medicamento> updateMedicamento(@RequestBody MedicamentoDTO medicamento){
         try {

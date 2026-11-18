@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
-
+import com.veterinariasm.admin.client.CatalogoClient;
 import com.veterinariasm.admin.client.CitaClient;
 import com.veterinariasm.admin.client.CompraClient;
 import com.veterinariasm.admin.client.FichaClient;
@@ -17,7 +18,11 @@ import com.veterinariasm.admin.dto.CitaDTO;
 import com.veterinariasm.admin.dto.CitaHistorialDTO;
 import com.veterinariasm.admin.dto.FichaDTO;
 import com.veterinariasm.admin.dto.MascotaDTO;
+import com.veterinariasm.admin.dto.MedCreateDTO;
+import com.veterinariasm.admin.dto.MedicamentoDTO;
 import com.veterinariasm.admin.dto.NecropsiaDTO;
+import com.veterinariasm.admin.dto.ServCreateDTO;
+import com.veterinariasm.admin.dto.ServicioDTO;
 import com.veterinariasm.admin.dto.UserDTO;
 import com.veterinariasm.admin.model.Log;
 import com.veterinariasm.admin.repo.LogRepo;
@@ -38,6 +43,9 @@ public class LogService {
 
     @Autowired 
     private FichaClient fichaClient;
+
+    @Autowired 
+    private CatalogoClient catalogoClient;
 
     //Users
     public AdminDTO getAdminById(Integer id){
@@ -129,8 +137,48 @@ public class LogService {
 
 
     //catalogo
-
-
+    public List<MedicamentoDTO>listarMedicamentos(){
+        return catalogoClient.listarMedicamentos();
+    }
+    public List<ServicioDTO> listarServicios(){
+        return catalogoClient.listarServicios();
+    }
+    public MedicamentoDTO getMedicamentoById(Integer id){
+        return catalogoClient.getMedicamentoById(id);
+    }
+    public ServicioDTO getServiciosById(Integer id){
+        return catalogoClient.getServiciosById(id);
+    }
+    public MedicamentoDTO updateMedicamento(MedicamentoDTO medicamento,Integer idAdmin){
+        Log log=new Log();
+        log.setAdminId(idAdmin);
+        log.setMensaje("Se han realizado cambios en el medicamento: "+medicamento.getId());
+        log.setRuta("updateMed");
+        return catalogoClient.updateMedicamento(medicamento);
+    }
+    public ServicioDTO updateServicios(ServicioDTO servicioDTO, Integer idAdmin){
+        Log log=new Log();
+        log.setAdminId(idAdmin);
+        log.setMensaje("Se han realizado cambios en el servicio: "+servicioDTO.getId());
+        log.setRuta("updateServ");
+        return catalogoClient.updateServicios(servicioDTO);
+    }
+    public MedicamentoDTO createMedicamento( MedCreateDTO medCreateDTO, Integer idAdmin){
+        MedicamentoDTO medicamentoDTO=catalogoClient.createMedicamento(medCreateDTO);
+        Log log=new Log();
+        log.setAdminId(idAdmin);
+        log.setMensaje("Se ha agregado el medicamento"+medicamentoDTO.getId());
+        log.setRuta("createMed");
+        return medicamentoDTO;
+    }
+    public ServicioDTO createServicio( ServCreateDTO servCreateDTO, Integer idAdmin){
+        ServicioDTO servicioDTO=catalogoClient.createServicio(servCreateDTO);
+        Log log=new Log();
+        log.setAdminId(idAdmin);
+        log.setMensaje("Se ha agregado el servicio"+servicioDTO.getId());
+        log.setRuta("createServ");
+        return servicioDTO;
+    }
 
 
     //admin
