@@ -8,6 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,7 +32,8 @@ public class Boleta {
     @Schema (description = "fecha de la boleta")
     private Date fecha;
 
-    @Column (name = "id_carrito")
+    @ManyToOne
+    @JoinColumn(name = "id_carrito")
     @Schema (description = "id del carrito")
     private Carrito carrito;
 }

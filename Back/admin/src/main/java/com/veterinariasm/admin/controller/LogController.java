@@ -425,7 +425,7 @@ public class LogController {
             return ResponseEntity.badRequest().build();
         }
     }
-    @PutMapping ("/update/med")
+    @PutMapping ("/update/serv")
     public ResponseEntity<ServicioDTO> updateServicios(@RequestBody ServicioDTO servicioDTO,@RequestParam Integer idAdmin){
         try {
             ServicioDTO servicioDTO2=service.updateServicios(servicioDTO, idAdmin);

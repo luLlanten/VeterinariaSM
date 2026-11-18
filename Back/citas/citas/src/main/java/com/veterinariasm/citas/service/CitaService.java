@@ -46,7 +46,7 @@ public class CitaService {
         Cita cita = new Cita();
         cita.setVigencia(true);
 
-        CitaServicio citaServicio = new CitaServicio(servicioDTO.getServicio().getId(), cita.getId());
+        CitaServicio citaServicio = new CitaServicio(servicioDTO.getServicio().getId(), cita);
         citaServicioRepo.save(citaServicio);
         cita.setFecha(servicioDTO.getFecha());
         return citaRepo.save(cita);
