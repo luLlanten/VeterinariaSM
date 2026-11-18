@@ -34,4 +34,7 @@ public class Medicamento {
     @Column (nullable = false)
     @Min(value=0)
     private Integer cantidad;
+
+    @Column (nullable = true)
+    private String imagen;
 }

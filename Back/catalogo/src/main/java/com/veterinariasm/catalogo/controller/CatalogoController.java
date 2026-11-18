@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.veterinariasm.catalogo.dto.MedCreateDTO;
 import com.veterinariasm.catalogo.dto.MedicamentoDTO;
-import com.veterinariasm.catalogo.dto.ServCreateDTO;
 import com.veterinariasm.catalogo.dto.ServicioDTO;
 import com.veterinariasm.catalogo.model.Medicamento;
 import com.veterinariasm.catalogo.model.Servicios;
@@ -125,7 +123,7 @@ public class CatalogoController {
     }
 
     @PostMapping ("/medicamentos")
-    public ResponseEntity<Medicamento> createMedicamento(@RequestBody MedCreateDTO medCreateDTO){
+    public ResponseEntity<Medicamento> createMedicamento(@RequestBody MedicamentoDTO medCreateDTO){
         try {
             if(medCreateDTO.getCantidad()==null||medCreateDTO.getCategoria()==null||medCreateDTO.getNombre()==null||medCreateDTO.getPrecio()==null){
                 return ResponseEntity.noContent().build();
@@ -138,7 +136,7 @@ public class CatalogoController {
         }
     }
     @PostMapping ("/servicios")
-    public ResponseEntity<Servicios> createServicio(@RequestBody ServCreateDTO servCreateDTO){
+    public ResponseEntity<Servicios> createServicio(@RequestBody ServicioDTO servCreateDTO){
         try {
             if(servCreateDTO.getCategoria()==null||servCreateDTO.getNombre()==null||servCreateDTO.getPrecio()==null){
                 return ResponseEntity.noContent().build();

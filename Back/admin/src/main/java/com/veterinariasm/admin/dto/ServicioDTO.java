@@ -12,4 +12,5 @@ public class ServicioDTO {
     private String categoria;
     private String nombre;
     private Double precio;
+    private String imagen;
 }

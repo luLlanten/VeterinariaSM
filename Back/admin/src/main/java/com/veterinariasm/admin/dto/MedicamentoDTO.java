@@ -12,4 +12,5 @@ public class MedicamentoDTO {
     private String categoria;
     private String nombre;
     private Double precio;
+    private String imagen;
 }

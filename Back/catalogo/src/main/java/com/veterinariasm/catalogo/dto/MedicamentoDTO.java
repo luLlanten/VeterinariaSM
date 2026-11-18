@@ -13,4 +13,5 @@ public class MedicamentoDTO {
     private String nombre;
     private Double precio;
     private Integer cantidad;
+    private String imagen;
 }

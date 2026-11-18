@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.veterinariasm.catalogo.dto.MedCreateDTO;
 import com.veterinariasm.catalogo.dto.MedicamentoDTO;
-import com.veterinariasm.catalogo.dto.ServCreateDTO;
 import com.veterinariasm.catalogo.dto.ServicioDTO;
 import com.veterinariasm.catalogo.model.Medicamento;
 import com.veterinariasm.catalogo.model.Servicios;
@@ -77,19 +75,21 @@ public class CatalogoService {
         }
     }
     //adds
-    public Medicamento createMedicamento(MedCreateDTO medCreateDTO){
+    public Medicamento createMedicamento(MedicamentoDTO medCreateDTO){
         Medicamento medicamento=new Medicamento();
         medicamento.setCantidad(medCreateDTO.getCantidad());
         medicamento.setCategoria(medCreateDTO.getCategoria());
         medicamento.setNombre(medCreateDTO.getNombre());
         medicamento.setPrecio(medCreateDTO.getPrecio());
+        medicamento.setImagen(medCreateDTO.getImagen());
         return medRepo.save(medicamento);
     }
-    public Servicios createServicio(ServCreateDTO servCreateDTO){
+    public Servicios createServicio(ServicioDTO servCreateDTO){
         Servicios servicio=new Servicios();
         servicio.setCategoria(servCreateDTO.getCategoria());
         servicio.setNombre(servCreateDTO.getNombre());
         servicio.setPrecio(servCreateDTO.getPrecio());
+        servicio.setImagen(servCreateDTO.getImagen());
         return servRepo.save(servicio);
     }
 
