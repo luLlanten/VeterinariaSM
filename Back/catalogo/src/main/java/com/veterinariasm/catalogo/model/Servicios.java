@@ -30,4 +30,7 @@ public class Servicios {
     @Column (nullable = false)
     @Min (value = 0)
     private Double precio;
+
+    @Column (nullable = true)
+    private String imagen;
 }
