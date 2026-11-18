@@ -2,6 +2,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CitasApplication",
+            "request": "launch",
+            "mainClass": "com.veterinariasm.citas.CitasApplication",
+            "projectName": "citas"
+        },
+        {
+            "type": "java",
+            "name": "FichaApplication",
+            "request": "launch",
+            "mainClass": "com.veterinariasm.ficha.FichaApplication",
+            "projectName": "ficha"
+        },
+        {
+            "type": "java",
+            "name": "CompraApplication",
+            "request": "launch",
+            "mainClass": "com.veterinariasm.compra.CompraApplication",
+            "projectName": "compra"
+        },
+        {
+            "type": "java",
+            "name": "CatalogoApplication",
+            "request": "launch",
+            "mainClass": "com.veterinariasm.catalogo.CatalogoApplication",
+            "projectName": "catalogo"
+        },
+        {
+            "type": "java",
+            "name": "GatewayApplication",
+            "request": "launch",
+            "mainClass": "com.veterinariasm.gateway.GatewayApplication",
+            "projectName": "gateway"
+        },
+        {
+            "type": "java",
+            "name": "EurekaApplication",
+            "request": "launch",
+            "mainClass": "com.veterinariasm.eureka.EurekaApplication",
+            "projectName": "eureka"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-ClienteLobbyApplication<cliente-lobby>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

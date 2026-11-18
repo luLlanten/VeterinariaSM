@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,7 +43,8 @@ public class CitaHistorial {
     @Schema (description = "estado que muestra si la cita se realizo o no")
     private Boolean realizada;
 
-    @Column(name = "id_cita")
+    @OneToOne 
+    @JoinColumn(name = "id_cita")
     @Schema (description = "id de la cita")
     private Cita cita;
 }
