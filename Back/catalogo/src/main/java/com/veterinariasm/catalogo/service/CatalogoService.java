@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.veterinariasm.catalogo.dto.MedCreateDTO;
 import com.veterinariasm.catalogo.dto.MedicamentoDTO;
+import com.veterinariasm.catalogo.dto.ServCreateDTO;
+import com.veterinariasm.catalogo.dto.ServicioDTO;
 import com.veterinariasm.catalogo.model.Medicamento;
 import com.veterinariasm.catalogo.model.Servicios;
 import com.veterinariasm.catalogo.repo.MedRepo;
@@ -28,7 +31,7 @@ public class CatalogoService {
     }
 
     //seleccionar por producto (dirigido a cada card del front supongo)
-    //tambien util para admin
+    //tambien util para admin (get)
     public Medicamento getMedicamentoById(Integer id){
         return medRepo.findById(id).get();
     }
@@ -52,7 +55,7 @@ public class CatalogoService {
     //sets
     public Medicamento updateMedicamento(MedicamentoDTO medicamento){
         Medicamento medicamento2 = medRepo.findById(medicamento.getId()).get();
-        if(medicamento2.equals(null)){
+        if(!medicamento2.equals(null)){
             medicamento2.setNombre(medicamento.getNombre());
             medicamento2.setCantidad(medicamento.getCantidad());
             medicamento2.setPrecio(medicamento.getPrecio());
@@ -62,5 +65,34 @@ public class CatalogoService {
             return medicamento2;
         }
     }
+    public Servicios updateServicios(ServicioDTO servicioDTO){
+        Servicios servicio=servRepo.findById(servicioDTO.getId()).get();
+        if(!servicio.equals(null)){
+            servicio.setCategoria(servicioDTO.getCategoria());
+            servicio.setNombre(servicioDTO.getNombre());
+            servicio.setPrecio(servicioDTO.getPrecio());
+            return servRepo.save(servicio);
+        }else{
+            return servicio;
+        }
+    }
+    //adds
+    public Medicamento createMedicamento(MedCreateDTO medCreateDTO){
+        Medicamento medicamento=new Medicamento();
+        medicamento.setCantidad(medCreateDTO.getCantidad());
+        medicamento.setCategoria(medCreateDTO.getCategoria());
+        medicamento.setNombre(medCreateDTO.getNombre());
+        medicamento.setPrecio(medCreateDTO.getPrecio());
+        return medRepo.save(medicamento);
+    }
+    public Servicios createServicio(ServCreateDTO servCreateDTO){
+        Servicios servicio=new Servicios();
+        servicio.setCategoria(servCreateDTO.getCategoria());
+        servicio.setNombre(servCreateDTO.getNombre());
+        servicio.setPrecio(servCreateDTO.getPrecio());
+        return servRepo.save(servicio);
+    }
+
+
 
 }

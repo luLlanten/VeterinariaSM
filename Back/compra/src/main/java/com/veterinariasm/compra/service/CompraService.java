@@ -72,7 +72,7 @@ public class CompraService {
     public void aniadirServicio(Integer idServ, Integer idCarrito){
         //desde servicio, se mandan los datos del servicio elegido a un sercarrito, el cual identifica al carrito 
         //luego, a medida que se crea un sercarrito, este suma los precios 
-        ServicioDTO servicio = catalogoClient.findServicioDTO(idServ);
+        ServicioDTO servicio = catalogoClient.getServiciosById(idServ);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         SerCarrito serCarrito=new SerCarrito(servicio,carrito);
         serCarritoRepo.save(serCarrito);
@@ -92,7 +92,7 @@ public class CompraService {
     @Schema (description = "metodo para eliminar servicio")
     public void eliminarServicio(Integer idServicio,Integer idCarrito){
         //elimina los servicios del carrito individualmente (deberia ser a opcion del usuario)
-        ServicioDTO servicio = catalogoClient.findServicioDTO(idServicio);
+        ServicioDTO servicio = catalogoClient.getServiciosById(idServicio);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         SerCarrito serCarrito=new SerCarrito(servicio,carrito);
         serCarritoRepo.delete(serCarrito);
@@ -101,7 +101,7 @@ public class CompraService {
     //igual que servicios, pero para medicamentos
     @Schema (description = "metodo para agregar medicamento")
     public void aniadirMedicamento(Integer idMed, Integer idCarrito){
-        MedicamentoDTO med = catalogoClient.findMedicamentoDTO(idMed);
+        MedicamentoDTO med = catalogoClient.getMedicamentoById(idMed);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         MedCarrito medCarrito=new MedCarrito(med,carrito);
         medCarritoRepo.save(medCarrito);
@@ -119,7 +119,7 @@ public class CompraService {
 
     @Schema (description = "metodo para eliminar medicamento")
     public void eliminarMedicamento(Integer idMedicamento,Integer idCarrito){
-        MedicamentoDTO medicamento = catalogoClient.findMedicamentoDTO(idMedicamento);
+        MedicamentoDTO medicamento = catalogoClient.getMedicamentoById(idMedicamento);
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         MedCarrito medCarrito=new MedCarrito(medicamento,carrito);
         medCarritoRepo.delete(medCarrito);
@@ -144,8 +144,13 @@ public class CompraService {
             }
             if(!listaMedicamentos.isEmpty()){
                 for(MedCarrito medCarrito:listaMedicamentos){
+                    try{
                     ProdCarritoDTO producto=new ProdCarritoDTO(null, medCarrito);
                     productos.add(producto);
+                    catalogoClient.stockMedicamento(producto.getMedicamento().getMedicamentoDTO().getId());
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 }
             }
         return productos;
