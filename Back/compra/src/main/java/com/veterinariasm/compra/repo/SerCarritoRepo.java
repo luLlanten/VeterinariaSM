@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.veterinariasm.compra.dto.ServicioDTO;
 import com.veterinariasm.compra.model.Carrito;
 import com.veterinariasm.compra.model.SerCarrito;
 
 @Repository 
-public interface SerCarritoRepo extends JpaRepository<SerCarrito,Carrito>{
+public interface SerCarritoRepo extends JpaRepository<SerCarrito,ServicioDTO>{
     List<SerCarrito> findByCarrito(Carrito carrito);
 }
