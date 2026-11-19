@@ -3,31 +3,37 @@ spring:
     name: gateway
   cloud:
     gateway:
-      routes: 
-        - id: cliente-lobby
-          uri: lb://cliente-lobby
-          predicates:
-            - Path=/lobby/**
-        - id: citas
-          uri: lb://citas
-          predicates:
-            - Path=/citas/**
-        - id: catalogo
-          uri: lb://catalogo
-          predicates:
-            - Path=/catalogo/**
-        - id: admin
-          uri: lb://admin
-          predicates:
-          - Path=/administracion/**
-        - id: compra
-          uri: lb://compra
-          predicates:
-            - Path=/compra/**
-        - id: ficha
-          uri: lb://ficha
-          predicates:
-            - Path=/ficha/**
+      server:
+        webmvc:
+          routes: 
+            - id: cliente-lobby
+              uri: lb://cliente-lobby
+              predicates:
+                - Path=/lobby/**
+            - id: citas
+              uri: lb://citas
+              predicates:
+                - Path=/citas/**
+            - id: catalogo
+              uri: lb://catalogo
+              predicates:
+                - Path=/catalogo/**
+            - id: admin
+              uri: lb://admin
+              predicates:
+                - Path=/administracion/**
+            - id: compra
+              uri: lb://compra
+              predicates:
+                - Path=/compra/**
+            - id: ficha
+              uri: lb://ficha
+              predicates:
+                - Path=/ficha/**
+          discovery:
+            locator:
+              enabled: false
+              lower-case-service-id: true
 eureka:
   client:
     service-url:
