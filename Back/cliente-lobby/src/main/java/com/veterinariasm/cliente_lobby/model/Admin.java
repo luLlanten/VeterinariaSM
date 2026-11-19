@@ -35,14 +35,12 @@ public class Admin {
     private Integer id;
 
     @Column (nullable = false, length = 30)
-    @Pattern (regexp = "^[A-Za-z]$")
     @NotBlank
     @Schema(description = "nombre de usuario")
     private String nombre;
     
     @Column (nullable = false,length = 30)
     @NotBlank
-    @Pattern (regexp = "^[A-Za-z]$")
     @Schema (description = "apellido del usuario") 
     private String apellido;
 
