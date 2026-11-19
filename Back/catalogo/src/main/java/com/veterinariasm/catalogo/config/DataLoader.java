@@ -57,6 +57,26 @@ public class DataLoader {
                 Medicamento m7 = repo.save(new Medicamento(null,"Antibióticos","Amoxibay 250mg",4200.0,20,"/images/amoxibay250mg.jpg"));
                 Medicamento m8 = repo.save(new Medicamento(null,"Antibióticos","Enrox 50mg",6800.0,20,"/images/Enrox50mg.jpg"));
                 Medicamento m9 = repo.save(new Medicamento(null,"Antibióticos","Metrobay 250mg",3900.0,20,"/images/metrobay-250mg.png"));
+                Medicamento m10 = repo.save(new Medicamento(null,"Antiparasitarios","Nexgard",9500.0,20,"/images/Nexgard.jpg"));
+                Medicamento m11 = repo.save(new Medicamento(null,"Antiparasitarios","Bravecto",18900.0,20,"/images/Bravecto.png"));
+                Medicamento m12 = repo.save(new Medicamento(null,"Antiparasitarios","Revolution Plus",14500.0,20,"/images/revolution-plus.jpg"));
+                Medicamento m13 = repo.save(new Medicamento(null,"Antiparasitarios","Drontal Plus",3200.0,20,"/images/drontal-plus.jpg"));
+                Medicamento m14 = repo.save(new Medicamento(null,"Antiparasitarios","Milbemax Gato",6800.0,20,"/images/milbemax-gato.jpg"));
+                Medicamento m15 = repo.save(new Medicamento(null,"Antiinflamatorios","Meloxicam 1mg",4500.0,20,"/images/meloxicam-1mg.jpeg"));
+                Medicamento m16 = repo.save(new Medicamento(null,"Antiinflamatorios","Carprofen 50mg",9800.0,20,"/images/Carprofen50mg.png"));
+                Medicamento m17 = repo.save(new Medicamento(null,"Dermatología","Clorhexidina shampoo",8900.0,20,"images/clorhexidina-shampoo.jpg"));
+                Medicamento m18 = repo.save(new Medicamento(null,"Dermatología","Malaseb shampoo",12500.0,20,"/images/malaseb-shampoo.jpg"));
+                Medicamento m19 = repo.save(new Medicamento(null,"Dermatología","Apoquel 16mg",22000.0,20,"/images/apoquel-16mg.jpg"));
+                Medicamento m20 = repo.save(new Medicamento(null,"Dermatología","Probifor",5600.0,20,"/images/Probifor.jpeg"));
+                Medicamento m21 = repo.save(new Medicamento(null,"Dermatología","Omeprazol 10mg vet",3800.0,20,"/images/omeprazol-10mg-vet.jpg"));
+                Medicamento m22 = repo.save(new Medicamento(null,"Dermatología","Vetmedin 2.5mg",28000.0,20,"/images/vetmedin-2-5mg.jpg"));
+                Medicamento m23 = repo.save(new Medicamento(null,"Analgésicos","Tramadol 50mg vet",5200.0,20,"/images/tramadol-50mg-vet.jpg"));
+                Medicamento m24 = repo.save(new Medicamento(null,"Vacunas","Nobivac DHPPi",8500.0,20,"/images/nobivac-dhppi.png"));
+                Medicamento m25 = repo.save(new Medicamento(null,"Vacunas","Nobivac Rabies",5800.0,20,"/images/nobivac-rabies.jpg"));
+                Medicamento m26 = repo.save(new Medicamento(null,"Vacunas","Felocell CVR",7200.0,20,"/images/felocell-cvr.jpg"));
+                Medicamento m27 = repo.save(new Medicamento(null,"Suplementos","Omega vet 3-6-9",9900.0,20,"/images/Omega.png"));
+                Medicamento m28 = repo.save(new Medicamento(null,"Suplementos","Condrovet forte",14500.0,20,"/images/condrovetforte.jpg"));
+
             }
         };
     }
