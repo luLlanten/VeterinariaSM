@@ -16,6 +16,7 @@ public class Seguridad {
 
 
     //Desactivamos seguridad automatica 
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http)throws Exception{
         http.csrf(csrf->csrf.disable()).authorizeHttpRequests(auth->auth.anyRequest().permitAll());
         //el csrf se encarga de que el usuario solo acceda a la informacion desde un unico sitio, lo desactivamos para facilitar la conexion y uso
