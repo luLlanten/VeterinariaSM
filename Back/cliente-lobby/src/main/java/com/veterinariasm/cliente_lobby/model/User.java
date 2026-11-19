@@ -72,7 +72,7 @@ public class User {
     @Schema (description = "correo del usuario")
     private String correo;
 
-    @Column (nullable = false,length = 16)
+    @Column (nullable = false)
     @Size (min = 8)
     @JsonProperty (access = JsonProperty.Access.WRITE_ONLY) // permite mandar json, pero no recibir por parte del usuario.
     @Schema (description = "contrasena del usuario")

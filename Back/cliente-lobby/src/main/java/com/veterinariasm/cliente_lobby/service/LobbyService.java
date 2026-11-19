@@ -34,9 +34,9 @@ public class LobbyService {
     @Schema (description = "el metodo loginUser se encarga de que el usuario inicie sesion")
     public Boolean loginUser(UserDTO userDTO){
         //primero buscara el correo, luego confirmara si la contraseña corresponde con la del usuario del correo
-        Optional<User> user = Optional.of(repoUser.findByCorreo(userDTO.getCorreo()));
-        if (user.isPresent()){
-            if(user.get().getContrasena().equals(passwordEncoder.encode(userDTO.getContrasena()))&& user.get().getActivo()){
+        User user = repoUser.findByCorreo(userDTO.getCorreo());
+        if (!user.equals(null)){
+            if(passwordEncoder.matches(userDTO.getContrasena(), user.getContrasena())&& user.getActivo()){
                 return true;
             }else{
                 return false;
@@ -49,9 +49,9 @@ public class LobbyService {
     @Schema (description = "el metodo loginAdmin se encarga de que el Admin inicie sesion")
     public Boolean loginAdmin(AdminDTO adminDTO){
         //primero buscara el correo, luego confirmara si la contraseña corresponde con la del usuario admin del correo
-        Optional<Admin> user = Optional.of(repoAdmin.findByCorreo(adminDTO.getCorreo()));
-        if (user.isPresent()){
-            if(user.get().getContrasena().equals(passwordEncoder.encode(adminDTO.getContrasena()))&& user.get().getActivo()){
+        Admin user = repoAdmin.findByCorreo(adminDTO.getCorreo());
+        if (!user.equals(null)){
+            if(passwordEncoder.matches(adminDTO.getContrasena(), user.getContrasena())&& user.getActivo()){
                 return true;
             }else{
                 return false;

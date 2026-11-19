@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.veterinariasm.cliente_lobby.dto.AdminDTO;
@@ -32,7 +33,8 @@ public class Controller {
     @GetMapping ("/login")
     public ResponseEntity<Boolean> loginUser(@RequestBody UserDTO userDTO){
         try{
-            if (service.loginUser(userDTO))
+            Boolean v=service.loginUser(userDTO);
+            if (v)
                 {
                     return ResponseEntity.ok(true);
                 }else{
@@ -45,7 +47,8 @@ public class Controller {
     @GetMapping ("/login/admin")
     public ResponseEntity<Boolean> loginAdmin(@RequestBody AdminDTO userDTO){
         try{
-            if (service.loginAdmin(userDTO))
+            Boolean v=service.loginAdmin(userDTO);
+            if (v)
                 {
                     return ResponseEntity.ok(true);
                 }else{
@@ -56,7 +59,7 @@ public class Controller {
         }
     }
     @PostMapping("/login")
-    public ResponseEntity<Void> registroUser(Boolean v,@RequestBody UserRegistroDTO userDTO){
+    public ResponseEntity<Void> registroUser(@RequestParam Boolean v,@RequestBody UserRegistroDTO userDTO){
         //ver como comunicar el boolean desde el front hacia el metodo 
         try {
             service.crearUser(service.registroUser(v, userDTO.getCorreo(), userDTO.getContrasena()),userDTO.getNombre(),userDTO.getApellido(),userDTO.getDireccion(),userDTO.getTelefono());
@@ -66,7 +69,7 @@ public class Controller {
         }
     }
     @PostMapping("/login/admin")
-    public ResponseEntity<Void> registroAdmin(Boolean v,@RequestBody AdminRegistroDTO userDTO){
+    public ResponseEntity<Void> registroAdmin(@RequestParam Boolean v,@RequestBody AdminRegistroDTO userDTO){
         //ver como comunicar el boolean desde el front hacia el metodo 
         try {
             service.crearAdmin(service.registroAdmin(v, userDTO.getCorreo(), userDTO.getContrasena()),userDTO.getNombre(),userDTO.getApellido(),userDTO.getTelefono());

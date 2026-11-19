@@ -15,7 +15,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -58,7 +58,7 @@ public class Admin {
     @Schema (description = "correo (correo del usuario)")
     private String correo;
 
-    @Column (nullable = false,length = 16)
+    @Column (nullable = false)
     @Size (min = 8)
     @JsonProperty (access = JsonProperty.Access.WRITE_ONLY)
     @Schema (description = "contrasena (contrasena del usuario)")
