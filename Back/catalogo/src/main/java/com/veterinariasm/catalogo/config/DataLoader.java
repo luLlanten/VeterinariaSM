@@ -4,7 +4,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.veterinariasm.catalogo.model.Medicamento;
 import com.veterinariasm.catalogo.model.Servicios;
+import com.veterinariasm.catalogo.repo.MedRepo;
 import com.veterinariasm.catalogo.repo.ServRepo;
 
 @Configuration 
@@ -38,6 +40,23 @@ public class DataLoader {
                 Servicios s23 = repo.save(new Servicios(null,"Otros","Limpieza dental",55000.0,"/images/limpieza-dental.jpg"));
                 Servicios s24 = repo.save(new Servicios(null,"Otros","Microchip identificación",15000.0,"/images/microchip-identificacion.jpg"));
                 Servicios s25 = repo.save(new Servicios(null,"Otros","Hospitalización (por día)",30000.0,"/images/hospitalizacion.jpg"));
+            }
+        };
+    };
+
+    @Bean
+    CommandLineRunner initMedicamentoDataBase(MedRepo repo){
+        return args->{
+            if (repo.count() == 0) {
+                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna antirrábica canina",12000.0,20,"/images/vacunaantirrabicacanina.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna sextuple canina",18000.0,20,"/images/Vacunasextuplecanina.png"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna bivalente felina",15000.0,20,"/images/Vacunabivalentefelina.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna triple felina",17000.0,20,"/images/Vacunatriplefelina.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna Bordetella canina",14000.0,20,"/images/VacunaBordetellacanina.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna antirrábica felina",12000.0,20,"/images/vacuna-antirrabica-felina.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Antibióticos","Amoxibay 250mg",4200.0,20,"/images/amoxibay250mg.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Antibióticos","Enrox 50mg",6800.0,20,"/images/Enrox50mg.jpg"));
+                Medicamento m1 = repo.save(new Medicamento(null,"Antibióticos","Metrobay 250mg",3900.0,20,"/images/metrobay-250mg.png"));
             }
         };
     }
