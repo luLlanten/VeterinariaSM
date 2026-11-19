@@ -49,14 +49,14 @@ public class DataLoader {
         return args->{
             if (repo.count() == 0) {
                 Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna antirrábica canina",12000.0,20,"/images/vacunaantirrabicacanina.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna sextuple canina",18000.0,20,"/images/Vacunasextuplecanina.png"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna bivalente felina",15000.0,20,"/images/Vacunabivalentefelina.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna triple felina",17000.0,20,"/images/Vacunatriplefelina.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna Bordetella canina",14000.0,20,"/images/VacunaBordetellacanina.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Vacunación","Vacuna antirrábica felina",12000.0,20,"/images/vacuna-antirrabica-felina.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Antibióticos","Amoxibay 250mg",4200.0,20,"/images/amoxibay250mg.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Antibióticos","Enrox 50mg",6800.0,20,"/images/Enrox50mg.jpg"));
-                Medicamento m1 = repo.save(new Medicamento(null,"Antibióticos","Metrobay 250mg",3900.0,20,"/images/metrobay-250mg.png"));
+                Medicamento m2 = repo.save(new Medicamento(null,"Vacunación","Vacuna sextuple canina",18000.0,20,"/images/Vacunasextuplecanina.png"));
+                Medicamento m3 = repo.save(new Medicamento(null,"Vacunación","Vacuna bivalente felina",15000.0,20,"/images/Vacunabivalentefelina.jpg"));
+                Medicamento m4 = repo.save(new Medicamento(null,"Vacunación","Vacuna triple felina",17000.0,20,"/images/Vacunatriplefelina.jpg"));
+                Medicamento m5 = repo.save(new Medicamento(null,"Vacunación","Vacuna Bordetella canina",14000.0,20,"/images/VacunaBordetellacanina.jpg"));
+                Medicamento m6 = repo.save(new Medicamento(null,"Vacunación","Vacuna antirrábica felina",12000.0,20,"/images/vacuna-antirrabica-felina.jpg"));
+                Medicamento m7 = repo.save(new Medicamento(null,"Antibióticos","Amoxibay 250mg",4200.0,20,"/images/amoxibay250mg.jpg"));
+                Medicamento m8 = repo.save(new Medicamento(null,"Antibióticos","Enrox 50mg",6800.0,20,"/images/Enrox50mg.jpg"));
+                Medicamento m9 = repo.save(new Medicamento(null,"Antibióticos","Metrobay 250mg",3900.0,20,"/images/metrobay-250mg.png"));
             }
         };
     }
