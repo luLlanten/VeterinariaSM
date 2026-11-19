@@ -11,27 +11,27 @@ spring:
               - id: cliente-lobby
                 uri: lb://cliente-lobby
                 predicates:
-                  - path=/lobby/**
+                  - Path=/lobby/**
               - id: citas
                 uri: lb://citas
                 predicates:
-                  - path=/citas/**
+                  - Path=/citas/**
               - id: catalogo
                 uri: lb://catalogo
                 predicates:
-                  - path=/catalogo/**
+                  - Path=/catalogo/**
               - id: admin
                 uri: lb://admin
                 predicates:
-                  - path=/administracion/**
+                  - Path=/administracion/**
               - id: compra
                 uri: lb://compra
                 predicates:
-                  - path=/compra/**
+                  - Path=/compra/**
               - id: ficha
                 uri: lb://ficha
                 predicates:
-                  - path=/ficha/**
+                  - Path=/ficha/**
 eureka:
     client:
         service-url:
