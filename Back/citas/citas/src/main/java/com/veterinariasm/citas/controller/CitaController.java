@@ -19,8 +19,8 @@ import com.veterinariasm.citas.model.CitaHistorial;
 import com.veterinariasm.citas.service.CitaService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
@@ -123,7 +123,7 @@ public class CitaController {
         }
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @PatchMapping("/eliminar/{id}")
     public ResponseEntity<Void> eliminarCita(@PathVariable Integer id){
         try{
             citaService.eliminarCita(id);
