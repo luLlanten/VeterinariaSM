@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.veterinariasm.catalogo.service.CatalogoService;
 
 @RestController 
 @RequestMapping ("/catalogo")
+@CrossOrigin ("http://localhost:5173")
 public class CatalogoController {
     @Autowired 
     private CatalogoService service;

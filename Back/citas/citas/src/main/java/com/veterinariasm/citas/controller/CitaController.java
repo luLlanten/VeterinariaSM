@@ -18,6 +18,7 @@ import com.veterinariasm.citas.model.Cita;
 import com.veterinariasm.citas.model.CitaHistorial;
 import com.veterinariasm.citas.service.CitaService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/citas")
+@CrossOrigin ("http://localhost:5173")
 public class CitaController {
 
     @Autowired

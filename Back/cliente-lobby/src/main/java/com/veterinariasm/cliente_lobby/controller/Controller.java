@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -26,6 +27,7 @@ import com.veterinariasm.cliente_lobby.service.LobbyService;
 
 @RestController 
 @RequestMapping("/lobby") 
+@CrossOrigin ("http://localhost:5173")
 public class Controller {
     @Autowired
     private LobbyService service;
@@ -173,5 +175,24 @@ public class Controller {
         }
     }
 
+    //recuperar
+    @PatchMapping ("/recuperar/user")
+    public ResponseEntity<Void> recuperarUser(UserDTO user){
+        try {
+            service.cambiarContraUser(user);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PatchMapping ("/recuperar/admin")
+    public ResponseEntity<Void> recuperarAdmin(AdminDTO user){
+        try {
+            service.cambiarContraAdmin(user);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

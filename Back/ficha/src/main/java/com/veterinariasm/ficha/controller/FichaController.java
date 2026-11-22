@@ -13,6 +13,7 @@ import com.veterinariasm.ficha.model.Mascota;
 import com.veterinariasm.ficha.model.Necropsia;
 import com.veterinariasm.ficha.service.FichaService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController 
 @RequestMapping ("/ficha")
+@CrossOrigin ("http://localhost:5173")
 public class FichaController {
 
     @Autowired 

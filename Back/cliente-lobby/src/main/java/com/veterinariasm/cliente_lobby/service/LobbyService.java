@@ -202,4 +202,18 @@ public class LobbyService {
         }
     }
 
+    //recuperar cuenta
+    public void cambiarContraUser(UserDTO userDTO){
+            User user =repoUser.findByCorreo(userDTO.getCorreo());
+            String contraEncriptada= passwordEncoder.encode(userDTO.getContrasena());
+            user.setContrasena(contraEncriptada);
+            repoUser.save(user);
+    }
+    public void cambiarContraAdmin(AdminDTO userDTO){
+            Admin user =repoAdmin.findByCorreo(userDTO.getCorreo());
+            String contraEncriptada= passwordEncoder.encode(userDTO.getContrasena());
+            user.setContrasena(contraEncriptada);
+            repoAdmin.save(user);
+    }
+
 }
