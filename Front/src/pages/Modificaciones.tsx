@@ -16,7 +16,6 @@ function Modificaciones(){
                     </div>
                     <div className="d-flex flex-wrap gap-2">
                         <Link to="/agregar" className="admin-btn admin-btn-claro">+ Agregar producto</Link>
-                        <Link to="/ficha-real" className="admin-btn admin-btn-claro">Crear Ficha</Link>
                     </div>
                 </div>
 

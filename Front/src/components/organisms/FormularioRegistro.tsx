@@ -14,7 +14,7 @@ function FormularioRegistro(){
     const[direccion,setDireccion]=useState("")
     const[telefono,setTelefono]=useState("")
     const formatoCorreo =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
-    const fromatoNombre=/^[a-zA-Z]$/
+    const fromatoNombre=/^[a-zA-Z._-]$/
     const formatoTelefono=/^[0-9]{8}$/
 
 

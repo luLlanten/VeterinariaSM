@@ -3,23 +3,17 @@ import LineaFicha from "../molecules/LineaFicha";
 
 function FormularioFicha(){
 
-    const[medicamento, setMedicamento] = useState("");
     const[propietario, setPropietario] = useState("");
     const[telefono, setTelefono] = useState("");
     const[direccion, setDireccion] = useState("");
     const[especie, setEspecie] = useState("");
     const[identificacion, setIdentificacion] = useState("");
-    const[sexo, setSexo] = useState("M");
-    const[raza, setRaza] = useState("");
+    const[sexo, setSexo] = useState("");
     const[antecedentes, setAntecedentes] = useState("");
 
     const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (medicamento.trim() === ""){
-            alert("Debe Ingresar El Medicamento");
-            return;
-        }
         if (propietario.trim() === ""){
             alert("Debe Ingresar El Propietario");
             return;
@@ -48,10 +42,6 @@ function FormularioFicha(){
             alert("Debe Ingresar El Sexo");
             return;
         }
-        if (raza.trim() === ""){
-            alert("Debe Ingresar La Raza");
-            return;
-        }
         if (antecedentes.trim() === ""){
             alert("Debe Ingresar Los Antecedentes");
             return;
@@ -61,13 +51,6 @@ function FormularioFicha(){
 
     return(
         <form className="ficha" onSubmit={guardar} noValidate>
-            <LineaFicha
-            etiqueta="Medicamento:"
-            tipo="text"
-            nombre="medicamento"
-            valor={medicamento}
-            alCambiar={setMedicamento}
-            />
             <LineaFicha
             etiqueta="Propietario:"
             tipo="text"
@@ -120,19 +103,10 @@ function FormularioFicha(){
                         value={sexo}
                         onChange={(e) => setSexo(e.target.value)}
                         >
-                            <option value="M">M</option>
-                            <option value="H">H</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Hembra">Hembra</option>
                         </select>
                     </div>
-                </div>
-                <div className="col-12 col-md-8">
-                    <LineaFicha
-                    etiqueta="Raza:"
-                    tipo="text"
-                    nombre="raza"
-                    valor={raza}
-                    alCambiar={setRaza}
-                    />
                 </div>
             </div>
 

@@ -17,7 +17,7 @@ function PrincipalAdmin(){
                 </div>
 
                 <div className="row g-4 mb-5">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12">
                         <Link to="/modificaciones" className="admin-opcion">
                             <img src="images/icono_caja.png" alt="ic_inventario" className="admin-icono" />
                             <h3>Inventario</h3>
@@ -27,18 +27,6 @@ function PrincipalAdmin(){
                                 para añadir cualquier producto al catálogo.
                             </p>
                             <span className="admin-irA">Ir al inventario →</span>
-                        </Link>
-                    </div>
-                    
-                    <div className="col-12 col-md-6">
-                        <Link to="/ficha-real" className="admin-opcion">
-                            <img src="images/icono_estetoscopio.png" alt="ic_Fichas" className="admin-icono" />
-                            <h3>Fichas</h3>
-                            <p>
-                                Aquí tendrás acceso a las fichas médicas de los
-                                pacientes, podrás analizarlas y modificarlas.
-                            </p>
-                            <span className="admin-irA">Crear ficha de necropsia →</span>
                         </Link>
                     </div>
                 </div>

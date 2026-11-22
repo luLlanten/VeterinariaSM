@@ -75,7 +75,7 @@ public class CitaService {
         CitaHistorial historial = new CitaHistorial();
         historial.setFecha_registro(new Date()); 
         historial.setFecha_cita(cita.getFecha()); 
-        historial.setRealizada(false); 
+        historial.setRealizada(false); //para veterinario
         
         citaHistorialRepo.save(historial);
         return historial;
@@ -111,7 +111,9 @@ public class CitaService {
     @Schema (description = "metodo para eliminar cita")
     public void eliminarCita(Integer id){
         Cita cita = citaRepo.findById(id).get();
-        cita.setVigencia(false);
-        citaRepo.save(cita);
+        if (cita.getFecha().before(new Date())){
+            cita.setVigencia(false);
+            citaRepo.save(cita);
+        }
     }
 }
