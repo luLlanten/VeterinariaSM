@@ -47,6 +47,7 @@ function FormularioLogin(){
                 const dto=(await respuesta.json()) as DTO
                 if(!dto){
                     alert("Contraseña incorrecta, intente otra vez")
+                    return
                 }
             }catch(error){
                 console.error("Error al ingresar",error);
@@ -78,6 +79,7 @@ function FormularioLogin(){
                 const dto=(await respuesta.json()) as DTO
                 if(!dto){
                     alert("Contraseña incorrecta, intente otra vez")
+                    return
                 }
                 
             }catch(error){
