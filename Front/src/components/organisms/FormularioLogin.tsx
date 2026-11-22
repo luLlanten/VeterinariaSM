@@ -10,6 +10,9 @@ function FormularioLogin(){
     const formatoNormal =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
     const formatoAdmin=/^[a-zA-Z0-9._-]+@+sanmarcos+\.+cl$/
     const [enviando, setEnviando] =useState(false);
+    interface DTO{
+        v:Boolean
+    }
 
     const Login = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -28,10 +31,22 @@ function FormularioLogin(){
             setEnviando(true);
             try{
                 const respuesta = await fetch(
-                    "http://localhost:8080/lobby/login/admin"
+                    "http://localhost:9090/lobby/login/admin",
+                    {
+                        body: JSON.stringify({
+                        
+                            correo: correo.trim(),
+                            contrasena: contrasena.trim()
+                            }),
+                        headers: {'Content-Type':'application/json'}
+                    }
                 );
                 if(!respuesta.ok){
                     throw new Error(`Error HTTP ${respuesta.status}`);
+                }
+                const dto=(await respuesta.json()) as DTO
+                if(!dto){
+                    alert("Contraseña incorrecta, intente otra vez")
                 }
             }catch(error){
                 console.error("Error al ingresar",error);
@@ -47,11 +62,24 @@ function FormularioLogin(){
             setEnviando(true);
             try{
                 const respuesta = await fetch(
-                    "http://localhost:8080/lobby/login"
+                    "http://localhost:9090/lobby/login",
+                    {
+                        body: JSON.stringify({
+                        
+                            correo: correo.trim(),
+                            contrasena: contrasena.trim()
+                            }),
+                        headers: {'Content-Type':'application/json'}
+                    }
                 );
                 if(!respuesta.ok){
                     throw new Error(`Error HTTP ${respuesta.status}`);
                 }
+                const dto=(await respuesta.json()) as DTO
+                if(!dto){
+                    alert("Contraseña incorrecta, intente otra vez")
+                }
+                
             }catch(error){
                 console.error("Error al ingresar",error);
                 alert("Intente ingresar nuevamente")
