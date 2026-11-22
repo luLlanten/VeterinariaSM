@@ -117,13 +117,13 @@ function FormularioLogin(){
                     <button type="submit" disabled={enviando} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px"}}>
                         {enviando ? "Ingresando":"Iniciar Sesion" }
                     </button>
-                     {ruta !== "" && (
+                    {ruta !== "" && (
                         <Link to={ruta} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px", textDecoration: "none", display: "inline-block", marginLeft: "8px"}}>
                             siguiente
                         </Link>
-                     )}
+                    )}
                 </div>
-                <Link to="/recuperar-contrasena" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px", textDecoration: "none", display: "inline-block"}}>
+                <Link to="/olvide-contrasena" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px", textDecoration: "none", display: "inline-block"}}>
                     Olvidé mi contraseña
                 </Link>
             </div>

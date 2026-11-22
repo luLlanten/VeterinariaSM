@@ -17,6 +17,9 @@ import FichaReal from './pages/FichaReal'
 import Nosotros from './pages/Nosotros'
 import Carrito from './pages/Carrito'
 import Mascota from './pages/Mascota'
+import RecuperarContrasena from './pages/OlvideContrasena'
+import OlvideContrasena from './pages/OlvideContrasena'
+import CambiarContrasena from './pages/CambiarContrasena'
 
 function App() {
   return (
@@ -90,8 +93,15 @@ function App() {
       path='/mascota'
       element={<Mascota/>}
       />
+      <Route
+      path='/olvide-contrasena'
+      element={<OlvideContrasena/>}
+      />
+      <Route
+      path='/cambiar-contrasena'
+      element={<CambiarContrasena/>}
+      />
     </Routes>
-    
     </>
   )
 }
