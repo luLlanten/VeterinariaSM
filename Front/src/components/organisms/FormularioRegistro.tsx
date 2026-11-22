@@ -69,8 +69,8 @@ function FormularioRegistro(){
                 Crear Cuenta
             </button>
             {creada && (
-                <Link to="/" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
-                    Ir al inicio
+                <Link to="/login" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
+                    Ir al inicio de sesion
                 </Link>
             )}
         </form>
