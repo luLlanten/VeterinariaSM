@@ -82,14 +82,21 @@ function FormularioLogin(){
             valor={contrasena}
             alCambiar={setContrasena}
             />
-            <button type="submit" disabled={enviando} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
-                {enviando ? "Ingresando":"Iniciar Sesion" }
-            </button>
-             {ruta !== "" && (
-                <Link to={ruta} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
-                    Continuar
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", marginTop: "15px" }}>
+                <div>
+                    <button type="submit" disabled={enviando} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px"}}>
+                        {enviando ? "Ingresando":"Iniciar Sesion" }
+                    </button>
+                     {ruta !== "" && (
+                        <Link to={ruta} style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px", textDecoration: "none", display: "inline-block", marginLeft: "8px"}}>
+                            siguiente
+                        </Link>
+                     )}
+                </div>
+                <Link to="/recuperar-contrasena" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", padding: "4px 10px", textDecoration: "none", display: "inline-block"}}>
+                    Olvidé mi contraseña
                 </Link>
-             )}
+            </div>
             
 
         </form>
