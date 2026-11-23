@@ -2,7 +2,25 @@ import Navbar from "../components/organisms/Navbar"
 import Footer from "../components/organisms/Footer"
 import CardProducto from "../components/molecules/CardProducto"
 
-function Catalogo(){
+async function Catalogo(){
+    interface Serv{
+        id:number;
+        categoria:string;
+        nombre:string;
+        precio:number;
+        imagen:string;
+    }
+    const respuesta=await fetch(`http://localhost:9090/catalogo/servicios`)
+    if(!respuesta.ok){
+        <>
+        <Navbar/>
+        <div className="container my-5">
+        <h1 className="text-center mb-4">Catálogo de servicios</h1>
+         <h3 className="mt-5 mb-3">Consultas</h3>
+        </div>
+        </>
+    }
+    const servicios:Serv[] =await respuesta.json()
     return(
         <>
         <Navbar/>
@@ -11,7 +29,7 @@ function Catalogo(){
 
             <h3 className="mt-5 mb-3">Consultas</h3>
             <div className="row g-3">
-                <div className="col-12 col-md-6 col-lg-4">
+                 <div className="col-12 col-md-6 col-lg-4">
                     <CardProducto
                         id="SV001"
                         titulo="Consulta general"
