@@ -27,12 +27,12 @@ import com.veterinariasm.cliente_lobby.service.LobbyService;
 
 @RestController 
 @RequestMapping("/lobby") 
-@CrossOrigin ("http://localhost:5173")
+@CrossOrigin (origins="http://localhost:5173")
 public class Controller {
     @Autowired
     private LobbyService service;
 
-    @GetMapping ("/login")
+    @PostMapping ("/login")
     public ResponseEntity<Boolean> loginUser(@RequestBody UserDTO userDTO){
         try{
             Boolean v=service.loginUser(userDTO);
@@ -46,7 +46,7 @@ public class Controller {
             return ResponseEntity.badRequest().body(false);
         }
     }
-    @GetMapping ("/login/admin")
+    @PostMapping ("/login/admin")
     public ResponseEntity<Boolean> loginAdmin(@RequestBody AdminDTO userDTO){
         try{
             Boolean v=service.loginAdmin(userDTO);
@@ -60,7 +60,7 @@ public class Controller {
             return ResponseEntity.badRequest().body(false);
         }
     }
-    @PostMapping("/login")
+    @PostMapping("/registro")
     public ResponseEntity<Void> registroUser(@RequestParam Boolean v,@RequestBody UserRegistroDTO userDTO){
         //ver como comunicar el boolean desde el front hacia el metodo 
         try {
@@ -70,7 +70,7 @@ public class Controller {
             return ResponseEntity.badRequest().build();
         }
     }
-    @PostMapping("/login/admin")
+    @PostMapping("/registro/admin")
     public ResponseEntity<Void> registroAdmin(@RequestParam Boolean v,@RequestBody AdminRegistroDTO userDTO){
         //ver como comunicar el boolean desde el front hacia el metodo 
         try {

@@ -78,14 +78,8 @@ function Detalle(){
                         <BotonVolverCatalogo ruta="/servicios"/>
                         <BotonAgregarCarrito ruta="/ficha" alAgregar={agregar}/>
                     </div>
-                </div></>
-                    }
-                
-            </div>
-
-            )
-            }
-            
+                </div></>}
+            </div>)}  
         </div>
         <Footer/>
         </>
