@@ -4,16 +4,21 @@ import Footer from "../components/organisms/Footer";
 import BotonAgregarCarrito from "../components/atoms/BotonAgregarCarrito";
 import { agregarAlCarrito } from "../data/carrito";
 import BotonVolverCatalogo from "../components/atoms/BotonVolverCatologo";
-import { medicamentos } from "../data/Medicamentos";
 import "../pages/Principal.css"
 
-function DetalleMed(){
+async function DetalleMed(){
+    interface Med{
+        id:number;
+        categoria:string;
+        nombre:string;
+        precio:number;
+        cantidad:number;
+        imagen:string;
+    }
     const {id} = useParams();
-    const medicamento = medicamentos.find(
-        medicamento => medicamento.id === id
-    );
+    const respuesta = await fetch(`http://localhost:9090/catalogo/medicamentos/${id}`)
 
-    if (!medicamento){
+    if (!respuesta.ok){
         return(
             <>
             <Navbar/>
@@ -25,9 +30,10 @@ function DetalleMed(){
             </>
         );
     }
+    const medicamento=(await respuesta.json()) as Med
 
     const agregar = () => {
-        agregarAlCarrito(medicamento.id, medicamento.titulo, medicamento.precio, medicamento.imagen);
+        agregarAlCarrito(medicamento.id.toString(), medicamento.nombre, medicamento.precio, medicamento.imagen);
     }
 
     return(
@@ -39,15 +45,14 @@ function DetalleMed(){
                 <div className="col-md-6">
                     <img
                         src={medicamento.imagen}
-                        alt={medicamento.titulo}
+                        alt={medicamento.nombre}
                         className="rounded"
                         style={{width:"540px",maxHeight:"540px",paddingLeft:"10%"}}
                     />
                 </div>
                 <div className="col-12 col-md-6 seccion-detalle">
                     <p className="mb-1">{medicamento.categoria}</p>
-                    <h2>{medicamento.titulo}</h2>
-                    <p>{medicamento.descripcion}</p>
+                    <h2>{medicamento.nombre}</h2>
                     <p className="fs-3 fw-bold">${medicamento.precio}</p>
                     <div className="d-flex gap-2">
                         <BotonVolverCatalogo ruta="/medicamentos"/>

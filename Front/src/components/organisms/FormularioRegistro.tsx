@@ -14,7 +14,7 @@ function FormularioRegistro(){
     const[direccion,setDireccion]=useState("")
     const[telefono,setTelefono]=useState("")
     const formatoCorreo =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
-    const fromatoNombre=/^[a-zA-Z._-]$/
+    const fromatoNombre=/^[a-zA-Z]{1,20}$/
     const formatoTelefono=/^[0-9]{8}$/
 
 
@@ -128,7 +128,7 @@ function FormularioRegistro(){
                 Crear Cuenta
             </button>
             {creada && (
-                <Link to="/login" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%"}}>
+                <Link to="/login" style={{borderWidth: "0cap",backgroundColor: "rgb(24, 80, 43)",color: "white",borderRadius: "10%", marginLeft:"10%", textDecoration:"none"}}>
                     Ir al inicio de sesion
                 </Link>
             )}

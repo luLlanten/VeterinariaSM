@@ -3,17 +3,21 @@ import Navbar from "../components/organisms/Navbar";
 import BotonVolverCatalogo from "../components/atoms/BotonVolverCatologo";
 import BotonAgregarCarrito from "../components/atoms/BotonAgregarCarrito";
 import { agregarAlCarrito } from "../data/carrito";
-import { servicios } from "../data/servicios";
 import Footer from "../components/organisms/Footer";
 import "../pages/Principal.css"
 
-function Detalle(){
+async function Detalle(){
+    interface Serv{
+        id:number;
+        categoria:string;
+        nombre:string;
+        precio:number;
+        imagen:string;
+    }
     const {id} = useParams();
-    const servicio = servicios.find(
-        servicio => servicio.id === id
-    );
+    const respuesta = await fetch(`http://localhost:9090/catalogo/servicios/${id}`)
 
-    if (!servicio){
+    if (!respuesta.ok){
         return(
             <>
             <Navbar/>
@@ -25,9 +29,10 @@ function Detalle(){
             </>
         );
     }
+    const servicio=(await respuesta.json()) as Serv
 
     const agregar = () => {
-        agregarAlCarrito(servicio.id, servicio.titulo, servicio.precio, servicio.imagen);
+        agregarAlCarrito(servicio.id.toString(), servicio.nombre, servicio.precio, servicio.imagen);
     }
 
     return(
@@ -39,15 +44,14 @@ function Detalle(){
                 <div className="col-md-6">
                     <img
                         src={servicio.imagen}
-                        alt={servicio.titulo}
+                        alt={servicio.nombre}
                         className="rounded"
                         style={{ width:"540px",maxHeight:"540px",paddingLeft:"10%"}}
                     />
                 </div>
                 <div className="col-12 col-md-6 seccion-detalle">
                     <p className="mb-1">{servicio.categoria}</p>
-                    <h2>{servicio.titulo}</h2>
-                    <p>{servicio.descripcion}</p>
+                    <h2>{servicio.nombre}</h2>
                     <p className="fs-3 fw-bold">${servicio.precio}</p>
                     <div className="d-flex gap-2">
                         <BotonVolverCatalogo ruta="/servicios"/>

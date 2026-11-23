@@ -1,20 +1,36 @@
 import { useParams } from "react-router-dom";
 import AdminNavbar from "../components/organisms/AdminNavbar";
 import BotonVolverCatalogo from "../components/atoms/BotonVolverCatologo";
-import { servicios } from "../data/servicios";
-import { medicamentos } from "../data/Medicamentos";
 import "../pages/Admin.css";
 
-function DetalleMod(){
+async function DetalleMod(){
+    interface Serv{
+        id:number;
+        categoria:string;
+        nombre:string;
+        precio:number;
+        imagen:string;
+    }
+    interface Med{
+        id:number;
+        categoria:string;
+        nombre:string;
+        precio:number;
+        cantidad:number;
+        imagen:string;
+    }
     const {id} = useParams();
-
+    const respuesta1=await fetch(`http://localhost:9090/catalogo/servicios`)
+    const respuesta2=await fetch(`http://localhost:9090/catalogo/medicamentos`)
+    const servicios:Serv[] =await respuesta1.json()
+    const medicamentos:Med[]=await respuesta2.json()
     // Primero busca entre los servicios, si no esta busca entre los medicamentos
     let producto = servicios.find(
-        servicio => servicio.id === id
+        servicio => servicio.id.toString() === id
     );
     if (!producto){
         producto = medicamentos.find(
-            medicamento => medicamento.id === id
+            medicamento => medicamento.id.toString() === id
         );
     }
 
@@ -46,13 +62,12 @@ function DetalleMod(){
                         <div className="admin-panel text-center">
                             <img
                                 src={producto.imagen}
-                                alt={producto.titulo}
+                                alt={producto.nombre}
                                 className="img-fluid rounded mb-3"
                                 style={{maxHeight:"280px", objectFit:"cover"}}
                             />
-                            <h2 className="mb-2">{producto.titulo}</h2>
+                            <h2 className="mb-2">{producto.nombre}</h2>
                             <p className="fs-3 fw-bold mb-2" style={{color:"#33553A"}}>${producto.precio}</p>
-                            <p className="admin-subtitulo mb-4">{producto.descripcion}</p>
                             <button
                                 className="admin-btn me-2"
                                 onClick={() => alert("No hay base de datos")}
