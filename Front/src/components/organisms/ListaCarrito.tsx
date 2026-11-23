@@ -1,26 +1,44 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import LineaCarrito from "../molecules/LineaCarrito";
 import BotonAccion from "../atoms/BotonAccion";
-import { obtenerCarrito, quitarDelCarrito, vaciarCarrito } from "../../data/carrito";
+import { obtenerCarrito, quitarDelCarrito, vaciarCarrito, comprar } from "../../data/carrito";
+import type { ItemCarrito } from "../../data/carrito";
 
 function ListaCarrito(){
-    const[items, setItems] = useState(obtenerCarrito());
+    const[items, setItems] = useState<ItemCarrito[]>([]);
+    const[cambios, setCambios] = useState(0);
 
-    function quitar(id: string){
+    useEffect(() => {
+        obtenerCarrito().then(setItems).catch(() => setItems([]));
+    }, [cambios]);
+
+    const quitar = async (id: string) => {
         if (!window.confirm("¿Quitar este producto del carrito?")){
             return;
         }
-        quitarDelCarrito(id);
-        setItems(obtenerCarrito());
+        await quitarDelCarrito(id);
+        setCambios(cambios + 1);
     }
 
-    function vaciar(){
+    const vaciar = async () => {
         if (!window.confirm("¿Vaciar todo el carrito?")){
             return;
         }
-        vaciarCarrito();
-        setItems([]);
+        await vaciarCarrito();
+        setCambios(cambios + 1);
+    }
+
+    const pagar = async () => {
+        if (!window.confirm("¿Confirmar la compra?")){
+            return;
+        }
+        if (await comprar()){
+            alert("Compra realizada con éxito");
+        }else{
+            alert("No se pudo realizar la compra");
+        }
+        setCambios(cambios + 1);
     }
 
     let total = 0;
@@ -53,6 +71,7 @@ function ListaCarrito(){
             <div className="text-end mt-4">
                 <h4>Total: ${total}</h4>
                 <BotonAccion texto="Vaciar carrito" alHacerClick={vaciar}/>
+                <BotonAccion texto="Comprar" alHacerClick={pagar}/>
             </div>
         </div>
     );
