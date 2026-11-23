@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -148,6 +149,24 @@ public class CatalogoController {
             }
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
+        }
+    }
+    @DeleteMapping ("/medicamentos/borrar/{id}")
+    public ResponseEntity<Medicamento>deleteMed(@PathVariable Integer id){
+        try {
+            service.deleteMed(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @DeleteMapping ("/servicios/borrar/{id}")
+    public ResponseEntity<Medicamento>deleteServ(@PathVariable Integer id){
+        try {
+            service.deleteServ(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
         }
     }
 

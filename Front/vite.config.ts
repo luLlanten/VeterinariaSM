@@ -9,6 +9,26 @@ export default defineConfig({
       '/lobby': {
         target: 'http://localhost:9090',
         changeOrigin: true,
+      },
+      '/catalogo': {
+        target: 'http://localhost:9090',
+        changeOrigin: true,
+      },
+      '/ficha': {
+        target: 'http://localhost:9090',
+        changeOrigin: true,
+      },
+      '/administracion': {
+        target: 'http://localhost:9090',
+        changeOrigin: true,
+      },
+      '/citas': {
+        target: 'http://localhost:9090',
+        changeOrigin: true,
+      },
+      '/compra': {
+        target: 'http://localhost:9090',
+        changeOrigin: true,
       }
     }
   }

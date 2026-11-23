@@ -10,26 +10,32 @@ spring:
               uri: lb://cliente-lobby
               predicates:
                 - Path=/lobby/**
+                - Method=GET,POST,PUT,DELETE,PATCH
             - id: citas
               uri: lb://citas
               predicates:
                 - Path=/citas/**
+                - Method=GET,POST,PUT,DELETE,PATCH
             - id: catalogo
               uri: lb://catalogo
               predicates:
                 - Path=/catalogo/**
+                - Method=GET,POST,PUT,DELETE,PATCH
             - id: admin
               uri: lb://admin
               predicates:
                 - Path=/administracion/**
+                - Method=GET,POST,PUT,DELETE,PATCH
             - id: compra
               uri: lb://compra
               predicates:
                 - Path=/compra/**
+                - Method=GET,POST,PUT,DELETE,PATCH
             - id: ficha
               uri: lb://ficha
               predicates:
                 - Path=/ficha/**
+                - Method=GET,POST,PUT,DELETE,PATCH
           discovery:
             locator:
               enabled: false

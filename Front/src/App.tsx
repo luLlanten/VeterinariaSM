@@ -22,6 +22,7 @@ import CambiarContrasena from './pages/CambiarContrasena'
 import ModificarPerfil from './pages/PerfilUser'
 import PerfilUser from './pages/PerfilUser'
 import PerfilAdmin from './pages/PerfilAdmin'
+import DetalleModMed from './pages/DetalleModMed'
 
 function App() {
   return (
@@ -64,7 +65,11 @@ function App() {
       element={<Modificaciones/>}
       />
       <Route
-      path='/modificacion/:id'
+      path='/modificacion/med/:id'
+      element={<DetalleModMed/>}
+      />
+      <Route
+      path='/modificacion/serv/:id'
       element={<DetalleMod/>}
       />
       <Route

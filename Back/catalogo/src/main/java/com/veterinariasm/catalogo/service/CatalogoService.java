@@ -92,6 +92,12 @@ public class CatalogoService {
         servicio.setImagen(servCreateDTO.getImagen());
         return servRepo.save(servicio);
     }
+    public void deleteMed(Integer id){
+        medRepo.deleteById(id);
+    }
+    public void deleteServ(Integer id){
+        servRepo.deleteById(id);
+    }
 
 
 
