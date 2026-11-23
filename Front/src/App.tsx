@@ -19,6 +19,9 @@ import Carrito from './pages/Carrito'
 import Mascota from './pages/Mascota'
 import OlvideContrasena from './pages/OlvideContrasena'
 import CambiarContrasena from './pages/CambiarContrasena'
+import ModificarPerfil from './pages/PerfilUser'
+import PerfilUser from './pages/PerfilUser'
+import PerfilAdmin from './pages/PerfilAdmin'
 
 function App() {
   return (
@@ -99,6 +102,14 @@ function App() {
       <Route
       path='/cambiar-contrasena'
       element={<CambiarContrasena/>}
+      />
+      <Route
+      path='/perfil'
+      element={<PerfilUser/>}
+      />
+      <Route
+      path='/perfil-admin'
+      element={<PerfilAdmin/>}
       />
     </Routes>
     </>
