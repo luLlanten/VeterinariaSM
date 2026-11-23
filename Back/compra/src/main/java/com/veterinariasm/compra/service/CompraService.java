@@ -47,10 +47,11 @@ public class CompraService {
     @Schema (description = "metodo para crear carrito")
     public Carrito crearCarrito(Integer id){
         UsuarioDTO usuarioDTO=usuarioClient.finUsuarioDTO(id);
-        if(!usuarioDTO.equals(null) && carritoRepo.findByUsuarioId(usuarioDTO.getId()).equals(null)){
+        if(usuarioDTO!=null && carritoRepo.findByUsuarioId(usuarioDTO.getId())==null){
         //busca que el usuario exista y que el carrito del usuario no
             Carrito carrito=new Carrito();
             carrito.setCantidad(0);
+            carrito.setTotal(0.0);
             carrito.setUsuarioId(usuarioDTO.getId());
             return carritoRepo.save(carrito);
         }else{
@@ -62,6 +63,8 @@ public class CompraService {
     public void vaciarCarrito(Integer id){
         //Vacia el carrito despues de realizar una compra
         Carrito carrito=carritoRepo.findById(id).get();
+        serCarritoRepo.deleteAll(serCarritoRepo.findByCarrito(carrito));
+        medCarritoRepo.deleteAll(medCarritoRepo.findByCarrito(carrito));
         carrito.setCantidad(0);
         carrito.setTotal(0.0);
         carritoRepo.save(carrito);
@@ -96,6 +99,9 @@ public class CompraService {
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         SerCarrito serCarrito=new SerCarrito(servicio,carrito);
         serCarritoRepo.delete(serCarrito);
+        carrito.setCantidad(carrito.getCantidad()-1);
+        carrito.setTotal(carrito.getTotal()-servicio.getPrecio());
+        carritoRepo.save(carrito);
     }
 
     //igual que servicios, pero para medicamentos
@@ -123,6 +129,9 @@ public class CompraService {
         Carrito carrito=carritoRepo.findById(idCarrito).get();
         MedCarrito medCarrito=new MedCarrito(medicamento,carrito);
         medCarritoRepo.delete(medCarrito);
+        carrito.setCantidad(carrito.getCantidad()-1);
+        carrito.setTotal(carrito.getTotal()-medicamento.getPrecio());
+        carritoRepo.save(carrito);
     }
 
     @Schema (description = "metodo para comprar")

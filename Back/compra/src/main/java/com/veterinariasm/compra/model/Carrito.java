@@ -25,7 +25,7 @@ public class Carrito {
     private Integer id;
 
     @Column(nullable = false)
-    @Min (value = 1) 
+    @Min (value = 0) 
     @Schema (description = "cantidad de productos que se almacenaran en el carro")
     private Integer cantidad;
 

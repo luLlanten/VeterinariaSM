@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.veterinariasm.catalogo.dto.MedicamentoDTO;
@@ -82,7 +83,7 @@ public class CatalogoController {
         }
     }
 
-    @PatchMapping ("/med-stock/{id}")
+    @RequestMapping (value = "/med-stock/{id}", method = {RequestMethod.PATCH, RequestMethod.POST})
     public ResponseEntity<Void> stockMedicamento(@PathVariable Integer id){
         try {
             Medicamento medicamento=service.stockMedicamento(id);

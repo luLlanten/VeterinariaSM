@@ -8,6 +8,6 @@ import com.veterinariasm.compra.dto.UsuarioDTO;
 
 @FeignClient (name = "cliente-lobby")
 public interface UsuarioClient {
-    @GetMapping ("/{id}")
+    @GetMapping ("/lobby/user/{id}")
     UsuarioDTO finUsuarioDTO(@PathVariable Integer id);
 }
