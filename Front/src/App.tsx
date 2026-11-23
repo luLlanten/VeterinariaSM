@@ -19,9 +19,10 @@ import Carrito from './pages/Carrito'
 import Mascota from './pages/Mascota'
 import OlvideContrasena from './pages/OlvideContrasena'
 import CambiarContrasena from './pages/CambiarContrasena'
-import ModificarPerfil from './pages/PerfilUser'
 import PerfilUser from './pages/PerfilUser'
 import PerfilAdmin from './pages/PerfilAdmin'
+import Citas from './pages/Citas'
+
 import DetalleModMed from './pages/DetalleModMed'
 
 function App() {
@@ -115,6 +116,10 @@ function App() {
       <Route
       path='/perfil-admin'
       element={<PerfilAdmin/>}
+      />
+      <Route
+      path='/citas'
+      element={<Citas/>}
       />
     </Routes>
     </>
