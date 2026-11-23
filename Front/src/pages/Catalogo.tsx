@@ -12,13 +12,14 @@ async function Catalogo(){
     }
     const respuesta=await fetch(`http://localhost:9090/catalogo/servicios`)
     if(!respuesta.ok){
+        return(
         <>
         <Navbar/>
         <div className="container my-5">
         <h1 className="text-center mb-4">Catálogo de servicios</h1>
          <h3 className="mt-5 mb-3">Consultas</h3>
         </div>
-        </>
+        </>)
     }
     const servicios:Serv[] =await respuesta.json()
     return(
