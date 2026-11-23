@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, type FormEvent} from "react";
 import CampoInput from "../molecules/CampoInput";
 import { Link } from "react-router-dom";
 
@@ -13,14 +13,15 @@ function FormularioRegistro(){
     const[apellido,setApellido]=useState("")
     const[direccion,setDireccion]=useState("")
     const[telefono,setTelefono]=useState("")
+    const [enviando, setEnviando] = useState(false);
     const formatoCorreo =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
     const fromatoNombre=/^[a-zA-Z]{1,20}$/
     const formatoTelefono=/^[0-9]{8}$/
 
 
-    const Registro = (e: React.SubmitEvent<HTMLFormElement>) => {
+    const Registro = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        if (enviando) return;
         if (correo.trim() === ""){
             alert("Debe Ingresar Su Correo");
             return;
@@ -69,9 +70,36 @@ function FormularioRegistro(){
             alert("Ingrese un numero valido")
             return
         }
+        
+        setEnviando(true);
+        try {
+            const respuesta = await fetch(
+                "/lobby/registro?v=true"
+                , {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+            correo: correo.trim(),
+            contrasena: contrasena2.trim(),
+            nombre:nombre.trim(),
+            apellido:apellido.trim(),
+            direccion:direccion.trim(),
+            telefono:Number(telefono)
+        }),
+        });
+        if (!respuesta.ok) {
+            throw new Error(`Error HTTP ${respuesta.status}`);
+        }
+        } catch (error) {
+            console.error("Error al crear cuenta ", error);
+            alert("Intente nuevamente");
+            return;
+        }finally {
+        setEnviando(false);
+        }
+        
         alert("Datos ingresados con exito");
         setCreada(true)
-        
     }
     return(
         <form onSubmit={Registro} noValidate>

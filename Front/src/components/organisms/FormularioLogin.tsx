@@ -24,7 +24,6 @@ function FormularioLogin() {
       return;
     }
 
-    // 1. Evaluamos PRIMERO el formato más específico (Admin)
     const esAdmin = formatoAdmin.test(correo);
     const esNormal = formatoNormal.test(correo);
 
@@ -51,7 +50,6 @@ function FormularioLogin() {
       }
 
       const dto = (await respuesta.json()) as boolean;
-      console.log("Respuesta del servidor:", dto);
 
       if (!dto) {
         alert("Contraseña incorrecta, intente otra vez");
