@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import LineaFicha from "../molecules/LineaFicha";
+import { Link } from "react-router-dom";
 
 function FormularioFicha(){
 
@@ -8,8 +9,9 @@ function FormularioFicha(){
     const[direccion, setDireccion] = useState("");
     const[especie, setEspecie] = useState("");
     const[identificacion, setIdentificacion] = useState("");
-    const[sexo, setSexo] = useState("");
+    const[sexo, setSexo] = useState("Macho");
     const[antecedentes, setAntecedentes] = useState("");
+    const[ruta, setRuta] = useState("");
 
     const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -47,6 +49,7 @@ function FormularioFicha(){
             return;
         }
         alert("Ficha guardada con exito");
+        setRuta("/citas");
     }
 
     return(
@@ -130,6 +133,11 @@ function FormularioFicha(){
                 <button type="submit" className="boton-opcion2">
                     Guardar Ficha
                 </button>
+                {ruta !== "" && (
+                    <Link to={ruta} className="boton-opcion2" style={{ textDecoration: "none" }}>
+                        Siguiente
+                    </Link>
+                )}
             </div>
         </form>
     );

@@ -43,7 +43,7 @@ function Catalogo(){
                         {!cargando &&  (
                         <div className="row g-4">
                             {servicios.map((servicio) => (
-                            <div key={servicio.id} className="col-12 col-md-6 col-lg-4">
+                            <div key={servicio.id} className="col-12 col-md-6 col-lg-4" onClick={() => localStorage.setItem("servicioSeleccionado", servicio.nombre)}>
                                 <CardProducto
                                 id={servicio.id.toString()}
                                 titulo={servicio.nombre}
