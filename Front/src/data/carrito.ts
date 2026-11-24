@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface ItemCarrito {
     id: string;
     titulo: string;
@@ -10,9 +12,15 @@ const CLAVE = "carrito";
 
 export function obtenerCarrito(): ItemCarrito[] {
     const texto = localStorage.getItem(CLAVE);
+    const id= useState(null)
     if (texto === null) {
         return [];
     }
+    //tiene que devolver un carrito, pero necesito 
+    // el usuario y usar algo de aca para guardar el carrito 
+    fetch(`/compra/${id}` ,
+        {method:'POST'}
+    )
     return JSON.parse(texto);
 }
 
