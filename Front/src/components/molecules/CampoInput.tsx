@@ -6,9 +6,10 @@ type Props ={
     nombre: string;
     valor: string;
     alCambiar:(valor: string) => void;
+    min?: string;
 }
 
-function CampoInput({etiqueta,tipo,nombre,valor,alCambiar}: Props){
+function CampoInput({etiqueta,tipo,nombre,valor,alCambiar,min}: Props){
     return(
         <div className="mb-3">
             <label className="form-label">
@@ -20,6 +21,7 @@ function CampoInput({etiqueta,tipo,nombre,valor,alCambiar}: Props){
             nombre={nombre}
             valor={valor}
             alCambiar={alCambiar}
+            min={min}
             />
         </div>
     );
