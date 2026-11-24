@@ -6,7 +6,6 @@ import { obtenerCarrito, quitarDelCarrito, vaciarCarrito } from "../../data/carr
 
 function ListaCarrito(){
     const[items, setItems] = useState(obtenerCarrito());
-    const[enviando, setEnviando] = useState(false);
 
     function quitar(id: string){
         if (!window.confirm("¿Quitar este producto del carrito?")){
@@ -27,36 +26,13 @@ function ListaCarrito(){
     for (const item of items){
         total = total + item.precio * item.cantidad;
     }
-    async function pagar(){
-        setEnviando(true)
-
-        try{
-            const respuesta = await fetch(
-                "/compra/comprar"
-                , {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-            id:null,
-            cantidad:items.length,
-            total:total,
-            usuarioId:null
-        }),
-        });
-        if (!respuesta.ok) {
-            throw new Error(`Error HTTP ${respuesta.status}`);
-        }
-        setItems(await respuesta.json())
-        setEnviando(false)
-        return
-        //añadir aca boleta
-        }catch(error){
-            console.error("Error en la compra ", error);
-            alert("Error en la compra, intente nuevamente");
+    function comprar(){
+        if (!window.confirm("Confirme compra")){
             return;
         }
+        vaciarCarrito();
+        setItems([]);
     }
-
     
     
 
@@ -85,7 +61,7 @@ function ListaCarrito(){
             <div className="text-end mt-4">
                 <h4>Total: ${total}</h4>
                 <BotonAccion texto="Vaciar carrito" alHacerClick={vaciar}/>
-                <BotonAccion texto="Comprar" alHacerClick={pagar}/>
+                <BotonAccion texto="Comprar" alHacerClick={comprar}/>
             </div>
         </div>
     );

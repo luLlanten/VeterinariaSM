@@ -45,17 +45,12 @@ public class CompraService {
     private UsuarioClient usuarioClient;
 
     @Schema (description = "metodo para crear carrito")
-    public Carrito crearCarrito(Integer id){
-        UsuarioDTO usuarioDTO=usuarioClient.finUsuarioDTO(id);
-        if(!usuarioDTO.equals(null) && carritoRepo.findByUsuarioId(usuarioDTO.getId()).equals(null)){
-        //busca que el usuario exista y que el carrito del usuario no
+    public Carrito crearCarrito(){
             Carrito carrito=new Carrito();
             carrito.setCantidad(0);
-            carrito.setUsuarioId(usuarioDTO.getId());
+            carrito.setUsuarioId(null);
             return carritoRepo.save(carrito);
-        }else{
-            return null;
-        }
+
     }
 
     @Schema (description = "metodo para vaciar carrito")
@@ -126,7 +121,7 @@ public class CompraService {
     }
 
     @Schema (description = "metodo para comprar")
-    public List<ProdCarritoDTO> comprar(Carrito carrito){
+    public void comprar(Carrito carrito){
         //se llama al carrito y a los sercarrito y medcarritos que tengan los mismos id de usuario y carrito
         //aqui tambien se guarda la boleta
         Boleta boleta = new Boleta();
@@ -153,7 +148,6 @@ public class CompraService {
                     }
                 }
             }
-        return productos;
         //la lista de productos tiene por objetivo ser mostrada en la boleta visual del cliente, 
         //la boleta nuestra solo guardara el carrito, que ya guarda los demas datos
     }

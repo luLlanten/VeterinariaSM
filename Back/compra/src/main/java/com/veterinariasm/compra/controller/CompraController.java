@@ -39,10 +39,10 @@ public class CompraController {
             @ApiResponse(responseCode = "204", description = "Sin contenido"),
             @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    @PostMapping ("/{id}")
-    public ResponseEntity<Carrito> crearCarrito(@Parameter(description = "Id del usuario dueño del carrito") @PathVariable Integer id){
+    @PostMapping ("/crear")
+    public ResponseEntity<Void> crearCarrito(){
         try {
-            service.crearCarrito(id);
+            service.crearCarrito();
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
@@ -55,11 +55,11 @@ public class CompraController {
             @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
     })
     @PostMapping ("/comprar")
-    public ResponseEntity<List<ProdCarritoDTO>> comprar(@RequestBody Carrito carrito){
+    public ResponseEntity<Void> comprar(@RequestBody Carrito carrito){
         try{
-            List<ProdCarritoDTO>lista=service.comprar(carrito);
+            service.comprar(carrito);
             service.vaciarCarrito(carrito.getId());
-            return ResponseEntity.ok(lista);
+            return ResponseEntity.ok().build();
         }catch(Exception e){
             return ResponseEntity.notFound().build();
         }
