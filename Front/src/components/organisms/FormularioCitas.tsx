@@ -10,6 +10,9 @@ function FormularioCitas(){
     const [ruta, setRuta] = useState("");
     const [enviando, setEnviando] = useState(false);
 
+    const hoy = new Date();
+    const fechaMinima = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, "0")}-${String(hoy.getDate()).padStart(2, "0")}`;
+
     const bloquesHorarios: string[] = [
         "09:00",
         "10:30",
@@ -37,6 +40,10 @@ function FormularioCitas(){
         }
         if (fecha.trim() === ""){
             alert("Debe Seleccionar Una Fecha");
+            return;
+        }
+        if (fecha < fechaMinima){
+            alert("No puede seleccionar una fecha pasada");
             return;
         }
         if (hora.trim() === ""){
@@ -76,6 +83,7 @@ function FormularioCitas(){
                 nombre="fecha"
                 valor={fecha}
                 alCambiar={setFecha}
+                min={fechaMinima}
             />
 
             <div className="mb-3">
