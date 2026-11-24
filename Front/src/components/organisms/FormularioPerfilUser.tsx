@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CampoInput from "../molecules/CampoInput";
 import { Link } from "react-router-dom";
 import type { SubmitEvent } from "react";
@@ -13,6 +13,15 @@ function FormularioPerfilUser(){
     const [enviando, setEnviando] = useState(false);
 
     const formatoNormal = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    useEffect(() => {
+        const datos = JSON.parse(localStorage.getItem("datosUsuario") || "{}");
+        setNombre(datos.nombre || "");
+        setApellido(datos.apellido || "");
+        setTelefono(datos.telefono || "");
+        setCorreo(datos.correo || localStorage.getItem("correoUsuario") || "");
+        setContrasena(datos.contrasena || "");
+    }, []);
 
     const Modificar = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -45,6 +54,17 @@ function FormularioPerfilUser(){
         }
 
         setEnviando(true);
+        const datosAnteriores = JSON.parse(localStorage.getItem("datosUsuario") || "{}");
+        localStorage.setItem("correoUsuario", correo.trim());
+        localStorage.setItem("datosUsuario", JSON.stringify({
+            ...datosAnteriores,
+            nombre: nombre.trim(),
+            apellido: apellido.trim(),
+            telefono: telefono.trim(),
+            correo: correo.trim(),
+            contrasena: contrasena.trim(),
+            modificado: true
+        }));
         alert("Perfil actualizado correctamente");
         setRuta("/");
         setEnviando(false);

@@ -97,6 +97,15 @@ function FormularioRegistro(){
         }finally {
         setEnviando(false);
         }
+
+        localStorage.setItem("datosUsuario", JSON.stringify({
+            correo: correo.trim(),
+            contrasena: contrasena2.trim(),
+            nombre: nombre.trim(),
+            apellido: apellido.trim(),
+            direccion: direccion.trim(),
+            telefono: telefono.trim()
+        }));
         
         alert("Datos ingresados con exito");
         setCreada(true)

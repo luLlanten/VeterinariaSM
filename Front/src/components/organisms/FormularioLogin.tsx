@@ -32,6 +32,23 @@ function FormularioLogin() {
       return;
     }
 
+    const datosGuardados = JSON.parse(localStorage.getItem("datosUsuario") || "null");
+    if (datosGuardados && datosGuardados.modificado) {
+      if (
+        datosGuardados.correo === correo.trim() &&
+        datosGuardados.contrasena === contrasena.trim()
+      ) {
+        localStorage.setItem("usuarioLogueado", "true");
+        localStorage.setItem("correoUsuario", correo.trim());
+        alert("Ingreso correcto");
+        setRuta(esAdmin ? "/admin" : "/");
+        return;
+      } else {
+        alert("Contraseña incorrecta, intente otra vez");
+        return;
+      }
+    }
+
     const url = esAdmin ? "/lobby/login/admin" : "/lobby/login";
 
     setEnviando(true);
@@ -56,6 +73,8 @@ function FormularioLogin() {
         return;
       }
 
+      localStorage.setItem("usuarioLogueado", "true");
+      localStorage.setItem("correoUsuario", correo.trim());
       alert("Ingreso correcto");
       setRuta(esAdmin ? "/admin" : "/");
     } catch (error) {
