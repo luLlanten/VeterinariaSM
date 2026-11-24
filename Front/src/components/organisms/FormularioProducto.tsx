@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, type FormEvent} from "react";
 import { Link } from "react-router-dom";
 import CampoInput from "../molecules/CampoInput";
 
@@ -7,16 +7,15 @@ function FormularioProducto(){
     const[id, setId] = useState("");
     const[nombre, setNombre] = useState("");
     const[categoria, setCategoria] = useState("");
-    const[tipo, setTipo] = useState("");
+    const[tipo, setTipo] = useState("Medicamento");
     const[precio, setPrecio] = useState("");
     const[imagen, setImagen] = useState("");
-    const[detalles, setDetalles] = useState("");
+    const[cantidad,setCantidad]=useState("")
+    const[enviando, setEnviando] = useState(false);
 
-    const guardar = (e: React.SubmitEvent<HTMLFormElement>) => {
+    const guardar = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-                e.preventDefault();
-
+        if (enviando) return;
         if (id.trim() === ""){
             alert("Debe Ingresar El Id");
             return;
@@ -45,11 +44,60 @@ function FormularioProducto(){
             alert("Debe Ingresar La Imagen");
             return;
         }
-        if (detalles.trim() === ""){
-            alert("Debe Ingresar Los Detalles");
-            return;
+        setEnviando(true);
+        if(tipo==="Medicamento"){
+        try {
+            const respuesta = await fetch(
+                "/catalogo/medicamentos"
+                , {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+            id:Number(id),
+            categoria:categoria,
+            nombre:nombre,
+            precio:Number(precio),
+            cantidad:Number(cantidad),
+            imagen:imagen
+        }),
+        });
+        if (!respuesta.ok) {
+            throw new Error(`Error HTTP ${respuesta.status}`);
         }
-        alert("Producto guardado sin exito");
+        } catch (error) {
+            console.error("Error al crear medicamento ", error);
+            alert("Intente nuevamente");
+            return;
+        }finally {
+        setEnviando(false);
+        alert("Producto guardado con exito");
+        }}
+        if(tipo==="Servicio"){
+        try {
+            const respuesta = await fetch(
+                "/catalogo/servicios"
+                , {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+            id:Number(id),
+            categoria:categoria,
+            nombre:nombre,
+            precio:Number(precio),
+            imagen:imagen
+        }),
+        });
+        if (!respuesta.ok) {
+            throw new Error(`Error HTTP ${respuesta.status}`);
+        }
+        } catch (error) {
+            console.error("Error al crear servicio ", error);
+            alert("Intente nuevamente");
+            return;
+        }finally {
+        setEnviando(false);
+        alert("Producto guardado con exito");
+        }}
     }
 
     return(
@@ -75,13 +123,28 @@ function FormularioProducto(){
             valor={categoria}
             alCambiar={setCategoria}
             />
+            <div>
+            <label>Tipo:</label>
+            <select
+            className="input-line"
+            value={tipo}
+            onChange={(e)=>setTipo(e.target.value)}
+            >
+                <option value="Medicamento">Medicamento</option>
+                <option value="Servicio">Servicio</option>   
+            </select>
+            {tipo==="Medicamento"&&!/^[0-9]+$/.test(precio)&&<>
             <CampoInput
-            etiqueta="Tipo"
+            etiqueta="Stock"
             tipo="text"
-            nombre="tipo"
-            valor={tipo}
-            alCambiar={setTipo}
+            nombre="cantidad"
+            valor={cantidad}
+            alCambiar={setCantidad}
             />
+            </>}
+            
+            </div>
+
             <CampoInput
             etiqueta="Precio"
             tipo="text"
@@ -95,13 +158,6 @@ function FormularioProducto(){
             nombre="imagen"
             valor={imagen}
             alCambiar={setImagen}
-            />
-            <CampoInput
-            etiqueta="Detalles"
-            tipo="text"
-            nombre="detalles"
-            valor={detalles}
-            alCambiar={setDetalles}
             />
 
             <Link to="/modificaciones" className="admin-btn admin-btn-claro me-2">
