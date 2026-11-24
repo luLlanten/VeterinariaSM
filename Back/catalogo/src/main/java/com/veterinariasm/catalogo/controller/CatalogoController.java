@@ -1,11 +1,16 @@
 package com.veterinariasm.catalogo.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +30,17 @@ import com.veterinariasm.catalogo.service.CatalogoService;
 @RestController 
 @RequestMapping ("/catalogo")
 @CrossOrigin ("http://localhost:5173")
+@Tag(name = "Catálogo", description = "Servicios y medicamentos de la veterinaria.")
 public class CatalogoController {
     @Autowired 
     private CatalogoService service;
 
+    @Operation(summary = "Listar medicamentos", description = "Devuelve todos los medicamentos. Responde 204 si no hay registros.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "204", description = "Sin contenido"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida")
+    })
     @GetMapping ("/medicamentos")
     public ResponseEntity<List<Medicamento>> listarMedicamentos(){
         try {
@@ -42,6 +54,12 @@ public class CatalogoController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @Operation(summary = "Listar servicios", description = "Devuelve todos los servicios. Responde 204 si no hay registros.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "204", description = "Sin contenido"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida")
+    })
     @GetMapping ("/servicios")
     public ResponseEntity<List<Servicios>> listarServicios(){
         try {
@@ -56,8 +74,14 @@ public class CatalogoController {
         }
     }
 
+    @Operation(summary = "Obtener medicamento por id", description = "Devuelve el detalle de un medicamento.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
+            @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
+    })
     @GetMapping ("/medicamentos/{id}")
-    public ResponseEntity<Medicamento> getMedicamentoById(@PathVariable Integer id){
+    public ResponseEntity<Medicamento> getMedicamentoById(@Parameter(description = "Id del medicamento") @PathVariable Integer id){
         try {
             Medicamento medicamento=service.getMedicamentoById(id);
             if(medicamento.equals(null)){
@@ -69,8 +93,14 @@ public class CatalogoController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @Operation(summary = "Obtener servicio por id", description = "Devuelve el detalle de un servicio.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
+            @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
+    })
     @GetMapping ("/servicios/{id}")
-    public ResponseEntity<Servicios> getServiciosById(@PathVariable Integer id){
+    public ResponseEntity<Servicios> getServiciosById(@Parameter(description = "Id del servicio") @PathVariable Integer id){
         try {
             Servicios servicio=service.getServiciosById(id);
             if(servicio.equals(null)){
@@ -83,8 +113,14 @@ public class CatalogoController {
         }
     }
 
+    @Operation(summary = "Descontar stock", description = "Resta una unidad al stock del medicamento. Lo usa el servicio de compras.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Sin contenido"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
+            @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
+    })
     @PatchMapping ("/med-stock/{id}")
-    public ResponseEntity<Void> stockMedicamento(@PathVariable Integer id){
+    public ResponseEntity<Void> stockMedicamento(@Parameter(description = "Id del medicamento") @PathVariable Integer id){
         try {
             Medicamento medicamento=service.stockMedicamento(id);
             if(medicamento.equals(null)){
@@ -98,6 +134,12 @@ public class CatalogoController {
     }
 
     //desde aqui: uso unico para admin
+    @Operation(summary = "Actualizar medicamento (admin)", description = "Modifica nombre, categoría, precio y cantidad de un medicamento.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
+            @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
+    })
     @PutMapping ("/update/med")
     public ResponseEntity<Medicamento> updateMedicamento(@RequestBody MedicamentoDTO medicamento){
         try {
@@ -111,6 +153,12 @@ public class CatalogoController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @Operation(summary = "Actualizar servicio (admin)", description = "Modifica nombre, categoría y precio de un servicio.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
+            @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
+    })
     @PutMapping ("/update/serv")
     public ResponseEntity<Servicios> updateServicios(@RequestBody ServicioDTO servicioDTO){
         try {
@@ -125,6 +173,12 @@ public class CatalogoController {
         }
     }
 
+    @Operation(summary = "Crear medicamento (admin)", description = "Agrega un medicamento. Exige nombre, categoría, precio y cantidad.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "204", description = "Sin contenido"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida")
+    })
     @PostMapping ("/medicamentos")
     public ResponseEntity<Medicamento> createMedicamento(@RequestBody MedicamentoDTO medCreateDTO){
         try {
@@ -138,6 +192,12 @@ public class CatalogoController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @Operation(summary = "Crear servicio (admin)", description = "Agrega un servicio. Exige nombre, categoría y precio.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "204", description = "Sin contenido"),
+            @ApiResponse(responseCode = "400", description = "Solicitud inválida")
+    })
     @PostMapping ("/servicios")
     public ResponseEntity<Servicios> createServicio(@RequestBody ServicioDTO servCreateDTO){
         try {
@@ -149,24 +209,6 @@ public class CatalogoController {
             }
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
-        }
-    }
-    @DeleteMapping ("/medicamentos/borrar/{id}")
-    public ResponseEntity<Medicamento>deleteMed(@PathVariable Integer id){
-        try {
-            service.deleteMed(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-    @DeleteMapping ("/servicios/borrar/{id}")
-    public ResponseEntity<Medicamento>deleteServ(@PathVariable Integer id){
-        try {
-            service.deleteServ(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
         }
     }
 
